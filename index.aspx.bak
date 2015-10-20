@@ -1,0 +1,160 @@
+﻿<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>“大开眼见”2015北欧四国游学之旅</title>
+<link type="text/css" href="css/style.css" rel="stylesheet"/>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".main_visual").hover(function () {
+            $("#btn_prev,#btn_next").fadeIn()
+        }, function () {
+            $("#btn_prev,#btn_next").fadeOut()
+        });
+
+        $dragBln = false;
+
+        $(".main_image").touchSlider({
+            flexible: true,
+            speed: 200,
+            btn_prev: $("#btn_prev"),
+            btn_next: $("#btn_next"),
+            paging: $(".flicking_con a"),
+            counter: function (e) {
+                $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+            }
+        });
+
+        $(".main_image").bind("mousedown", function () {
+            $dragBln = false;
+        });
+
+        $(".main_image").bind("dragstart", function () {
+            $dragBln = true;
+        });
+
+        $(".main_image a").click(function () {
+            if ($dragBln) {
+                return false;
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    wx.config({
+        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '<%=appId%>', // 必填，公众号的唯一标识
+        timestamp: '<%=timeStamp%>', // 必填，生成签名的时间戳
+        nonceStr: '<%=nonceStr%>', // 必填，生成签名的随机串
+        signature: '<%=shaParam %>', // 必填，签名，见附录1
+        jsApiList: [
+		    'onMenuShareTimeline',
+		    'onMenuShareAppMessage',
+		    'onMenuShareQQ',
+		    'onMenuShareWeibo'
+	    ]
+    });
+wx.ready(function () {
+    var shareTitle = "“大开眼界”2015北欧四国游学之旅"; //标题
+    var imgUrl = "http://xly.luqinwenda.com/images/index-share.jpg"; //图片
+    var descContent = "2015年8月6日——8月18日，知心姐姐卢勤老师及阳光媒体集团主席杨澜女士，将带领孩子们游学北欧四国。为孩子们树立自己的梦想，坚定地向梦想大声说:“我能行！”"; //简介
+    var lineLink = "http://xly.luqinwenda.com/"; //链接
+
+    //分享到朋友圈
+    wx.onMenuShareTimeline({
+        title: shareTitle, // 分享标题
+        link: lineLink, // 分享链接
+        imgUrl: imgUrl  // 分享图标
+    });
+
+    //分享给朋友
+    wx.onMenuShareAppMessage({
+        title: shareTitle, // 分享标题
+        desc: descContent, // 分享描述
+        link: lineLink, // 分享链接
+        imgUrl: imgUrl  // 分享图标
+    });
+
+    //分享到QQ
+    wx.onMenuShareQQ({
+        title: shareTitle, // 分享标题
+        desc: descContent, // 分享描述
+        link: lineLink, // 分享链接
+        imgUrl: imgUrl // 分享图标
+    });
+
+    //分享到腾讯微博
+    wx.onMenuShareWeibo({
+        title: shareTitle, // 分享标题
+        desc: descContent, // 分享描述
+        link: lineLink, // 分享链接
+        imgUrl: imgUrl // 分享图标
+    });
+});
+</script>
+
+<script runat="server">
+    public string timeStamp = "";
+    public string nonceStr = "e4b6e00dd1f0bf02ddfcab93b165ae8f";
+    public string ticket = "";
+    public string shaParam = "";
+    public string appId = System.Configuration.ConfigurationSettings.AppSettings["wxappid"];
+    
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        timeStamp = Util.GetTimeStamp();
+        //appId = "wx6776682e62b9a524";
+        string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
+            + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
+        ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
+        string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
+            + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
+        shaParam = Util.GetSHA1(shaString);
+    }
+</script>
+</head>
+<body class="keBody">
+    
+<div class="kePublic">
+<!--效果html开始-->
+<div class="main_visual">
+	<div class="main_image">
+		<ul>
+			<li><span class=""><img src="images/01.jpg" height="100%" /></span></li>
+			<li><span class=""><img src="images/02.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/03.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/04.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/05.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/06.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/07.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/08.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/09.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/10.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/11.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/12.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/13.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/14.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/15.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/16.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/17.jpg" height="100%" /></span></li>
+            <li><span class=""><img src="images/18.jpg" height="100%" /></span></li>
+		</ul>
+		<a href="javascript:;" id="btn_prev"></a>
+		<a href="javascript:;" id="btn_next"></a>
+	</div>
+</div>
+<!--效果html结束-->
+<div class="clear"></div>
+</div>
+
+</body>
+</html>
