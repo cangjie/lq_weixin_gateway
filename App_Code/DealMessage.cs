@@ -172,9 +172,9 @@ public class DealMessage
                     RepliedMessage.news[] newsArr = new RepliedMessage.news[1];
                     newsArr[0] = new RepliedMessage.news();
                     newsArr[0].picUrl = "http://weixin.luqinwenda.com/images/talk.jpg";
-                    newsArr[0].title = "“我要学演说”少年口才训练营营员火热征募中";
-                    newsArr[0].description = "“我要学演说”少年口才训练营营员火热征募中";
-                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=400136298&idx=1&sn=d9557617e0050f6a1331027b8f8fb1d1&scene=5&srcid=1020MUV3pflFJuaNGultlyMY#rd";
+                    newsArr[0].title = "“我要学演说” 少年口才培训火热征募中……";
+                    newsArr[0].description = "“我要学演说” 少年口才培训火热征募中……";
+                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
                     repliedMessage.newsContent = newsArr;
                     deal = true;
                 }
