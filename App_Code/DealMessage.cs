@@ -169,7 +169,7 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[1];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
                     newsArr[0] = new RepliedMessage.news();
                     newsArr[0].picUrl = "http://weixin.luqinwenda.com/images/talk.jpg";
                     newsArr[0].title = "“我要学演说” 少年口才培训火热征募中……";
