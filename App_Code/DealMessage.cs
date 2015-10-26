@@ -169,12 +169,19 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[1];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
                     newsArr[0] = new RepliedMessage.news();
                     newsArr[0].picUrl = "http://weixin.luqinwenda.com/images/talk.jpg";
                     newsArr[0].title = "“我要学演说” 少年口才培训火热征募中……";
                     newsArr[0].description = "“我要学演说” 少年口才培训火热征募中……";
                     newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
+                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/fox.jpg";
+                    newsArr[1].title = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
+                    newsArr[1].description = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=400431076&idx=1&sn=c87f5a2867a52c5af45aae3972a2db97#rd";
+
+
+
                     repliedMessage.newsContent = newsArr;
                     deal = true;
                 }
