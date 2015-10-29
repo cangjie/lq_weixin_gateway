@@ -169,17 +169,31 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
-                    newsArr[0] = new RepliedMessage.news();
-                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/images/talk.jpg";
-                    newsArr[0].title = "“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[0].description = "“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[4];
 
-                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/fox.jpg";
-                    newsArr[1].title = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
-                    newsArr[1].description = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
-                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=400431076&idx=1&sn=c87f5a2867a52c5af45aae3972a2db97#rd";
+                    newsArr[0] = new RepliedMessage.news();
+                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/1.jpg";
+                    newsArr[0].title = "欢迎关注卢勤问答";
+                    newsArr[0].description = "欢迎关注卢勤问答";
+                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=201403673&idx=1&sn=1ba5e81f3d925935117caf8abb12ac84#rd";
+
+                    newsArr[1] = new RepliedMessage.news();
+                    newsArr[1].title = "文明小使者畅游新加坡——2016新加坡精品冬令营";
+                    newsArr[1].description = "文明小使者畅游新加坡——2016新加坡精品冬令营";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=400281989&idx=1&sn=c309e1c612690003cc6d15bd64f379c9#rd";
+                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/singapore_2016_s.jpg";
+
+                    newsArr[2] = new RepliedMessage.news();
+                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/images/talk.jpg";
+                    newsArr[2].title = "“我要学演说” 少年口才培训火热征募中……";
+                    newsArr[2].description = "“我要学演说” 少年口才培训火热征募中……";
+                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
+
+                    newsArr[3] = new RepliedMessage.news();
+                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/fox.jpg";
+                    newsArr[3].title = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
+                    newsArr[3].description = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
+                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=400431076&idx=1&sn=c87f5a2867a52c5af45aae3972a2db97#rd";
 
 
                     repliedMessage.newsContent = newsArr;
