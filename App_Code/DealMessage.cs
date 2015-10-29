@@ -192,13 +192,34 @@ public class DealMessage
         return repliedMessage;
     }
 
+    public static string UserInputMessageToCommand(string inputString)
+    {
+        string command = inputString;
+        if (inputString.Trim().StartsWith("送书"))
+        {
+            command = "送书";
+        }
+        if ((inputString.Trim().IndexOf("营") >= 0) || (inputString.Trim().IndexOf("演讲") >= 0)
+            || (inputString.Trim().IndexOf("演说") >= 0) || (inputString.Trim().IndexOf("新加坡") >= 0)
+            || (inputString.Trim().IndexOf("文明") >= 0))
+        {
+            command = "营";
+        }
+
+        return command;
+    }
+
     public static RepliedMessage DealUserInputMessage(ReceivedMessage receivedMessage)
     {
         RepliedMessage repliedMessage = new RepliedMessage();
         repliedMessage.from = receivedMessage.to;
         repliedMessage.to = receivedMessage.from;
         repliedMessage.rootId = receivedMessage.id;
-        string command = receivedMessage.content.Trim().ToLower();
+        string command = UserInputMessageToCommand(receivedMessage.content.Trim().ToLower()).Trim();
+
+        
+
+
         if (command.StartsWith("送书"))
             command = "送书";
         switch (command)
@@ -219,6 +240,22 @@ public class DealMessage
                 news50Message.description = "教育的禁忌：有些话一旦说出口，就伤了孩子的心，你知道有哪五十句话不能对孩子说吗？";
                 news50Message.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=201333509&idx=1&sn=ad881eae2e77fd2ef9ddb34c0e15a335#rd";
                 repliedMessage.newsContent = new RepliedMessage.news[] {news50Message};
+
+                break;
+
+            case "营":
+
+                RepliedMessage.news singaporeNews = new RepliedMessage.news();
+                singaporeNews.title = "文明小使者畅游新加坡——2016新加坡精品冬令营";
+                singaporeNews.description = "文明小使者畅游新加坡——2016新加坡精品冬令营";
+                singaporeNews.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=400281989&idx=1&sn=c309e1c612690003cc6d15bd64f379c9#rd";
+                singaporeNews.picUrl = "http://weixin.luqinwenda.com/images/singapore_2016.jpg";
+
+                RepliedMessage.news speechNews = new RepliedMessage.news();
+                speechNews.title = "“我要学演说” 少年口才培训火热征募中……";
+                speechNews.description = "“我要学演说” 少年口才培训火热征募中……";
+                speechNews.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
+                speechNews.picUrl = "http://weixin.luqinwenda.com/images/speech_2016.jpg";
 
                 break;
             default:
