@@ -257,6 +257,9 @@ public class DealMessage
                 speechNews.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
                 speechNews.picUrl = "http://weixin.luqinwenda.com/images/speech_2016.jpg";
 
+                repliedMessage.type = "news";
+                repliedMessage.newsContent = new RepliedMessage.news[] { singaporeNews, speechNews  };
+
                 break;
             default:
                 break;
