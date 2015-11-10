@@ -190,10 +190,10 @@ public class DealMessage
                     newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
 
                     newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/fox.jpg";
-                    newsArr[3].title = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
-                    newsArr[3].description = "晒《兔子镇的火狐狸》票根，赢万元冬令营大奖";
-                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=400431076&idx=1&sn=c87f5a2867a52c5af45aae3972a2db97#rd";
+                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/1111.jpg";
+                    newsArr[3].title = "书城优惠活动开始了";
+                    newsArr[3].description = "书城优惠活动开始了";
+                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MzM1NjcxNA==&mid=400730739&idx=1&sn=d10a39ed8a51ac6988b32b6d73448381&scene=5&srcid=1110AybRvcILWdk8ZWQoxQ6t#rd";
 
 
                     repliedMessage.newsContent = newsArr;
