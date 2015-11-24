@@ -234,11 +234,15 @@ public class DealMessage
         {
             string userInfoJsonStr = Util.GetUserInfoJsonStringByOpenid(receivedMessage.from.Trim());
 
-            throw new Exception(userInfoJsonStr);
+            //throw new Exception(userInfoJsonStr);
 
-            /*
+            
             string nick = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "nickname");
             string headImage = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "headimageurl");
+
+            throw new Exception(nick);
+
+            /*
             KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] insertParameterArr
                 = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[2];
             insertParameterArr[0] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("weixin_nick",
