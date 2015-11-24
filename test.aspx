@@ -9,6 +9,7 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        Response.Write(Util.GetUserInfoJsonStringByOpenid("o5jgRtzY3ed3x7eIeLtGqtUSMvws"));
         
         /*
         ReceivedMessage receiveMsg = new ReceivedMessage();
@@ -24,7 +25,7 @@
         Response.Write(xmlRet.InnerXml);
         */
         
-
+        /*
         RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
         newsArr[0] = new RepliedMessage.news();
         newsArr[0].title = "test1";
@@ -45,7 +46,7 @@
         rm.type = "news";
         rm.newsContent = newsArr;
         rm.SendAsServiceMessage();
-         
+         */
         /*
         System.Xml.XmlDocument xmlD = new System.Xml.XmlDocument();
         xmlD.LoadXml("<xml>"
