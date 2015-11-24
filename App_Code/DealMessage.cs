@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Data;
 /// <summary>
 /// Summary description for DealMessage
 /// </summary>
@@ -229,11 +229,24 @@ public class DealMessage
         repliedMessage.from = receivedMessage.to;
         repliedMessage.to = receivedMessage.from;
         repliedMessage.rootId = receivedMessage.id;
+
+        if (receivedMessage.type.Trim().Equals("image"))
+        {
+            string userInfoJsonStr = Util.GetUserInfoJsonStringByOpenid(receivedMessage.from.Trim());
+            string nick = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "nickname");
+            string headImage = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "headimageurl");
+            KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] insertParameterArr
+                = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[2];
+            insertParameterArr[0] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("weixin_nick",
+                new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar, (object)nick));
+
+            insertParameterArr[1] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("weixin_head_image",
+                new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar, (object)headImage));
+            DBHelper.InsertData("malldatabase.dbo.donate_list", insertParameterArr, Util.conStr);
+            return repliedMessage;
+        }
+
         string command = UserInputMessageToCommand(receivedMessage.content.Trim().ToLower()).Trim();
-
-
-
-
         if (command.StartsWith("送书"))
             command = "送书";
         switch (command)
