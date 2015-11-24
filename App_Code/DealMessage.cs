@@ -238,11 +238,11 @@ public class DealMessage
 
             
             string nick = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "nickname");
-            string headImage = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "headimageurl");
+            string headImage = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "headimgurl");
 
-            throw new Exception(nick);
+            //throw new Exception(nick);
 
-            /*
+            
             KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] insertParameterArr
                 = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[2];
             insertParameterArr[0] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("weixin_nick",
@@ -251,7 +251,7 @@ public class DealMessage
             insertParameterArr[1] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("weixin_head_image",
                 new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar, (object)headImage));
             DBHelper.InsertData("malldatabase.dbo.donate_list", insertParameterArr, Util.conStr);
-             */ 
+             
             return repliedMessage;
         }
 
