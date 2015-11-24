@@ -233,6 +233,10 @@ public class DealMessage
         if (receivedMessage.type.Trim().Equals("image"))
         {
             string userInfoJsonStr = Util.GetUserInfoJsonStringByOpenid(receivedMessage.from.Trim());
+
+            throw new Exception(userInfoJsonStr);
+
+            /*
             string nick = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "nickname");
             string headImage = Util.GetSimpleJsonValueByKey(userInfoJsonStr, "headimageurl");
             KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] insertParameterArr
@@ -243,6 +247,7 @@ public class DealMessage
             insertParameterArr[1] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("weixin_head_image",
                 new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar, (object)headImage));
             DBHelper.InsertData("malldatabase.dbo.donate_list", insertParameterArr, Util.conStr);
+             */ 
             return repliedMessage;
         }
 
