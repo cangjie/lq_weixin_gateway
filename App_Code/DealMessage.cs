@@ -190,7 +190,7 @@ public class DealMessage
                     newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
 
                     newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/1111.jpg";
+                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/weiketang.jpg";
                     newsArr[3].title = "报名启动：卢勤公益微课堂 开讲了";
                     newsArr[3].description = "报名启动：卢勤公益微课堂 开讲了";
                     newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401732145&idx=2&sn=a27d4b3a904e26c11e47c5f095e4bd01&scene=1&srcid=1127GL8FPbhHEDtwNljbbHOX&key=ff7411024a07f3eb0913a730e8e5ce7baee0049c9eaaeb2ca74ff9c09cc74e4fbafb3dbc59d34431b7b9774da5ae79c2&ascene=0&uin=ODk3MzEzNzY0&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.11.1+build(15B42)&version=11020201&pass_ticket=CV%2BXqWh4PB6EpCb%2BekSQtuF6X8nlpfhXEdvNC0vPwnJj4vTXD%2F1FZ3pTgin1zsZH";
