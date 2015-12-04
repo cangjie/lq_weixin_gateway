@@ -31,6 +31,8 @@ public class Util
 
     public static string conStr = "";
 
+    public static string ConnectionStringMall = System.Configuration.ConfigurationSettings.AppSettings["constrMall"].Trim();
+
     public static string UploadImageToWeixin(string path, string token)
     {
         List<FormItem> list = new List<FormItem>();
