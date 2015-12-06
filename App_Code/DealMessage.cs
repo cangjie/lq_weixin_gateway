@@ -287,6 +287,15 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { singaporeNews, speechNews };
 
                 break;
+            case "洗刷刷":
+                repliedMessage.type = "news";
+                RepliedMessage.news xishuashuaMessage = new RepliedMessage.news();
+                xishuashuaMessage.title = "洗刷刷";
+                xishuashuaMessage.picUrl = "http://weixin.luqinwenda.com/images/xishuashua.jpg";
+                xishuashuaMessage.description = "洗刷刷";
+                xishuashuaMessage.url = "http://weidian.com/?userid=842789047&from=singlemessage&isappinstalled=0";
+                repliedMessage.newsContent = new RepliedMessage.news[] { xishuashuaMessage };
+                break;
             default:
                 break;
         }
