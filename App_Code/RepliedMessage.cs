@@ -100,7 +100,7 @@ public class RepliedMessage
         object v;
         json.TryGetValue("errcode", out v);
         if (!v.ToString().Trim().Equals("0"))
-            throw new Exception(jsonFormatData+"\r\n"+str);
+            throw new Exception(url+"\r\n"+jsonFormatData+"\r\n"+str);
         return int.Parse(v.ToString());
     }
 
