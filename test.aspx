@@ -25,7 +25,7 @@
         Response.Write(xmlRet.InnerXml);
         */
         
-        /*
+        
         RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
         newsArr[0] = new RepliedMessage.news();
         newsArr[0].title = "test1";
@@ -43,10 +43,12 @@
         RepliedMessage rm = new RepliedMessage();
         rm.from = "gh_b8d1e9dcecc8";
         rm.to = "o5jgRtzY3ed3x7eIeLtGqtUSMvws";
-        rm.type = "news";
-        rm.newsContent = newsArr;
-        rm.SendAsServiceMessage();
-         */
+        rm.type = "text";
+        rm.content = "testtesttest";
+        int code = rm.SendAsServiceMessage();
+
+        Response.Write(code.ToString());
+        
         /*
         System.Xml.XmlDocument xmlD = new System.Xml.XmlDocument();
         xmlD.LoadXml("<xml>"
