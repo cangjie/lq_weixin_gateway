@@ -99,6 +99,8 @@ public class RepliedMessage
         Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(str);
         object v;
         json.TryGetValue("errcode", out v);
+        if (!v.ToString().Trim().Equals("0"))
+            throw new Exception(str);
         return int.Parse(v.ToString());
     }
 
