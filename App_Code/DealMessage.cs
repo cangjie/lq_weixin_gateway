@@ -299,7 +299,7 @@ public class DealMessage
             case "微课堂":
                 RepliedMessage textMessage = new RepliedMessage();
                 textMessage.type = "text";
-                textMessage.content = "请分享报名帖【http://mp.weixin.qq.com/s?__biz=MzI1OTA0NzU0Ng==&mid=416685098&idx=1&sn=0fa2fc1831a6d051fb08f683d3c93b3c#rd】至朋友圈或分享到100人以上微信群，走心地评论并截图，然后把截图发给客服小T（扫下方二维码加好友），他会加您进听课群。";
+                textMessage.content = "请分享报名帖【http://dwz.cn/luqinwkt】至朋友圈或分享到100人以上微信群，走心地评论并截图，然后把截图发给客服小T（扫下方二维码加好友），他会加您进听课群。";
                 textMessage.from = receivedMessage.to;
                 textMessage.to = receivedMessage.from;
                 int i = textMessage.SendAsServiceMessage();
