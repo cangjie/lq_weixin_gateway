@@ -51,6 +51,12 @@ public class DBHelper
         return sqlType;
     }
 
+    public static int UpdateData(string tableName, string[,] updateParameters, string[,] keyParameters, string connectionString)
+    {
+        return UpdateData(tableName, ConvertStringArryToKeyValuePairArray(updateParameters),
+            ConvertStringArryToKeyValuePairArray(keyParameters), connectionString);
+    }
+
     public static int UpdateData(string tableName, 
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] updateParameters,
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] keyParameters, string connectionString)
