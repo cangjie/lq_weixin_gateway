@@ -349,7 +349,7 @@ public class DealMessage
                 string replyContent = receivedMessage.content.Trim();
                 int groupId = int.Parse(replyContent.Remove(0, 1));
                 GroupMaster groupMasterK = new GroupMaster(groupId);
-                groupMasterK.AddVote();
+                groupMasterK.AddVote(receivedMessage.from, receivedMessage.id.Trim());
                 repliedMessage.type = "news";
                 RepliedMessage.news inviteMessage = new RepliedMessage.news();
                 inviteMessage.title = "微课邀请函";
