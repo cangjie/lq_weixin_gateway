@@ -373,6 +373,15 @@ public class DealMessage
                 
                 repliedMessage.newsContent = new RepliedMessage.news[] { jieChi1, jieChi2};
                 break;
+            case "分工":
+                repliedMessage.type = "news";
+                RepliedMessage.news fenGong = new RepliedMessage.news();
+                fenGong.title = "【卢勤微课堂】99%家长在犯错，家庭教育中夫妻如何分工";
+                fenGong.picUrl = "http://weixin.luqinwenda.com/images/fengong.jpg";
+                fenGong.description = "【卢勤微课堂】99%家长在犯错，家庭教育中夫妻如何分工";
+                fenGong.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401925682&idx=2&sn=a927a70a459ba926708d5a51eb53b501&scene=1&srcid=1210sO097zRyvsmkJoQYwpum&from=singlemessage&isappinstalled=0#wechat_redirect";
+                
+                break;
             default:
                 break;
         }
