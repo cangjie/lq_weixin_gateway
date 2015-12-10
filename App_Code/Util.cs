@@ -749,4 +749,54 @@ public class Util
 
     }
 
+    public static string GetRandomString(int digit)
+    {
+        Dictionary<int, char> charHash = new Dictionary<int, char>();
+
+        charHash.Add(0, '1');
+        charHash.Add(1, '2');
+        charHash.Add(2, '3');
+        charHash.Add(3, '4');
+        charHash.Add(4, '5');
+        charHash.Add(5, '6');
+        charHash.Add(6, '7');
+        charHash.Add(7, '8');
+        charHash.Add(8, '9');
+        charHash.Add(9, 'A');
+        charHash.Add(10, 'B');
+        charHash.Add(11, 'C');
+        charHash.Add(12, 'D');
+        charHash.Add(13, 'E');
+        charHash.Add(14, 'F');
+        charHash.Add(15, 'G');
+        charHash.Add(16, 'H');
+        charHash.Add(17, 'I');
+        charHash.Add(18, 'J');
+        charHash.Add(19, 'K');
+        charHash.Add(20, 'L');
+        charHash.Add(21, 'M');
+        charHash.Add(22, 'N');
+        charHash.Add(23, 'P');
+        charHash.Add(24, 'Q');
+        charHash.Add(25, 'R');
+        charHash.Add(26, 'R');
+        charHash.Add(27, 'T');
+        charHash.Add(28, 'U');
+        charHash.Add(29, 'V');
+        charHash.Add(30, 'W');
+        charHash.Add(31, 'X');
+        charHash.Add(32, 'Y');
+        charHash.Add(33, 'Z');
+
+        string retCode = "";
+        Random rnd = new Random();
+        for (int i = 0; i < digit; i++)
+        {
+            retCode = retCode + charHash[rnd.Next(charHash.Count)];
+        }
+
+
+        return retCode;
+    }
+
 }

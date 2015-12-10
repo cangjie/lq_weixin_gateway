@@ -308,7 +308,11 @@ public class DealMessage
                 string mediaId = Util.UploadImageToWeixin(filePathName, token);
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaId;
-
+                break;
+            case "4":
+                string randGroupCode = "WK"+Util.GetRandomString(6);
+                repliedMessage.type = "text";
+                repliedMessage.content = randGroupCode;
                 break;
             default:
                 break;
