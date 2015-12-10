@@ -320,9 +320,9 @@ public class DealMessage
                 textMessage.from = receivedMessage.to;
                 textMessage.to = receivedMessage.from;
                 int i = textMessage.SendAsServiceMessage();
-                string token = Util.GetToken();
-                string filePathName = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
-                string mediaId = Util.UploadImageToWeixin(filePathName, token);
+                //string token = Util.GetToken();
+                //string filePathName = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
+                string mediaId = "Wp-nsPlMeCIxpdlD85Q-g9n9gm6ZhWRkPq2kAQpRh-ZTwc71CnAXWpyASep_q55o";
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaId;
                 break;
@@ -338,9 +338,10 @@ public class DealMessage
                 texGroupMastertMessage.from = receivedMessage.to;
                 texGroupMastertMessage.to = receivedMessage.from;
                 texGroupMastertMessage.SendAsServiceMessage();
-                string tokenGroupMaster = Util.GetToken();
-                string filePathNameGroupMaster = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\qrcode_dingyue.jpg";
-                string mediaIdGroupMaster = Util.UploadImageToWeixin(filePathNameGroupMaster, tokenGroupMaster);
+                //string tokenGroupMaster = Util.GetToken();
+                //string filePathNameGroupMaster = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\qrcode_dingyue.jpg";
+
+                string mediaIdGroupMaster = "vMx6jWtICZVjSNZMel26H-FnXgY68GD2ivXI3yPSl4K88tCEK3STh6smOzRwSkGc";
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaIdGroupMaster;
 
