@@ -351,12 +351,12 @@ public class DealMessage
                 GroupMaster groupMasterK = new GroupMaster(groupId);
                 groupMasterK.AddVote();
                 repliedMessage.type = "news";
-                RepliedMessage.news xishuashuaMessage1 = new RepliedMessage.news();
-                xishuashuaMessage1.title = "洗刷刷";
-                xishuashuaMessage1.picUrl = "http://weixin.luqinwenda.com/images/xishuashua.jpg";
-                xishuashuaMessage1.description = "洗刷刷";
-                xishuashuaMessage1.url = "http://weidian.com/?userid=842789047&from=singlemessage&isappinstalled=0";
-                repliedMessage.newsContent = new RepliedMessage.news[] { xishuashuaMessage1 };
+                RepliedMessage.news inviteMessage = new RepliedMessage.news();
+                inviteMessage.title = "微课邀请函";
+                inviteMessage.picUrl = "http://game.luqinwenda.com/images/wkt_invite.jpg";
+                inviteMessage.description = "微课邀请函";
+                inviteMessage.url = "http://game.luqinwenda.com/weiketang/kaike.aspx?id=" + groupId.ToString();
+                repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessage };
                 break;
             case "戒尺":
                 repliedMessage.type = "news";
