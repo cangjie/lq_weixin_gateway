@@ -322,7 +322,7 @@ public class DealMessage
                 texGroupMastertMessage.to = receivedMessage.from;
                 texGroupMastertMessage.SendAsServiceMessage();
                 string tokenGroupMaster = Util.GetToken();
-                string filePathNameGroupMaster = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\dingyue_qrcode.jpg";
+                string filePathNameGroupMaster = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\qrcode_dingyue.jpg";
                 string mediaIdGroupMaster = Util.UploadImageToWeixin(filePathNameGroupMaster, tokenGroupMaster);
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaIdGroupMaster;
