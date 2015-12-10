@@ -312,8 +312,21 @@ public class DealMessage
             case "4":
                 GroupMaster groupMaster = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCode = "K"+groupMaster.ID.ToString().PadLeft(4,'0');
-                repliedMessage.type = "text";
-                repliedMessage.content = "把邀请码【" + randGroupCode + "】发放到群里，让群成员关注“卢勤问答平台”，并在输入框里输入邀请码【" + randGroupCode + "】，点击弹出的文章里面的同意。当同意人数超过300人，请将同意人数截图给平台小助手，然后由平台小助手安排授课。";
+                //repliedMessage.type = "text";
+                //repliedMessage.content = "把邀请码【" + randGroupCode + "】发放到群里，让群成员关注“卢勤问答平台”，并在输入框里输入邀请码【" + randGroupCode + "】，点击弹出的文章里面的同意。当同意人数超过300人，请将同意人数截图给平台小助手，然后由平台小助手安排授课。";
+
+                RepliedMessage texGroupMastertMessage = new RepliedMessage();
+                texGroupMastertMessage.type = "text";
+                texGroupMastertMessage.content = "把邀请码【" + randGroupCode + "】发放到群里，让群成员关注“卢勤问答平台”，并在输入框里输入邀请码【" + randGroupCode + "】，点击弹出的文章里面的同意。当同意人数超过300人，请将同意人数截图给平台小助手，然后由平台小助手安排授课。";
+                texGroupMastertMessage.from = receivedMessage.to;
+                texGroupMastertMessage.to = receivedMessage.from;
+                texGroupMastertMessage.SendAsServiceMessage();
+                string tokenGroupMaster = Util.GetToken();
+                string filePathNameGroupMaster = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
+                string mediaIdGroupMaster = Util.UploadImageToWeixin(filePathNameGroupMaster, tokenGroupMaster);
+                repliedMessage.type = "image";
+                repliedMessage.content = mediaIdGroupMaster;
+
                 break;
             default:
                 break;
