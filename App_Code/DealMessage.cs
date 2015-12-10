@@ -310,9 +310,9 @@ public class DealMessage
                 repliedMessage.content = mediaId;
                 break;
             case "4":
-                string randGroupCode = "WK"+Util.GetRandomString(6);
+                string randGroupCode = "K"+Util.GetRandomString(5);
                 repliedMessage.type = "text";
-                repliedMessage.content = randGroupCode;
+                repliedMessage.content = "把邀请码【" + randGroupCode + "】发放到群里，让群成员关注“卢勤问答平台”，并在输入框里输入邀请码【" + randGroupCode + "】，点击弹出的文章里面的同意。当同意人数超过300人，请将同意人数截图给平台小助手，然后由平台小助手安排授课。";
                 break;
             default:
                 break;
