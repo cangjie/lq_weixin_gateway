@@ -41,6 +41,28 @@ public class GroupMaster
         DBHelper.UpdateData("group_master_list", updateParameters, keyParameters, Util.conStr);
     }
 
+    public void AddVote(string openId, string messageId)
+    {
+        int i = 0;
+        try
+        {
+            string[,] parameters = { { "group_master_id", "int", ID.ToString() }, 
+                                   { "vote_open_id", "varchar", openId.Trim() }, 
+                                   { "vote_message_id", "varchar", messageId.Trim() } };
+            i = DBHelper.InsertData("group_master_vote", parameters, Util.conStr.Trim());
+            
+
+        }
+        catch
+        { 
+        
+        }
+        int voteNumber = VoteNumber + i;
+        string[,] updateParameters = { { "vote_num", "int", voteNumber.ToString() } };
+        string[,] keyParameters = { { "id", "int", ID.ToString() } };
+        DBHelper.UpdateData("group_master_list", updateParameters, keyParameters, Util.conStr);
+    }
+
     public int ID
     {
         get

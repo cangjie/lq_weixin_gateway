@@ -334,7 +334,7 @@ public class DealMessage
 
                 RepliedMessage texGroupMastertMessage = new RepliedMessage();
                 texGroupMastertMessage.type = "text";
-                texGroupMastertMessage.content = "把邀请码【" + randGroupCode + "】发放到群里，让群成员关注“卢勤问答平台”，并在输入框里输入邀请码【" + randGroupCode + "】，点击弹出的文章里面的同意。当支持人数超过300人，请将同意人数截图给平台小助手，然后由平台小助手安排授课。";
+                texGroupMastertMessage.content = "把邀请码【" + randGroupCode + "】发放到群里，让群成员关注“卢勤问答平台”，并在输入框里输入邀请码【" + randGroupCode + "】，点击弹出的文章里面的支持。当支持人数超过300人，请将支持人数截图给平台小助手，然后由平台小助手安排授课。";
                 texGroupMastertMessage.from = receivedMessage.to;
                 texGroupMastertMessage.to = receivedMessage.from;
                 texGroupMastertMessage.SendAsServiceMessage();
