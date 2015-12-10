@@ -316,7 +316,7 @@ public class DealMessage
             case "微课堂":
                 RepliedMessage textMessage = new RepliedMessage();
                 textMessage.type = "text";
-                textMessage.content = "请分享报名帖【http://dwz.cn/luqinwkt】至朋友圈或分享到100人以上微信群，走心地评论并截图，然后把截图发给客服平台小助手（扫下方二维码加好友），他会加您进听课群。";
+                textMessage.content = "请分享报名帖【http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402198319&idx=4&sn=c5dc662ba310761123d27e303149b486&scene=0#wechat_redirect】至朋友圈或分享到100人以上微信群，走心地评论并截图，然后把截图发给客服平台小助手（扫下方二维码加好友），他会加您进听课群。";
                 textMessage.from = receivedMessage.to;
                 textMessage.to = receivedMessage.from;
                 int i = textMessage.SendAsServiceMessage();
@@ -357,6 +357,21 @@ public class DealMessage
                 xishuashuaMessage1.description = "洗刷刷";
                 xishuashuaMessage1.url = "http://weidian.com/?userid=842789047&from=singlemessage&isappinstalled=0";
                 repliedMessage.newsContent = new RepliedMessage.news[] { xishuashuaMessage1 };
+                break;
+            case "戒尺":
+                repliedMessage.type = "news";
+                RepliedMessage.news jieChi1 = new RepliedMessage.news();
+                jieChi1.title = "【微课堂】回顾：教育，不能完全放下“戒尺”（上）";
+                jieChi1.picUrl = "http://weixin.luqinwenda.com/images/jiechi.jpg";
+                jieChi1.description = "【微课堂】回顾：教育，不能完全放下“戒尺”（上）";
+                jieChi1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402196345&idx=2&sn=cbcc1514927fcef28df6cada167f3d70&scene=1&srcid=1210HPxeIfav3FTYsvIBXkS2#wechat_redirect";
+                RepliedMessage.news jieChi2 = new RepliedMessage.news();
+                jieChi2.title = "【微课堂】回顾：教育，不能完全放下“戒尺”（下）";
+                jieChi2.picUrl = "http://weixin.luqinwenda.com/images/jiechi.jpg";
+                jieChi2.description = "【微课堂】回顾：教育，不能完全放下“戒尺”（下）";
+                jieChi2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402196345&idx=3&sn=ce62e3a0b564541a5993f8a707236b9c&scene=1&srcid=1210mGOhZbtGnzG9JBtSFhuf#wechat_redirect";
+                
+                repliedMessage.newsContent = new RepliedMessage.news[] { jieChi1, jieChi2};
                 break;
             default:
                 break;
