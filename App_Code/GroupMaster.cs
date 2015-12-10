@@ -36,7 +36,7 @@ public class GroupMaster
     {
         int voteNumber = VoteNumber;
         voteNumber++;
-        string[,] updateParameters = { { "reply_num", "int", voteNumber.ToString()} };
+        string[,] updateParameters = { { "vote_num", "int", voteNumber.ToString()} };
         string[,] keyParameters = {{"id", "int", ID.ToString()}};
         DBHelper.UpdateData("group_master_list", updateParameters, keyParameters, Util.conStr);
     }
