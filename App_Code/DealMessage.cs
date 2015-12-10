@@ -220,6 +220,23 @@ public class DealMessage
             command = "营";
         }
 
+        if (inputString.ToLower().StartsWith("k"))
+        {
+            string subCommand = inputString.Remove(0, 1);
+            try
+            {
+                int subCommandId = int.Parse(subCommand);
+                if (subCommandId > 0)
+                {
+                    command = "k";
+                }
+            }
+            catch
+            { 
+            
+            }
+        }
+
         return command;
     }
 
@@ -327,6 +344,19 @@ public class DealMessage
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaIdGroupMaster;
 
+                break;
+            case "k":
+                string replyContent = receivedMessage.content.Trim();
+                int groupId = int.Parse(replyContent.Remove(0, 1));
+                GroupMaster groupMasterK = new GroupMaster(groupId);
+                groupMasterK.AddVote();
+                repliedMessage.type = "news";
+                RepliedMessage.news xishuashuaMessage1 = new RepliedMessage.news();
+                xishuashuaMessage1.title = "洗刷刷";
+                xishuashuaMessage1.picUrl = "http://weixin.luqinwenda.com/images/xishuashua.jpg";
+                xishuashuaMessage1.description = "洗刷刷";
+                xishuashuaMessage1.url = "http://weidian.com/?userid=842789047&from=singlemessage&isappinstalled=0";
+                repliedMessage.newsContent = new RepliedMessage.news[] { xishuashuaMessage1 };
                 break;
             default:
                 break;

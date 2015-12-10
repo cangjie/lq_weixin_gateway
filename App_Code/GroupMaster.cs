@@ -32,11 +32,28 @@ public class GroupMaster
         }
     }
 
+    public void AddVote()
+    {
+        int voteNumber = VoteNumber;
+        voteNumber++;
+        string[,] updateParameters = { { "reply_num", "int", voteNumber.ToString()} };
+        string[,] keyPatameters = {{"id", "int", ID.ToString()}};
+        DBHelper.UpdateData("group_master_list", updateParameters, keyParameters, Util.conStr);
+    }
+
     public int ID
     {
         get
         {
             return int.Parse(_fields["id"].ToString().Trim());
+        }
+    }
+
+    public int VoteNumber
+    {
+        get
+        {
+            return int.Parse(_fields["vote_num"].ToString());
         }
     }
 
