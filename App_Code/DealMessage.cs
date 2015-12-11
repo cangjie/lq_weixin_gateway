@@ -383,6 +383,18 @@ public class DealMessage
                 fenGong.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401925682&idx=2&sn=a927a70a459ba926708d5a51eb53b501&scene=1&srcid=1210sO097zRyvsmkJoQYwpum&from=singlemessage&isappinstalled=0#wechat_redirect";
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
+            case "抽奖" :
+                int actId = 1;
+                Util.Drwaing(receivedMessage.from.Trim(), actId);
+                bool isWin = Util.GetDrawingResult(receivedMessage.from.Trim(), actId);
+                repliedMessage.type = "news";
+                RepliedMessage.news drawing = new RepliedMessage.news();
+                drawing.title = "“卢勤微课堂”幸运抽奖活动";
+                drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg";
+                drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + (isWin?"1":"0") +"&openid=" + receivedMessage.from.Trim();
+                drawing.description = "“卢勤微课堂”幸运抽奖活动";
+                repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
+                break;
             default:
                 break;
         }

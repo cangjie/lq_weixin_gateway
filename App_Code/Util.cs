@@ -31,6 +31,9 @@ public class Util
 
     public static string conStr = "";
 
+    public static string ConnectionStringGame = System.Configuration.ConfigurationSettings.AppSettings["constr_game"].Trim();
+
+
     public static string UploadImageToWeixin(string path, string token)
     {
         List<FormItem> list = new List<FormItem>();
@@ -797,6 +800,46 @@ public class Util
 
 
         return retCode;
+    }
+
+    public static int Drwaing(string openId, int actId)
+    {
+        int i = 0;
+        int seed = (new Random()).Next(0, 100);
+
+        try
+        {
+            string[,] parameters = {{"act_id", "int", actId.ToString()}, {"open_id", "varchar", openId.Trim()}, 
+                                   {"seed", "int", seed.ToString()}, {"is_win", "int", ((seed==1)? "1" : "0") }};
+            i = DBHelper.InsertData("random_awards", parameters, Util.ConnectionStringGame);
+            if (i == 1)
+            {
+                DataTable dt = DBHelper.GetDataTable(" select top 1 * from random_awards order by [id] desc ", Util.ConnectionStringGame);
+                if (dt.Rows.Count == 1)
+                    i = int.Parse(dt.Rows[0]["id"].ToString());
+                dt.Dispose();
+            }
+        }
+        catch
+        { 
+        
+        }
+        return i;
+    }
+
+    public static bool GetDrawingResult(string openId, int actId)
+    {
+        DataTable dt = DBHelper.GetDataTable(" select top 1 * from random_awards order by [id] desc ", Util.ConnectionStringGame);
+        bool ret = false;
+        if (dt.Rows.Count == 1)
+        {
+            if (dt.Rows[0]["is_win"].ToString().Trim().Equals("1"))
+                ret = true;
+            else
+                ret = false;
+        }
+        dt.Dispose();
+        return ret;
     }
 
 }
