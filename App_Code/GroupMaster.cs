@@ -108,7 +108,7 @@ public class GroupMaster
         bool isNewUser = false;
         bool hasNotVoted = false;
 
-        DataTable dt = DBHelper.GetDataTable(" select * from  wxreceivemsg wxreceivemsg_type = 'event'  and wxreceivemsg_event = 'subscribe' and wxreceivemsg_to = '" + openId.Trim() + "'  ", Util.conStr);
+        DataTable dt = DBHelper.GetDataTable(" select * from  wxreceivemsg where wxreceivemsg_type = 'event'  and wxreceivemsg_event = 'subscribe' and wxreceivemsg_to = '" + openId.Trim() + "'  ", Util.conStr);
         if (dt.Rows.Count == 1)
         {
             if (DateTime.Parse(dt.Rows[0]["wxreceivemsg_crt"].ToString().Trim()) > DateTime.Parse("2015-7-1"))
