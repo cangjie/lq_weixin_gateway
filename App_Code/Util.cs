@@ -33,6 +33,8 @@ public class Util
 
     public static string ConnectionStringGame = System.Configuration.ConfigurationSettings.AppSettings["constr_game"].Trim();
 
+    public static string ConnectionStringMall = System.Configuration.ConfigurationSettings.AppSettings["constr_mall"].Trim();
+
 
     public static string UploadImageToWeixin(string path, string token)
     {
