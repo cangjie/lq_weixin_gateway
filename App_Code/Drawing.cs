@@ -41,11 +41,11 @@ public class Drawing
         int numZhangda = 0;
         int numFannao = 0;
 
-        DataTable dt = DBHelper.GetDataTable(" select * from random_awards where award = '长大不容易' and act_id = " + numZhangda.ToString().Trim(), Util.ConnectionStringGame);
+        DataTable dt = DBHelper.GetDataTable(" select * from random_awards where award = '长大不容易' and act_id = 1", Util.ConnectionStringGame);
         numZhangda = dt.Rows.Count;
         dt.Dispose();
 
-        dt = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + numZhangda.ToString().Trim(), Util.ConnectionStringGame);
+        dt = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = 1" , Util.ConnectionStringGame);
         numFannao = dt.Rows.Count;
         dt.Dispose();
 
