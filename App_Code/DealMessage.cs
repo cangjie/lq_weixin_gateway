@@ -399,6 +399,23 @@ public class DealMessage
                 drawing.description = "“卢勤微课堂”幸运抽奖活动";
                 repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 break;
+            case "平安":
+                repliedMessage.type = "news";
+                RepliedMessage.news pingAn1 = new RepliedMessage.news();
+                pingAn1.title = "【微课堂】回顾：给孩子一个平安的世界1214（上）";
+                pingAn1.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbWt1X6wuZof9Jd4dHFUpKFgjn7K2MONpyUFVtexJGWibPSCCQkJSSiczo1D1ffWGq9ibjhT3bKhxyRwQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+                pingAn1.description = "【微课堂】回顾：给孩子一个平安的世界1214（上）";
+                pingAn1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402385605&idx=2&sn=12e96dc35ccd970ffe383f113d083c1e&scene=0#wechat_redirect";
+                
+                RepliedMessage.news pingAn2 = new RepliedMessage.news();
+                pingAn2.title = "【微课堂】回顾：给孩子一个平安的世界1214（下）";
+                pingAn2.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUN9L0g5RkVhwO3KJT4KurpchXibibNIbVvYPM4p889ib2nyYAnDlxBVIGgeWQGl9GyGcaiaPNSK3gw4A/0?wx_fmt=jpeg";
+                pingAn2.description = "【微课堂】回顾：给孩子一个平安的世界1214（下）";
+                pingAn2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402385605&idx=3&sn=0c2a998ad65c4b07585b47edfce56241&scene=0#wechat_redirect";
+
+
+                repliedMessage.newsContent = new RepliedMessage.news[] { pingAn1, pingAn2  };
+                break;
             default:
                 break;
         }
