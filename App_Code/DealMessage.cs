@@ -336,7 +336,7 @@ public class DealMessage
                 //string tokenGroupMaster = Util.GetToken();
                 //string filePathNameGroupMaster = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\qrcode_dingyue.jpg";
 
-                string mediaIdGroupMaster = "vMx6jWtICZVjSNZMel26H-FnXgY68GD2ivXI3yPSl4K88tCEK3STh6smOzRwSkGc";
+                string mediaIdGroupMaster = "Ik-fUq6f9E8oyjmTajypkgxfiTAcFj9maXKtMf51iO0ZThpxYYEQyzcWn2oe66FV";
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaIdGroupMaster;
 
