@@ -317,7 +317,7 @@ public class DealMessage
                 int i = textMessage.SendAsServiceMessage();
                 //string token = Util.GetToken();
                 //string filePathName = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
-                string mediaId = "Wp-nsPlMeCIxpdlD85Q-g9n9gm6ZhWRkPq2kAQpRh-ZTwc71CnAXWpyASep_q55o";
+                string mediaId = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaId;
                 break;
