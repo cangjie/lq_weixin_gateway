@@ -365,7 +365,13 @@ public class DealMessage
                 xiaoZhuShouQrcodeReplymessage.to = texGroupMastertMessageWeike.to;
                 xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
 
-
+                repliedMessage.type = "news";
+                RepliedMessage.news inviteMessageWK = new RepliedMessage.news();
+                inviteMessageWK.title = "微课邀请函";
+                inviteMessageWK.picUrl = "http://game.luqinwenda.com/images/wkt_invite.jpg";
+                inviteMessageWK.description = "微课邀请函";
+                inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/InviteGroup.aspx?id=" + groupMasterWeike.ID.ToString();
+                repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWK };
 
                 break;
             case "w":
