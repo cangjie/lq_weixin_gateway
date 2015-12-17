@@ -338,7 +338,7 @@ public class DealMessage
 
                 string mediaIdWeike = Util.UploadImageToWeixin(filePathNameWeike, token);
 
-                //throw new Exception(mediaIdWeike);
+                throw new Exception(mediaIdWeike);
 
                 
 
