@@ -105,27 +105,16 @@ public class GroupMaster
 
     public static bool CanVote(string openId)
     {
-        bool isNewUser = false;
-        bool hasNotVoted = false;
+        bool canVote = false;
 
-        DataTable dt = DBHelper.GetDataTable(" select * from  wxreceivemsg where wxreceivemsg_type = 'event'  and wxreceivemsg_event = 'subscribe' and wxreceivemsg_to = '" + openId.Trim() + "'  ", Util.conStr);
-        if (dt.Rows.Count == 1)
-        {
-            if (DateTime.Parse(dt.Rows[0]["wxreceivemsg_crt"].ToString().Trim()) > DateTime.Parse("2015-7-1"))
-            {
-                isNewUser = true;
-            }
-        }
+        DataTable dt = DBHelper.GetDataTable(" select * from  group_master_vote where vote_open_id = '" + openId.Trim() + "'  ", Util.conStr);
+
+        if (dt.Rows.Count < 5)
+            canVote = true;
+        else
+            canVote = false;
         dt.Dispose();
-
-        dt = DBHelper.GetDataTable(" select * from group_master_vote where  vote_open_id = '" + openId.Trim() + "'  ", Util.conStr);
-        if (dt.Rows.Count == 0)
-        {
-            hasNotVoted = true;
-        }
-        dt.Dispose();
-
-        return isNewUser && hasNotVoted;
+        return canVote;
 
 
     }

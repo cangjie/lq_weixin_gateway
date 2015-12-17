@@ -372,10 +372,10 @@ public class DealMessage
                 string replyContentW = receivedMessage.content.Trim();
                 int groupIdW = int.Parse(replyContentW.Remove(0, 1));
                 GroupMaster groupMasterW = new GroupMaster(groupIdW);
-                //if (GroupMaster.CanVote(receivedMessage.from))
-                //{
+                if (GroupMaster.CanVote(receivedMessage.from))
+                {
                     groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
-                //}
+                }
 
                 groupMasterW = new GroupMaster(groupIdW);
 
