@@ -336,9 +336,9 @@ public class DealMessage
                 string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
 
 
-                string mediaIdWeike = Util.UploadImageToWeixin(filePathNameWeike, token);
+                string mediaIdWeike = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";//Util.UploadImageToWeixin(filePathNameWeike, token);
 
-                throw new Exception(mediaIdWeike);
+                //throw new Exception(mediaIdWeike);
 
                 
 

@@ -162,7 +162,7 @@ public class RepliedMessage
                     json = json + "\"content\":\"" + content.Trim() + "\"";
                     break;
                 case "image":
-                    json = json + "\"media_id\":\"" + content.Trim() + "\"";
+                    json = json + "\"media_id\":\"" +  mediaId.Trim() + "\"";
                     break;
                 case "voice":
                     json = json + "\"media_id\":\"" + content.Trim() + "\"";
