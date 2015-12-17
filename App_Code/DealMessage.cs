@@ -332,7 +332,9 @@ public class DealMessage
                 texGroupMastertMessageWeike.to = receivedMessage.from;
                 texGroupMastertMessageWeike.SendAsServiceMessage();
 
-                string mediaIdWeike = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
+                string mediaIdWeike = "FGY5qknMNZ9-0PpFZPoSu_18bxbQuoP6meRC_LaxRgaXpbossQc2uwG8057DKnl9";
+
+                
 
                 RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
                 xiaoZhuShouQrcodeReplymessage.type = "image";
