@@ -321,6 +321,27 @@ public class DealMessage
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaId;
                 break;
+            case "微客":
+                GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim());
+                string randGroupCodeWeike = "K" + groupMasterWeike.ID.ToString().PadLeft(4, '0');
+
+                RepliedMessage texGroupMastertMessageWeike = new RepliedMessage();
+                texGroupMastertMessageWeike.type = "text";
+                texGroupMastertMessageWeike.content = "您的邀请码是【" + randGroupCodeWeike + "】把下面的页面发放到群里或转发朋友圈，让您的朋友在“卢勤问答平台”公众号中，回复您的邀请码【" + randGroupCodeWeike + "】即可获得支持票。支持人数超过10人，可申请加入听课群。超过300的支持票可申请合作转播群资格。达到数量后请将支持人数截图给平台小助手，然后由平台小助手安排加群。";
+                texGroupMastertMessageWeike.from = receivedMessage.to;
+                texGroupMastertMessageWeike.to = receivedMessage.from;
+                texGroupMastertMessageWeike.SendAsServiceMessage();
+
+                string mediaIdWeike = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
+
+                RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
+                xiaoZhuShouQrcodeReplymessage.type = "image";
+                xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
+                xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
+
+
+
+                break;
             case "4":
                 GroupMaster groupMaster = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCode = "K"+groupMaster.ID.ToString().PadLeft(4,'0');
