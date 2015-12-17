@@ -321,7 +321,7 @@ public class DealMessage
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaId;
                 break;
-            case "微客":
+            case "微课":
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCodeWeike = "K" + groupMasterWeike.ID.ToString().PadLeft(4, '0');
 
