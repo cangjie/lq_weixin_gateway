@@ -125,7 +125,8 @@ public class GroupMaster
         else
             canVote = false;
         dt.Dispose();
-        return canVote;
+        return true;
+        //return canVote;
 
 
     }
