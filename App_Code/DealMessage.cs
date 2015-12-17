@@ -337,6 +337,8 @@ public class DealMessage
                 RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
                 xiaoZhuShouQrcodeReplymessage.type = "image";
                 xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
+                xiaoZhuShouQrcodeReplymessage.from = texGroupMastertMessageWeike.from;
+                xiaoZhuShouQrcodeReplymessage.to = texGroupMastertMessageWeike.to;
                 xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
 
 
