@@ -323,7 +323,7 @@ public class DealMessage
                 break;
             case "微课":
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim());
-                string randGroupCodeWeike = "K" + groupMasterWeike.ID.ToString().PadLeft(4, '0');
+                string randGroupCodeWeike = "W" + groupMasterWeike.ID.ToString().PadLeft(4, '0');
 
                 RepliedMessage texGroupMastertMessageWeike = new RepliedMessage();
                 texGroupMastertMessageWeike.type = "text";
@@ -350,6 +350,39 @@ public class DealMessage
                 xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
 
 
+
+                break;
+            case "w":
+                string replyContentW = receivedMessage.content.Trim();
+                int groupIdW = int.Parse(replyContentW.Remove(0, 1));
+                GroupMaster groupMasterW = new GroupMaster(groupIdW);
+                //if (GroupMaster.CanVote(receivedMessage.from))
+                //{
+                    groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
+                //}
+
+                string messageWVote = "支持成功！目前k0001的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群，满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。回复“微课”查询申请加群的方法。";
+
+                string messageWUnVote = "您已投过支持票，不能重复支持！目前" + replyContentW + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群，满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。回复“微课”查询申请加群的方法。";
+
+
+                RepliedMessage texGroupMastertMessageW = new RepliedMessage();
+                texGroupMastertMessageW.type = "text";
+                texGroupMastertMessageW.content = messageWVote;
+                texGroupMastertMessageW.from = receivedMessage.to;
+                texGroupMastertMessageW.to = receivedMessage.from;
+                texGroupMastertMessageW.SendAsServiceMessage();
+
+
+
+
+                repliedMessage.type = "news";
+                RepliedMessage.news inviteMessageW = new RepliedMessage.news();
+                inviteMessageW.title = "微课邀请函";
+                inviteMessageW.picUrl = "http://game.luqinwenda.com/images/wkt_invite.jpg";
+                inviteMessageW.description = "微课邀请函";
+                inviteMessageW.url = "http://game.luqinwenda.com/weiketang/kaike.aspx?id=" + groupIdW.ToString();
+                repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageW };
 
                 break;
             case "4":
