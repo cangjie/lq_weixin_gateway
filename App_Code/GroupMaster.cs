@@ -63,6 +63,17 @@ public class GroupMaster
         DBHelper.UpdateData("group_master_list", updateParameters, keyParameters, Util.conStr);
     }
 
+    public bool HadVoted(string openId)
+    {
+        bool voted = false;
+        DataTable dt = DBHelper.GetDataTable(" select * from group_master_vote where vote_open_id = '"
+            + openId.Trim() + "'  and group_master_id = " + ID.ToString(), Util.conStr);
+        if (dt.Rows.Count > 0)
+            voted = true;
+        dt.Dispose();
+        return voted;
+    }
+
     public int ID
     {
         get

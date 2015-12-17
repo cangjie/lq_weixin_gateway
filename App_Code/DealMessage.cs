@@ -386,7 +386,10 @@ public class DealMessage
 
                 RepliedMessage texGroupMastertMessageW = new RepliedMessage();
                 texGroupMastertMessageW.type = "text";
-                texGroupMastertMessageW.content = messageWVote;
+                if (groupMasterW.HadVoted(receivedMessage.from))
+                    texGroupMastertMessageW.content = messageWUnVote;
+                else
+                    texGroupMastertMessageW.content = messageWVote;
                 texGroupMastertMessageW.from = receivedMessage.to;
                 texGroupMastertMessageW.to = receivedMessage.from;
                 texGroupMastertMessageW.SendAsServiceMessage();
