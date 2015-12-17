@@ -377,7 +377,9 @@ public class DealMessage
                     groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
                 //}
 
-                string messageWVote = "支持成功！目前k0001的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群，满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。回复“微课”查询申请加群的方法。";
+                groupMasterW = new GroupMaster(groupIdW);
+
+                string messageWVote = "支持成功！目前" + receivedMessage.content.Trim() + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群，满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。回复“微课”查询申请加群的方法。";
 
                 string messageWUnVote = "您已投过支持票，不能重复支持！目前" + replyContentW + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群，满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。回复“微课”查询申请加群的方法。";
 
