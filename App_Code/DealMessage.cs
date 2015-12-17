@@ -402,7 +402,7 @@ public class DealMessage
                 inviteMessageW.title = "微课邀请函";
                 inviteMessageW.picUrl = "http://game.luqinwenda.com/images/wkt_invite.jpg";
                 inviteMessageW.description = "微课邀请函";
-                inviteMessageW.url = "http://game.luqinwenda.com/weiketang/kaike.aspx?id=" + groupIdW.ToString();
+                inviteMessageW.url = "http://game.luqinwenda.com/weiketang/InviteGroup.aspx?id=" + groupIdW.ToString();
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageW };
 
                 break;
