@@ -339,14 +339,7 @@ public class DealMessage
                 break;
             case "微课":
 
-                string mediaIdWeike = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
-                RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
-                xiaoZhuShouQrcodeReplymessage.type = "image";
-                xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
-                xiaoZhuShouQrcodeReplymessage.from = receivedMessage.to;
-                xiaoZhuShouQrcodeReplymessage.to = receivedMessage.from;
-                xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
-
+               
 
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCodeWeike = "W" + groupMasterWeike.ID.ToString().PadLeft(4, '0');
@@ -361,7 +354,15 @@ public class DealMessage
                 //string token = Util.GetToken();
                 //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
 
+                string mediaIdWeike = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
+                RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
+                xiaoZhuShouQrcodeReplymessage.type = "image";
+                xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
+                xiaoZhuShouQrcodeReplymessage.from = receivedMessage.to;
+                xiaoZhuShouQrcodeReplymessage.to = receivedMessage.from;
+                xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
 
+                System.Threading.Thread.Sleep(500);
                 
                 repliedMessage.type = "news";
                 RepliedMessage.news inviteMessageWK = new RepliedMessage.news();
