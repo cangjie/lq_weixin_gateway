@@ -332,7 +332,13 @@ public class DealMessage
                 texGroupMastertMessageWeike.to = receivedMessage.from;
                 texGroupMastertMessageWeike.SendAsServiceMessage();
 
-                string mediaIdWeike = "FGY5qknMNZ9-0PpFZPoSu_18bxbQuoP6meRC_LaxRgaXpbossQc2uwG8057DKnl9";
+                string token = Util.GetToken();
+                string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
+
+
+                string mediaIdWeike = Util.UploadImageToWeixin(filePathNameWeike, token);
+
+                //throw new Exception(mediaIdWeike);
 
                 
 
