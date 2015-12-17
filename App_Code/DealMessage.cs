@@ -231,6 +231,22 @@ public class DealMessage
             
             }
         }
+        if (inputString.ToLower().StartsWith("w"))
+        {
+            string subCommand = inputString.Remove(0, 1);
+            try
+            {
+                int subCommandId = int.Parse(subCommand);
+                if (subCommandId > 0)
+                {
+                    command = "w";
+                }
+            }
+            catch
+            {
+
+            }
+        }
 
         return command;
     }
@@ -332,8 +348,8 @@ public class DealMessage
                 texGroupMastertMessageWeike.to = receivedMessage.from;
                 texGroupMastertMessageWeike.SendAsServiceMessage();
 
-                string token = Util.GetToken();
-                string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
+                //string token = Util.GetToken();
+                //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
 
 
                 string mediaIdWeike = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";//Util.UploadImageToWeixin(filePathNameWeike, token);
