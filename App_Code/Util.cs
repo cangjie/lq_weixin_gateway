@@ -178,7 +178,7 @@ public class Util
     public static string GetToken()
     {
         DateTime nowDate = DateTime.Now;
-        if (nowDate - tokenTime > new TimeSpan(0, 30, 0))
+        if (nowDate - tokenTime > new TimeSpan(0, 5, 0))
         {
             token = ForceGetToken();
         }
@@ -191,6 +191,7 @@ public class Util
         token = GetAccessToken(System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim(),
                 System.Configuration.ConfigurationSettings.AppSettings["wxappsecret"].Trim());
         tokenTime = nowDate;
+        File.AppendAllText(@"d:\dingyue_token.txt", DateTime.Now.ToString() + "\t" + token.Trim());
         return token;
 
     }
