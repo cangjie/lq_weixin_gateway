@@ -348,7 +348,7 @@ public class DealMessage
                
 
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim());
-                string randGroupCodeWeike = "W" + groupMasterWeike.ID.ToString().PadLeft(4, '0');
+                string randGroupCodeWeike = "W" + groupMasterWeike.ID.ToString().PadLeft(6, '0');
 
                 RepliedMessage texGroupMastertMessageWeike = new RepliedMessage();
                 texGroupMastertMessageWeike.type = "text";
