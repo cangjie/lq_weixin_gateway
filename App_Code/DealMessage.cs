@@ -169,26 +169,32 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[3];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[4];
 
                     newsArr[0] = new RepliedMessage.news();
-                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/1.jpg";
-                    newsArr[0].title = "欢迎关注卢勤问答";
-                    newsArr[0].description = "欢迎关注卢勤问答";
-                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=201403673&idx=1&sn=1ba5e81f3d925935117caf8abb12ac84#rd";
+                    newsArr[0].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPrAicCzzcXsibbjEfiap1wBK7RLuPurHm4TqnXI120RGl2M4OldebJTtfQA/0?wx_fmt=jpeg";
+                    newsArr[0].title = "【活动】“我要学演说” 少年口才培训火热征募中……";
+                    newsArr[0].description = "【活动】“我要学演说” 少年口才培训火热征募中……";
+                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=1&sn=081a5d52d9a86518f4d33da5e8450dc7#rd";
 
                   
                     newsArr[1] = new RepliedMessage.news();
-                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/talk.jpg";
-                    newsArr[1].title = "“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[1].description = "“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=213625859&idx=1&sn=b1707b0fcc208232951b36fe66bc4e33#rd";
+                    newsArr[1].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPrdkicY4SFFoPY3Mh8w39xRph6twjrGiaeBBZ1Kj4IEjDfwELybjamicHtw/0?wx_fmt=jpeg";
+                    newsArr[1].title = "【卢勤微课预告】本年度最感人的一节课！";
+                    newsArr[1].description = "【卢勤微课预告】本年度最感人的一节课！";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=2&sn=46431ed591f10c77178d668edbfdc08d#rd";
                     
                     newsArr[2] = new RepliedMessage.news();
-                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/images/weiketang.jpg";
-                    newsArr[2].title = "报名启动：卢勤公益微课堂 开讲了";
-                    newsArr[2].description = "报名启动：卢勤公益微课堂 开讲了";
-                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401732145&idx=2&sn=a27d4b3a904e26c11e47c5f095e4bd01&scene=1&srcid=1127GL8FPbhHEDtwNljbbHOX&key=ff7411024a07f3eb0913a730e8e5ce7baee0049c9eaaeb2ca74ff9c09cc74e4fbafb3dbc59d34431b7b9774da5ae79c2&ascene=0&uin=ODk3MzEzNzY0&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.11.1+build(15B42)&version=11020201&pass_ticket=CV%2BXqWh4PB6EpCb%2BekSQtuF6X8nlpfhXEdvNC0vPwnJj4vTXD%2F1FZ3pTgin1zsZH";
+                    newsArr[2].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPr83TTWyMz0RDfJiarlSLWnXicbna0DXCnbMiagBfZm631sxyaBaEEEVRPQ/0?wx_fmt=jpeg";
+                    newsArr[2].title = "加群新规】申请加入微课堂细则";
+                    newsArr[2].description = "加群新规】申请加入微课堂细则";
+                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=3&sn=acc8973cd6c5f325936f4013e0c6a7f6#rd";
+
+                    newsArr[3] = new RepliedMessage.news();
+                    newsArr[3].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPrVFXJmRKOLibwUjAHo1hqDeZ0VNR9uyrjEpbPiaxeygM7vxGewtXZHDKw/0?wx_fmt=jpeg";
+                    newsArr[3].title = "问答指南：如何向卢勤老师提问？";
+                    newsArr[3].description = "问答指南：如何向卢勤老师提问？";
+                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=4&sn=364d21ca20a1570ef63f9c2b62e4832d#rd";
                     
 
                     repliedMessage.newsContent = newsArr;
