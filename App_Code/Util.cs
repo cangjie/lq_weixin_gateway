@@ -178,7 +178,7 @@ public class Util
     public static string GetToken()
     {
         DateTime nowDate = DateTime.Now;
-        if (nowDate - tokenTime > new TimeSpan(2, 30, 0))
+        if (nowDate - tokenTime > new TimeSpan(0, 30, 0))
         {
             token = ForceGetToken();
         }
