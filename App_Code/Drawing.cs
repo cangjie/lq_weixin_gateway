@@ -35,17 +35,9 @@ public class Drawing
 
     public static int NewDrawing(string opneId, int actId)
     {
-
-
-
-        int numZhangda = 0;
         int numFannao = 0;
-
-        DataTable dt = DBHelper.GetDataTable(" select * from random_awards where award = '长大不容易' and act_id = 1", Util.ConnectionStringGame);
-        numZhangda = dt.Rows.Count;
-        dt.Dispose();
-
-        dt = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = 1" , Util.ConnectionStringGame);
+        DataTable dt;
+        dt = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + actId.ToString() , Util.ConnectionStringGame);
         numFannao = dt.Rows.Count;
         dt.Dispose();
 
@@ -53,19 +45,21 @@ public class Drawing
 
         string award = "";
 
-        if (seed == 1 && numZhangda < 5)
+        if (seed == 1 && numFannao < 50)
         {
-            award = "长大不容易";
+            award = "和烦恼说再见";
         }
         else
         {
-            if (seed == 51 && numFannao < 30)
+            if (seed < 20)
             {
-                award = "和烦恼说再见";
+                Coupon coupon = Coupon.AddCoupon(1000);
+                award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
+               
             }
             else
             {
-                if (seed < 51)
+                if (seed < 60)
                 {
                     Coupon coupon = Coupon.AddCoupon(500);
                     award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();

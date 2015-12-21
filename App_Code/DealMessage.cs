@@ -330,19 +330,6 @@ public class DealMessage
                 xishuashuaMessage.url = "http://weidian.com/?userid=842789047&from=singlemessage&isappinstalled=0";
                 repliedMessage.newsContent = new RepliedMessage.news[] { xishuashuaMessage };
                 break;
-            case "微课堂":
-                RepliedMessage textMessage = new RepliedMessage();
-                textMessage.type = "text";
-                textMessage.content = "请分享报名帖【http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402198319&idx=4&sn=c5dc662ba310761123d27e303149b486&scene=0#wechat_redirect】至朋友圈或分享到100人以上微信群，走心地评论并截图，然后把截图发给客服平台小助手（扫下方二维码加好友），他会加您进听课群。";
-                textMessage.from = receivedMessage.to;
-                textMessage.to = receivedMessage.from;
-                int i = textMessage.SendAsServiceMessage();
-                //string token = Util.GetToken();
-                //string filePathName = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
-                string mediaId = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
-                repliedMessage.type = "image";
-                repliedMessage.content = mediaId;
-                break;
             case "微课":
 
                
@@ -478,7 +465,7 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
             case "抽奖" :
-                int actId = 1;
+                int actId = 2;
                 //Util.Drwaing(receivedMessage.from.Trim(), actId);
                 //bool isWin = Util.GetDrawingResult(receivedMessage.from.Trim(), actId);
                 int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
