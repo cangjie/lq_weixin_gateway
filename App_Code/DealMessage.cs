@@ -471,10 +471,10 @@ public class DealMessage
                 int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                 repliedMessage.type = "news";
                 RepliedMessage.news drawing = new RepliedMessage.news();
-                drawing.title = "“卢勤微课堂”幸运抽奖活动已经结束，点击进入商城享受更多优惠！";
+                drawing.title = "“卢勤微课堂”幸运抽奖活动";
                 drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg";
-                drawing.url = "http://mall.luqinwenda.com/index.aspx" ;
-                drawing.description = "“卢勤微课堂”幸运抽奖活动已经结束，点击进入商城享受更多优惠！";
+                drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
+                drawing.description = "“卢勤微课堂”幸运抽奖活动";
                 repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 break;
             case "平安":
