@@ -497,6 +497,25 @@ public class DealMessage
 
                 repliedMessage.newsContent = new RepliedMessage.news[] { pingAn1, pingAn2  };
                 break;
+            case "孝心":
+                repliedMessage.type = "news";
+
+                RepliedMessage.news xiaoXin1 = new RepliedMessage.news();
+                xiaoXin1.title = "【微课堂】回顾：孝心，凝聚家人的力量1222（上）";
+                xiaoXin1.description = "【微课堂】回顾：孝心，凝聚家人的力量1222（上）";
+                xiaoXin1.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbUecibmIiaXmCwZQQflfdRxXkFBY5pccvRomKnVFNFJ5pL4HjvBOpgPIsdzwGkJ0WicibZOfRlNQbIhxQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+                xiaoXin1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402823939&idx=2&sn=1fc919e1a4974cb4e7c1e212e83868f8#rd";
+
+                RepliedMessage.news xiaoXin2 = new RepliedMessage.news();
+
+                xiaoXin1.title = "【微课堂】回顾：孝心，凝聚家人的力量1222（下）";
+                xiaoXin1.description = "【微课堂】回顾：孝心，凝聚家人的力量1222（下）";
+                xiaoXin1.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbUecibmIiaXmCwZQQflfdRxXkFBY5pccvRomKnVFNFJ5pL4HjvBOpgPIsdzwGkJ0WicibZOfRlNQbIhxQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+                xiaoXin1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402823939&idx=2&sn=1fc919e1a4974cb4e7c1e212e83868f8#rd";
+
+                repliedMessage.newsContent = new RepliedMessage.news[] { xiaoXin1, xiaoXin2 };
+
+                break;
             default:
                 break;
         }
