@@ -465,17 +465,20 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
             case "抽奖" :
-                int actId = 2;
-                //Util.Drwaing(receivedMessage.from.Trim(), actId);
-                //bool isWin = Util.GetDrawingResult(receivedMessage.from.Trim(), actId);
-                int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
-                repliedMessage.type = "news";
-                RepliedMessage.news drawing = new RepliedMessage.news();
-                drawing.title = "“卢勤微课堂”幸运抽奖活动";
-                drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg";
-                drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
-                drawing.description = "“卢勤微课堂”幸运抽奖活动";
-                repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
+                DateTime startTime = DateTime.Parse("2015-12-22 20:30");
+                DateTime endTime = DateTime.Parse("2015-12-23 23:359");
+                if (startTime < DateTime.Now && DateTime.Now < endTime)
+                {
+                    int actId = 2;
+                    int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
+                    repliedMessage.type = "news";
+                    RepliedMessage.news drawing = new RepliedMessage.news();
+                    drawing.title = "“卢勤微课堂”幸运抽奖活动";
+                    drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg";
+                    drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
+                    drawing.description = "“卢勤微课堂”幸运抽奖活动";
+                    repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
+                }
                 break;
             case "平安":
                 repliedMessage.type = "news";

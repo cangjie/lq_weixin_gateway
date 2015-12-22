@@ -59,7 +59,7 @@ public class Drawing
             }
             else
             {
-                if (seed < 60)
+                if (seed < 55)
                 {
                     Coupon coupon = Coupon.AddCoupon(500);
                     award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
@@ -67,8 +67,15 @@ public class Drawing
                 }
                 else
                 {
-                    Coupon coupon = Coupon.AddCoupon(200);
-                    award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                    if (seed < 90)
+                    {
+                        Coupon coupon = Coupon.AddCoupon(200);
+                        award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                    }
+                    else
+                    {
+                        award = "";
+                    }
                 }
             }
         }
