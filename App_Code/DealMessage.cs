@@ -465,10 +465,10 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
             case "抽奖" :
-                //DateTime startTime = DateTime.Parse("2015-12-22 16:30");
-                //DateTime endTime = DateTime.Parse("2015-12-23 23:359");
-                //if (startTime < DateTime.Now && DateTime.Now < endTime)
-                //{
+                DateTime startTime = DateTime.Parse("2015-12-22 16:30");
+                DateTime endTime = DateTime.Parse("2015-12-23 23:59");
+                if (startTime < DateTime.Now && DateTime.Now < endTime)
+                {
                     int actId = 2;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
@@ -478,7 +478,7 @@ public class DealMessage
                     drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
                     drawing.description = "“卢勤微课堂”幸运抽奖活动";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
-                //}
+                }
                 break;
             case "平安":
                 repliedMessage.type = "news";
