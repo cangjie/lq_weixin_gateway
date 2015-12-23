@@ -511,7 +511,7 @@ public class DealMessage
                 xiaoXin2.title = "【微课堂】回顾：孝心，凝聚家人的力量1222（下）";
                 xiaoXin2.description = "【微课堂】回顾：孝心，凝聚家人的力量1222（下）";
                 xiaoXin2.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbUecibmIiaXmCwZQQflfdRxXkFBY5pccvRomKnVFNFJ5pL4HjvBOpgPIsdzwGkJ0WicibZOfRlNQbIhxQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-                xiaoXin2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402823939&idx=2&sn=1fc919e1a4974cb4e7c1e212e83868f8#rd";
+                xiaoXin2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402823939&idx=3&sn=f42075b18dc9ff3a9da22a797aadf441#rd";
 
                 repliedMessage.newsContent = new RepliedMessage.news[] { xiaoXin1, xiaoXin2 };
 
