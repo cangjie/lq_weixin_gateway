@@ -27,7 +27,7 @@
         if (reader.Read())
         {
             json = reader.GetString(0);
-            updateTime = reader.GetDateTime(2);
+            updateTime = reader.GetDateTime(1);
         }
 
         reader.Close();
