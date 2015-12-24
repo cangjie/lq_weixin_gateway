@@ -556,7 +556,7 @@ public class DealMessage
                 inviteMessageWK.title = "微课邀请函";
                 inviteMessageWK.picUrl = "http://game.luqinwenda.com/images/wkt_invite.jpg";
                 inviteMessageWK.description = "微课邀请函";
-                inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/PersonalJoin.aspx?id=" + groupMasterWeike.ID.ToString()
+                inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/GroupJoin.aspx?id=" + groupMasterWeike.ID.ToString()
                     + "&code=" + randGroupCodeWeike;
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWK };
 
