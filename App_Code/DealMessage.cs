@@ -517,7 +517,7 @@ public class DealMessage
                 repliedMessage.type = "news";
                 RepliedMessage.news inviteMessageWKTang = new RepliedMessage.news();
                 inviteMessageWKTang.title = "微课邀请函";
-                inviteMessageWKTang.picUrl = "http://game.luqinwenda.com/images/groupjoinBanner.jpg";
+                inviteMessageWKTang.picUrl = "http://game.luqinwenda.com/images/personaljoinBanner.jpg";
                 inviteMessageWKTang.description = "微课邀请函";
                 inviteMessageWKTang.url = "http://game.luqinwenda.com/weiketang/PersonalJoin.aspx?id="
                     + groupMasterWeikeTang.ID.ToString() + "&code=" + randGroupCodeWeikeTang;
@@ -554,7 +554,7 @@ public class DealMessage
                 repliedMessage.type = "news";
                 RepliedMessage.news inviteMessageWK = new RepliedMessage.news();
                 inviteMessageWK.title = "微课邀请函";
-                inviteMessageWK.picUrl = "http://game.luqinwenda.com/images/personaljoinBanner.jpg";
+                inviteMessageWK.picUrl = "http://game.luqinwenda.com/images/groupjoinBanner.jpg";
                 inviteMessageWK.description = "微课邀请函";
                 inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/GroupJoin.aspx?id=" + groupMasterWeike.ID.ToString()
                     + "&code=" + randGroupCodeWeike;
