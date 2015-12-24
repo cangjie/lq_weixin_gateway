@@ -169,7 +169,7 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[4];
 
                     newsArr[0] = new RepliedMessage.news();
                     newsArr[0].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjwVSwvk59DJnSicLpB8WwTg5mhCgCYJbxHpS33lh1FAZFQ0XcsQrdFGA/0?wx_fmt=jpeg";
