@@ -193,8 +193,8 @@ public class DealMessage
 
                     newsArr[3] = new RepliedMessage.news();
                     newsArr[3].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjc6IOWSkyxFztUPgf6MPJsu6oIJaoeVZS5pNtLely7wXn23WvEdiaOIg/0?wx_fmt=jpeg";
-                    newsArr[3].title = "【卢勤和她的朋友们微课堂】精彩微课回顾";
-                    newsArr[3].description = "【卢勤和她的朋友们微课堂】精彩微课回顾";
+                    newsArr[3].title = "【活动】“我要学演说” 少年口才培训火热征募中……";
+                    newsArr[3].description = "【活动】“我要学演说” 少年口才培训火热征募中……";
                     newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402859079&idx=1&sn=2ef5a37e2857b5f9f17d384e2ad9df55#rd";
 
 
