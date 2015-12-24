@@ -90,6 +90,30 @@ public class GroupMaster
         }
     }
 
+    public static GroupMaster CreateNew(string openId, int actId)
+    {
+        string[,] insertParameter = { { "open_id", "varchar", openId }, { "act_id", "int", actId.ToString()} };
+        int i = DBHelper.InsertData("group_master_list", insertParameter, Util.conStr);
+        GroupMaster groupMaster = new GroupMaster();
+        if (i == 1)
+        {
+            DataTable dt = DBHelper.GetDataTable(" select top 1 * from group_master_list order by [id] desc  ", Util.conStr);
+            if (dt.Rows.Count == 1)
+            {
+                groupMaster._fields = dt.Rows[0];
+            }
+            else
+            {
+                throw new Exception("Create group master failed.");
+            }
+        }
+        else
+        {
+            throw new Exception("Create group master failed.");
+        }
+        return groupMaster;
+    }
+
     public static GroupMaster CreateNew(string openId)
     { 
         string[,] insertParameter =  {{"open_id", "varchar", openId}};

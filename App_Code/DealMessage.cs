@@ -336,14 +336,14 @@ public class DealMessage
                 repliedMessage.content = "此活动已结束，请关注本公众号，即将推出的加群新规。";
                 break;
             case "w":
-                /*
+                
                 string replyContentW = receivedMessage.content.Trim();
                 int groupIdW = int.Parse(replyContentW.Remove(0, 1));
                 GroupMaster groupMasterW = new GroupMaster(groupIdW);
-                if (GroupMaster.CanVote(receivedMessage.from))
-                {
-                    groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
-                }
+                //if (GroupMaster.CanVote(receivedMessage.from))
+                //{
+                groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
+                //}
 
                 groupMasterW = new GroupMaster(groupIdW);
 
@@ -372,9 +372,10 @@ public class DealMessage
                 inviteMessageW.description = "微课邀请函";
                 inviteMessageW.url = "http://game.luqinwenda.com/weiketang/InviteGroup.aspx?id=" + groupIdW.ToString();
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageW };
-                */
+                
                 break;
             case "4":
+                /*
                 GroupMaster groupMaster = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCode = "K"+groupMaster.ID.ToString().PadLeft(4,'0');
                 //repliedMessage.type = "text";
@@ -392,10 +393,10 @@ public class DealMessage
                 string mediaIdGroupMaster = "Ik-fUq6f9E8oyjmTajypkgxfiTAcFj9maXKtMf51iO0ZThpxYYEQyzcWn2oe66FV";
                 repliedMessage.type = "image";
                 repliedMessage.content = mediaIdGroupMaster;
-
+                */
                 break;
             case "k":
-                /*
+                
                 string replyContent = receivedMessage.content.Trim();
                 int groupId = int.Parse(replyContent.Remove(0, 1));
                 GroupMaster groupMasterK = new GroupMaster(groupId);
@@ -409,7 +410,7 @@ public class DealMessage
                 inviteMessage.description = "微课邀请函";
                 inviteMessage.url = "http://game.luqinwenda.com/weiketang/kaike.aspx?id=" + groupId.ToString();
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessage };
-                 * */
+               
                 break;
             case "戒尺":
                 repliedMessage.type = "news";
@@ -485,6 +486,41 @@ public class DealMessage
                 xiaoXin2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402823939&idx=3&sn=f42075b18dc9ff3a9da22a797aadf441#rd";
 
                 repliedMessage.newsContent = new RepliedMessage.news[] { xiaoXin1, xiaoXin2 };
+
+                break;
+            case "申请转播群":
+
+                GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim(),1);
+                string randGroupCodeWeike = "A" + groupMasterWeike.ID.ToString().PadLeft(6, '0');
+
+                RepliedMessage texGroupMastertMessageWeike = new RepliedMessage();
+                texGroupMastertMessageWeike.type = "text";
+                texGroupMastertMessageWeike.content = "您的申请码是【" + randGroupCodeWeike + "】把以下的页面发放到群里或转发朋友圈，让您的朋友在“卢勤问答平台”公众号中，回复您的申请码【" + randGroupCodeWeike + "】即可获得支持票，2015年12月29日12点前得票数排名前20可获得合作转播群资格。获得此资格后请于活动结束时截图给旭老师，然后由旭老师安排加群。";
+                texGroupMastertMessageWeike.from = receivedMessage.to;
+                texGroupMastertMessageWeike.to = receivedMessage.from;
+                texGroupMastertMessageWeike.SendAsServiceMessage();
+
+                //string token = Util.GetToken();
+                //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
+
+                string mediaIdWeike = "3p4VnlXZ_v-iAR9bGy0AR7NUgGPzZVaH5CY8Lt_dVId_WK7NjlkUtt428k61Ii_v";
+                RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
+                xiaoZhuShouQrcodeReplymessage.type = "image";
+                xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
+                xiaoZhuShouQrcodeReplymessage.from = receivedMessage.to;
+                xiaoZhuShouQrcodeReplymessage.to = receivedMessage.from;
+                xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
+
+                System.Threading.Thread.Sleep(500);
+                
+                repliedMessage.type = "news";
+                RepliedMessage.news inviteMessageWK = new RepliedMessage.news();
+                inviteMessageWK.title = "微课邀请函";
+                inviteMessageWK.picUrl = "http://game.luqinwenda.com/images/wkt_invite.jpg";
+                inviteMessageWK.description = "微课邀请函";
+                inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/InviteGroup.aspx?id=" + groupMasterWeike.ID.ToString();
+                repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWK };
+
 
                 break;
             default:
