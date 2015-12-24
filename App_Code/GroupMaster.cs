@@ -90,6 +90,34 @@ public class GroupMaster
         }
     }
 
+    public int VoteNumberAll
+    {
+        get
+        {
+            int number = 0;
+            DataTable dt = DBHelper.GetDataTable(" select sum(vote_num) from group_master_list where open_id = '"
+                + _fields["open_id"].ToString() + "'  ", Util.conStr);
+            if (dt.Rows.Count == 1)
+            { 
+                number = int.Parse(dt.Rows[0][0].ToString().Trim());
+            }
+            dt.Dispose();
+            return number;
+        }
+    }
+
+    public static GroupMaster[] GetList(int actId)
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from group_master_list where act_id = " + actId.ToString(), Util.conStr);
+        GroupMaster[] groupMasterArray = new GroupMaster[dt.Rows.Count];
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            groupMasterArray[i] = new GroupMaster();
+            groupMasterArray[i]._fields = dt.Rows[i];
+        }
+        return groupMasterArray;
+    }
+
     public static GroupMaster CreateNew(string openId, int actId)
     {
         string[,] insertParameter = { { "open_id", "varchar", openId }, { "act_id", "int", actId.ToString()} };
