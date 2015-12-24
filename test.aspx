@@ -3,132 +3,41 @@
 <%@ Import Namespace="System.Data.SqlClient" %>
 <%@ Import Namespace="System.IO" %>
 <%@ Import Namespace="System.Xml" %>
-<!DOCTYPE html>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.Text" %>
+<%@ Import Namespace="System.Xml" %>
 
 <script runat="server">
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Response.Write(Util.GetUserInfoJsonStringByOpenid("o5jgRtzY3ed3x7eIeLtGqtUSMvws"));
-        Response.Write(Drawing.DrawingPlay("abcdef",1));
-        
-        /*
-        ReceivedMessage receiveMsg = new ReceivedMessage();
-        receiveMsg.to = "gh_7c0c5cc0906a";
-        receiveMsg.from = "oqrMvt8K6cwKt5T1yAavEylbJaRs";
-        receiveMsg.type = "event";
-        receiveMsg.userEvent = "CLICK";
-        receiveMsg.eventKey = "PINGTAI";
 
-        RepliedMessage repliedMessage = DealMessage.DealReceivedMessage(receiveMsg);
-        repliedMessage.id = RepliedMessage.AddRepliedMessage(repliedMessage);
-        XmlDocument xmlRet = Util.CreateReplyDocument(repliedMessage.id);
-        Response.Write(xmlRet.InnerXml);
-        */
-        
-        /*
-        RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
-        newsArr[0] = new RepliedMessage.news();
-        newsArr[0].title = "test1";
-        newsArr[0].description = "test Description1";
-        newsArr[0].picUrl = "http://www.nanshanski.com/images/ppt1.jpg";
-        newsArr[0].url = "http://www.luqinwenda.com";
+        StreamReader sr = File.OpenText(Server.MapPath("xml.txt"));
+        string xmlStr = sr.ReadToEnd();
+        string reponseStr = "";
+        sr.Close();
+        XmlDocument xmlD = new XmlDocument();
+        xmlD.LoadXml(xmlStr);
+        xmlStr = xmlD.InnerXml.Trim();
 
-        newsArr[1] = new RepliedMessage.news();
-        newsArr[1].title = "test2";
-        newsArr[1].description = "test Description2";
-        newsArr[1].picUrl = "http://www.nanshanski.com/images/ppt2.jpg";
-        newsArr[1].url = "http://www.nanshanski.com";
-        
-
-        RepliedMessage rm = new RepliedMessage();
-        rm.from = "gh_b8d1e9dcecc8";
-        rm.to = "o5jgRtzY3ed3x7eIeLtGqtUSMvws";
-        rm.type = "text";
-        rm.content = "testtesttest";
-        int code = rm.SendAsServiceMessage();
-
-        Response.Write(code.ToString());
-        */
-        /*
-        System.Xml.XmlDocument xmlD = new System.Xml.XmlDocument();
-        xmlD.LoadXml("<xml>"
-            + "<ToUserName><![CDATA[gh_7c0c5cc0906a]]></ToUserName>"
-            + "<FromUserName><![CDATA[oqrMvt8K6cwKt5T1yAavEylbJaRs]]></FromUserName>"
-            + "<CreateTime>1418115437</CreateTime>"
-            + "<MsgType><![CDATA[text]]></MsgType>"
-            + "<MsgId><![CDATA[" + DateTime.Now.ToString() + "]]></MsgId>"
-            + "<Content><![CDATA[二维码]]></Content>"
-            + "</xml>");
-        ReceivedMessage receivedMessage = new ReceivedMessage(xmlD);
-        ReceivedMessage.SaveReceivedMessage(receivedMessage);
-        RepliedMessage repliedMessage = DealMessage.DealReceivedMessage(receivedMessage);
-        repliedMessage.id = RepliedMessage.AddRepliedMessage(repliedMessage);
-        XmlDocument xmlRet = Util.CreateReplyDocument(repliedMessage.id);
-        Response.Write(xmlRet.InnerXml);
-        */
-        //Response.Write(Util.GetUserInfoJsonStringByOpenid("oqrMvtySBUCd-r6-ZIivSwsmzr44"));
-        
-        //DealLandingRequest("oqrMvtySBUCd-r6-ZIivSwsmzr44");
-        //Stream qrStream = Util.GetAccessToken(
-
-        /*
-       string token = Util.GetAccessToken(System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim(),
-           System.Configuration.ConfigurationSettings.AppSettings["wxappsecret"].Trim());
-       
-       DateTime now = DateTime.Now;
-       string ticket = Util.GetQrCodeTicketTemp(token, 123456789012345);
-       Util.SaveBytesToFile(Server.MapPath("images/qrcode/" + now.Year.ToString() + now.Month.ToString().PadLeft(2, '0') 
-           + now.Day.ToString().PadLeft(2, '0') + now.Hour.ToString().PadLeft(2, '0') + now.Minute.ToString().PadLeft(2, '0') 
-           + now.Second.ToString().PadLeft(2, '0') + now.Millisecond.ToString().PadLeft(3, '0') + ".jpg"),
-           Util.GetQrCodeByTicket(ticket));
-
-       */
-        //string mediaId = Util.UploadImageToWeixin(Server.MapPath("images/qrcode/20141015150455619.jpg"), token);
-        
-        //long i = long.Parse(Util.GetInviteCode("asdfasdfasdfasdf"));
-
-        //string id = Util.GetInviteCode("aaaa");
-
-        /*
-        int id = ServiceMessage.CreateServiceMessage("gh_7c0c5cc0906a", "oqrMvt8K6cwKt5T1yAavEylbJaRs", "text", "hello");
-        ServiceMessage testMessage = new ServiceMessage(id);
-        testMessage.send(token);
-        */
-    }
-    
-
-    public void DealLandingRequest(string openId)
-    {
-        DateTime now = DateTime.Now;
-        now = now.AddMinutes(-5);
-        SqlDataAdapter da = new SqlDataAdapter(" select * from WxLoginRequest where WxLoginRequest_deal = 0 and wxloginrequest_crt > '" + now.ToString() + "' ",
-            System.Configuration.ConfigurationSettings.AppSettings["constr"].Trim());
-        DataTable dt = new DataTable();
-        if (dt.Rows.Count >= 0)
+        HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://121.8.124.249:19210/syn10086");
+        req.ContentType = "text/xml;charset=gbk";
+        req.Method = "post";
+        // 开始请求
+        using (StreamWriter sw = new StreamWriter(req.GetRequestStream()))
         {
-            SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationSettings.AppSettings["constr"].Trim());
-            SqlCommand cmd = new SqlCommand(" insert into WxLoginRequest (WxLoginRequest_openid ) values ('" + openId.Replace("'", "") + "' ) ", conn);
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            cmd.Dispose();
-            conn.Dispose();
+            sw.Write(xmlStr);
         }
-        dt.Dispose();
-        da.Dispose();
-    }
-</script>
+        Console.WriteLine("请求报文：\n" + xmlStr);
+        // 获得响应
+        HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+        using (StreamReader srr = new StreamReader(res.GetResponseStream(), Encoding.GetEncoding("GBK")))
+        {
+            reponseStr = srr.ReadToEnd();
+        }
+        Response.Write("响应报文：\n" + reponseStr);
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+
+    }
     
-    </div>
-    </form>
-</body>
-</html>
+</script>

@@ -169,33 +169,34 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[4];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[2];
 
                     newsArr[0] = new RepliedMessage.news();
-                    newsArr[0].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPrAicCzzcXsibbjEfiap1wBK7RLuPurHm4TqnXI120RGl2M4OldebJTtfQA/0?wx_fmt=jpeg";
-                    newsArr[0].title = "【活动】“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[0].description = "【活动】“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=1&sn=081a5d52d9a86518f4d33da5e8450dc7#rd";
+                    newsArr[0].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjwVSwvk59DJnSicLpB8WwTg5mhCgCYJbxHpS33lh1FAZFQ0XcsQrdFGA/0?wx_fmt=jpeg";
+                    newsArr[0].title = "卢勤和她的朋友们微课堂";
+                    newsArr[0].description = "卢勤和她的朋友们微课堂";
+                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402860995&idx=1&sn=453d71462f565c127f775aa3b9951b14#rd";
 
                   
                     newsArr[1] = new RepliedMessage.news();
-                    newsArr[1].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPrdkicY4SFFoPY3Mh8w39xRph6twjrGiaeBBZ1Kj4IEjDfwELybjamicHtw/0?wx_fmt=jpeg";
-                    newsArr[1].title = "【卢勤微课预告】本年度最感人的一节课！";
-                    newsArr[1].description = "【卢勤微课预告】本年度最感人的一节课！";
-                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=2&sn=46431ed591f10c77178d668edbfdc08d#rd";
+                    newsArr[1].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjQ6zKJfYlNZEqaqsYCpngSNoJNkQaat5EGfribcXnUoEVibgAwdzxlT3w/0?wx_fmt=jpeg";
+                    newsArr[1].title = "【卢勤和她的朋友们微课堂】精彩微课回顾";
+                    newsArr[1].description = "【卢勤和她的朋友们微课堂】精彩微课回顾";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402860995&idx=2&sn=e280fe151147a4a27d0a377815427d9c#rd";
                     
+                   
                     newsArr[2] = new RepliedMessage.news();
-                    newsArr[2].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPr83TTWyMz0RDfJiarlSLWnXicbna0DXCnbMiagBfZm631sxyaBaEEEVRPQ/0?wx_fmt=jpeg";
-                    newsArr[2].title = "加群新规】申请加入微课堂细则";
-                    newsArr[2].description = "加群新规】申请加入微课堂细则";
-                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=3&sn=acc8973cd6c5f325936f4013e0c6a7f6#rd";
+                    newsArr[2].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjGrrPCb0wvCC21UbW9OCwFrHCMlyPx1dWSDDicIJLNGTTtw4z192A4XQ/0?wx_fmt=jpeg";
+                    newsArr[2].title = "问答指南：如何向卢勤老师提问？";
+                    newsArr[2].description = "问答指南：如何向卢勤老师提问？";
+                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402860995&idx=3&sn=d76829cb64c7e1911d10abec2c0eb328#rd";
 
                     newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVLgBnnWYp7TocIyLrUPaPrVFXJmRKOLibwUjAHo1hqDeZ0VNR9uyrjEpbPiaxeygM7vxGewtXZHDKw/0?wx_fmt=jpeg";
-                    newsArr[3].title = "问答指南：如何向卢勤老师提问？";
-                    newsArr[3].description = "问答指南：如何向卢勤老师提问？";
-                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402510247&idx=4&sn=364d21ca20a1570ef63f9c2b62e4832d#rd";
-                    
+                    newsArr[3].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjc6IOWSkyxFztUPgf6MPJsu6oIJaoeVZS5pNtLely7wXn23WvEdiaOIg/0?wx_fmt=jpeg";
+                    newsArr[3].title = "【卢勤和她的朋友们微课堂】精彩微课回顾";
+                    newsArr[3].description = "【卢勤和她的朋友们微课堂】精彩微课回顾";
+                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402859079&idx=1&sn=2ef5a37e2857b5f9f17d384e2ad9df55#rd";
+
 
                     repliedMessage.newsContent = newsArr;
                     deal = true;
@@ -335,6 +336,7 @@ public class DealMessage
                 repliedMessage.content = "此活动已结束，请关注本公众号，即将推出的加群新规。";
                 break;
             case "w":
+                /*
                 string replyContentW = receivedMessage.content.Trim();
                 int groupIdW = int.Parse(replyContentW.Remove(0, 1));
                 GroupMaster groupMasterW = new GroupMaster(groupIdW);
@@ -370,7 +372,7 @@ public class DealMessage
                 inviteMessageW.description = "微课邀请函";
                 inviteMessageW.url = "http://game.luqinwenda.com/weiketang/InviteGroup.aspx?id=" + groupIdW.ToString();
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageW };
-
+                */
                 break;
             case "4":
                 GroupMaster groupMaster = GroupMaster.CreateNew(repliedMessage.to.Trim());
@@ -393,13 +395,13 @@ public class DealMessage
 
                 break;
             case "k":
+                /*
                 string replyContent = receivedMessage.content.Trim();
                 int groupId = int.Parse(replyContent.Remove(0, 1));
                 GroupMaster groupMasterK = new GroupMaster(groupId);
-                //if (GroupMaster.CanVote(receivedMessage.from))
-                //{
-                    groupMasterK.AddVote(receivedMessage.from, receivedMessage.id.Trim());
-                //}
+                
+                groupMasterK.AddVote(receivedMessage.from, receivedMessage.id.Trim());
+       
                 repliedMessage.type = "news";
                 RepliedMessage.news inviteMessage = new RepliedMessage.news();
                 inviteMessage.title = "微课邀请函";
@@ -407,6 +409,7 @@ public class DealMessage
                 inviteMessage.description = "微课邀请函";
                 inviteMessage.url = "http://game.luqinwenda.com/weiketang/kaike.aspx?id=" + groupId.ToString();
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessage };
+                 * */
                 break;
             case "戒尺":
                 repliedMessage.type = "news";
