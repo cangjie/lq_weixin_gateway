@@ -504,7 +504,7 @@ public class DealMessage
                 //string token = Util.GetToken();
                 //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
 
-                string mediaIdWeikeTang = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
+                string mediaIdWeikeTang = "QpoWUSlD-ybk1BzWBqgNOFxuZBR2-uvG0OTTVPa3tds7Sv92s6XZym7vRONhrK_q";
                 RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
                 xiaoZhuShouQrcodeReplymessageTang.type = "image";
                 xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
