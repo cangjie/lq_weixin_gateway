@@ -99,6 +99,11 @@ public class DBHelper
         return i;
     }
 
+    public static int DeleteData(string tableName, string[,] parameters, string connectionString)
+    {
+        return DeleteData(tableName, ConvertStringArryToKeyValuePairArray(parameters), connectionString);
+    }
+
     public static int DeleteData(string tableName, KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parameters, string connectionString)
     {
         if (parameters.Length == 0)

@@ -15,23 +15,32 @@
 
 
         SqlConnection conn = new SqlConnection(Util.conStr.Trim());
-        SqlCommand cmd = new SqlCommand(" select info_json from weixin_user_info where openid = '" + openId.Trim()  +"'  ", conn);
+        SqlCommand cmd = new SqlCommand(" select info_json , update_time from weixin_user_info where openid = '" + openId.Trim()  +"'  ", conn);
 
         string json = "";
 
         conn.Open();
         SqlDataReader reader = cmd.ExecuteReader();
 
+        DateTime updateTime = DateTime.MinValue;
+        
         if (reader.Read())
         {
             json = reader.GetString(0);
+            updateTime = reader.GetDateTime(2);
         }
 
         reader.Close();
         conn.Close();
         cmd.Dispose();
 
-        if (json.Trim().Equals(""))
+        if (updateTime < DateTime.Now.AddDays(-1))
+        {
+            string[,] keyValue = { { "open_id", "varchar", openId } };
+            DBHelper.DeleteData("weixin_user_info", keyValue, Util.conStr);
+        }
+        
+        if (json.Trim().Equals("") && updateTime < DateTime.Now.AddDays(-1))
         {
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://api.weixin.qq.com/cgi-bin/user/info?access_token="
