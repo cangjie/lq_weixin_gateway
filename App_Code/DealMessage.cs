@@ -488,6 +488,43 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { xiaoXin1, xiaoXin2 };
 
                 break;
+
+
+            case "微课堂":
+                GroupMaster groupMasterWeikeTang = GroupMaster.CreateNew(repliedMessage.to.Trim());
+                string randGroupCodeWeikeTang = "B" + groupMasterWeikeTang.ID.ToString().PadLeft(6, '0');
+
+                RepliedMessage texGroupMastertMessageWeikeTang = new RepliedMessage();
+                texGroupMastertMessageWeikeTang.type = "text";
+                texGroupMastertMessageWeikeTang.content = "您的邀请码是【" + randGroupCodeWeikeTang + "】把下面的页面发放到群里或转发朋友圈，让您的朋友在“卢勤问答平台”公众号中，回复您的邀请码【" + randGroupCodeWeikeTang + "】即可获得支持票。支持人数超过10人，可申请加入听课群。达到数量后请将支持人数截图给平台小助手，然后由平台小助手安排加群。";
+                texGroupMastertMessageWeikeTang.from = receivedMessage.to;
+                texGroupMastertMessageWeikeTang.to = receivedMessage.from;
+                texGroupMastertMessageWeikeTang.SendAsServiceMessage();
+
+                //string token = Util.GetToken();
+                //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
+
+                string mediaIdWeikeTang = "jU6CneGDk8dYxY08UCzi51PDkUXgPmSd3QWDvH-40wnJuLXMUZbt7ZORd72zRR_v";
+                RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
+                xiaoZhuShouQrcodeReplymessageTang.type = "image";
+                xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
+                xiaoZhuShouQrcodeReplymessageTang.from = receivedMessage.to;
+                xiaoZhuShouQrcodeReplymessageTang.to = receivedMessage.from;
+                xiaoZhuShouQrcodeReplymessageTang.SendAsServiceMessage();
+
+                System.Threading.Thread.Sleep(500);
+
+                repliedMessage.type = "news";
+                RepliedMessage.news inviteMessageWKTang = new RepliedMessage.news();
+                inviteMessageWKTang.title = "微课邀请函";
+                inviteMessageWKTang.picUrl = "http://game.luqinwenda.com/images/wkt_invite.jpg";
+                inviteMessageWKTang.description = "微课邀请函";
+                inviteMessageWKTang.url = "http://game.luqinwenda.com/weiketang/InviteGroup.aspx?id=" + groupMasterWeikeTang.ID.ToString();
+                repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWKTang };
+
+
+                break;
+
             case "申请转播群":
 
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim(),1);
