@@ -254,6 +254,38 @@ public class DealMessage
 
             }
         }
+        if (inputString.Trim().ToLower().StartsWith("a"))
+        {
+            string subCommand = inputString.Remove(0, 1);
+            try
+            {
+                int subCommandId = int.Parse(subCommand);
+                if (subCommandId > 0)
+                {
+                    command = "a";
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        if (inputString.Trim().ToLower().StartsWith("b"))
+        {
+            string subCommand = inputString.Remove(0, 1);
+            try
+            {
+                int subCommandId = int.Parse(subCommand);
+                if (subCommandId > 0)
+                {
+                    command = "b";
+                }
+            }
+            catch
+            {
+
+            }
+        }
 
         return command;
     }
@@ -335,6 +367,8 @@ public class DealMessage
                 repliedMessage.type = "text";
                 repliedMessage.content = "此活动已结束，请关注本公众号，即将推出的加群新规。";
                 break;
+            case "a":
+            case "b":
             case "w":
                 
                 string replyContentW = receivedMessage.content.Trim();
