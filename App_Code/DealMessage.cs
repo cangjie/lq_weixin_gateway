@@ -222,6 +222,8 @@ public class DealMessage
             command = "营";
         }
 
+        //if (inputString.Trim().Equals("")
+
         if (inputString.ToLower().StartsWith("k"))
         {
             string subCommand = inputString.Remove(0, 1);
@@ -363,10 +365,6 @@ public class DealMessage
                 xishuashuaMessage.url = "http://weidian.com/?userid=842789047&from=singlemessage&isappinstalled=0";
                 repliedMessage.newsContent = new RepliedMessage.news[] { xishuashuaMessage };
                 break;
-            case "微课":
-                repliedMessage.type = "text";
-                repliedMessage.content = "此活动已结束，请关注本公众号，即将推出的加群新规。";
-                break;
             case "a":
             case "b":
             case "w":
@@ -381,10 +379,26 @@ public class DealMessage
 
                 groupMasterW = new GroupMaster(groupIdW);
 
-                string messageWVote = "支持成功！目前" + receivedMessage.content.Trim() + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群，满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。回复“微课”查询申请加群的方法。";
+                string messageWVote = "";
 
-                string messageWUnVote = "您已投过支持票，不能重复支持！目前" + replyContentW + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群，满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。回复“微课”查询申请加群的方法。";
+                
+                string messageWUnVote = "";
 
+                switch (command.ToLower())
+                {
+                    case "a":
+                        messageWVote = "支持成功！目前" + receivedMessage.content.Trim() + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满300票之即可申请成为转播群，50个名额先到先得。";
+                        messageWUnVote = "您已投过支持票，不能重复支持！目前" + replyContentW + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满300票之即可申请成为转播群，50个名额先到先得。";
+                        
+                        break;
+                    case "b":
+                        messageWVote = "支持成功！目前" + receivedMessage.content.Trim() + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群。";
+                        messageWUnVote = "您已投过支持票，不能重复支持！目前" + replyContentW + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满10票就可以申请加入卢勤微课群。";
+                        break;
+                    default:
+                        break;
+                }
+                
 
                 RepliedMessage texGroupMastertMessageW = new RepliedMessage();
                 texGroupMastertMessageW.type = "text";
@@ -523,7 +537,7 @@ public class DealMessage
 
                 break;
 
-
+            case "微课":
             case "微课堂":
                 GroupMaster groupMasterWeikeTang = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCodeWeikeTang = "B" + groupMasterWeikeTang.ID.ToString().PadLeft(6, '0');
