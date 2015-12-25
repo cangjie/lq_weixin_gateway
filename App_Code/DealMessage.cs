@@ -384,6 +384,7 @@ public class DealMessage
 
                 string url = "";
                 string imageUrl = "";
+                groupMasterW = new GroupMaster(groupIdW);
                 switch (command.ToLower())
                 {
                     case "a":
