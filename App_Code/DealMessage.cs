@@ -372,12 +372,15 @@ public class DealMessage
                 string replyContentW = receivedMessage.content.Trim();
                 int groupIdW = int.Parse(replyContentW.Remove(0, 1));
                 GroupMaster groupMasterW = new GroupMaster(groupIdW);
-                
+                bool hadVoted = groupMasterW.HadVoted(receivedMessage.from);
 
                 string messageWVote = "";
 
                 
                 string messageWUnVote = "";
+
+                if (!hadVoted)
+                    groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
 
                 string url = "";
                 string imageUrl = "";
@@ -405,7 +408,7 @@ public class DealMessage
                 RepliedMessage texGroupMastertMessageW = new RepliedMessage();
                 texGroupMastertMessageW.type = "text";
 
-                if (groupMasterW.HadVoted(receivedMessage.from))
+                if (hadVoted)
                 {
                     //throw new Exception("1"+messageWUnVote);
                     texGroupMastertMessageW.content = messageWUnVote;
@@ -416,7 +419,7 @@ public class DealMessage
                     texGroupMastertMessageW.content = messageWVote;
                 }
 
-                groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
+                
 
                 texGroupMastertMessageW.from = receivedMessage.to;
                 texGroupMastertMessageW.to = receivedMessage.from;
