@@ -372,12 +372,7 @@ public class DealMessage
                 string replyContentW = receivedMessage.content.Trim();
                 int groupIdW = int.Parse(replyContentW.Remove(0, 1));
                 GroupMaster groupMasterW = new GroupMaster(groupIdW);
-                //if (GroupMaster.CanVote(receivedMessage.from))
-                //{
-                groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
-                //}
-
-                groupMasterW = new GroupMaster(groupIdW);
+                
 
                 string messageWVote = "";
 
@@ -412,15 +407,16 @@ public class DealMessage
 
                 if (groupMasterW.HadVoted(receivedMessage.from))
                 {
-                    throw new Exception("1"+messageWUnVote);
+                    //throw new Exception("1"+messageWUnVote);
                     texGroupMastertMessageW.content = messageWUnVote;
                 }
                 else
                 {
-                    throw new Exception("2" + messageWVote);
+                    //throw new Exception("2" + messageWVote);
                     texGroupMastertMessageW.content = messageWVote;
                 }
 
+                groupMasterW.AddVote(receivedMessage.from, receivedMessage.id.Trim());
 
                 texGroupMastertMessageW.from = receivedMessage.to;
                 texGroupMastertMessageW.to = receivedMessage.from;
