@@ -411,9 +411,15 @@ public class DealMessage
                 texGroupMastertMessageW.type = "text";
 
                 if (groupMasterW.HadVoted(receivedMessage.from))
+                {
+                    throw new Exception("1"+messageWUnVote);
                     texGroupMastertMessageW.content = messageWUnVote;
+                }
                 else
+                {
+                    throw new Exception("2" + messageWVote);
                     texGroupMastertMessageW.content = messageWVote;
+                }
 
 
                 texGroupMastertMessageW.from = receivedMessage.to;
