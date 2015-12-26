@@ -400,6 +400,10 @@ public class DealMessage
                         imageUrl = "http://game.luqinwenda.com/images/personaljoinBanner.jpg";
                         break;
                     default:
+                        messageWVote = "支持成功！目前" + receivedMessage.content.Trim() + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满300票之即可申请成为转播群，50个名额先到先得。";
+                        messageWUnVote = "您已投过支持票，不能重复支持！目前" + replyContentW + "的支持票数为" + groupMasterW.VoteNumber.ToString() + "。满300票之即可申请成为转播群，50个名额先到先得。";
+                        url = "http://game.luqinwenda.com/weiketang/GroupJoin.aspx?id=";
+                        imageUrl = "http://game.luqinwenda.com/images/groupjoinBanner.jpg";
                         break;
                 }
 
