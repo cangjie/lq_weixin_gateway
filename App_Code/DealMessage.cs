@@ -288,6 +288,10 @@ public class DealMessage
 
             }
         }
+        if (inputString.Trim().ToLower().StartsWith("g"))
+        {
+            command = "g";
+        }
 
         return command;
     }
@@ -629,6 +633,23 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWK };
 
 
+                break;
+            case "g":
+                string replyGameContent = receivedMessage.content.Trim();
+                int gameId = int.Parse(replyGameContent.Trim().Remove(0,1));
+                NewYearBox newYearBox = new NewYearBox(gameId);
+                bool ret = newYearBox.Support(receivedMessage.from.Trim(), "reply");
+                string replyWord = "";
+                if (ret)
+                {
+                    replyWord = "感谢您为您朋友新年礼盒的开启提供了一份帮助。";
+                }
+                else
+                {
+                    replyWord = "您已经帮助过您的朋友了，再次感谢！";
+                }
+                repliedMessage.type = "text";
+                repliedMessage.content = replyWord.Trim();
                 break;
             default:
                 break;
