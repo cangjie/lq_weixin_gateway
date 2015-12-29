@@ -36,7 +36,7 @@
 
         if (updateTime < DateTime.Now.AddDays(-1))
         {
-            string[,] keyValue = { { "open_id", "varchar", openId } };
+            string[,] keyValue = { { "openid", "varchar", openId } };
             DBHelper.DeleteData("weixin_user_info", keyValue, Util.conStr);
         }
         
