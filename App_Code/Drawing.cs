@@ -75,15 +75,23 @@ public class Drawing
                     }
                     else
                     {
-                        if (seed < 50)
+                        if (seed < 35)
                         {
                             Coupon coupon = Coupon.AddCoupon(500);
                             award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
                         }
                         else
                         {
-                            Coupon coupon = Coupon.AddCoupon(200);
-                            award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                            if (seed < 75)
+                            {
+                                Coupon coupon = Coupon.AddCoupon(1000);
+                                award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
+                            }
+                            else
+                            {
+                                Coupon coupon = Coupon.AddCoupon(2000);
+                                award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
+                            }
                         }
                     }
                 }
@@ -109,15 +117,23 @@ public class Drawing
                     }
                     else
                     {
-                        if (seed < 52)
+                        if (seed < 35)
                         {
                             Coupon coupon = Coupon.AddCoupon(500);
                             award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
                         }
                         else
                         {
-                            Coupon coupon = Coupon.AddCoupon(200);
-                            award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                            if (seed < 75)
+                            {
+                                Coupon coupon = Coupon.AddCoupon(1000);
+                                award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
+                            }
+                            else
+                            {
+                                Coupon coupon = Coupon.AddCoupon(2000);
+                                award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
+                            }
                         }
                     }
                 }

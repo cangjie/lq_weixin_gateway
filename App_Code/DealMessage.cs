@@ -509,7 +509,6 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
             case "礼物":
-            case "抽奖":
                 DateTime startTime = DateTime.Parse("2015-12-22");
                 DateTime endTime = DateTime.Parse("2016-1-4");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
