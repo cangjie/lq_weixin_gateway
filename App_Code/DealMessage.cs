@@ -508,19 +508,20 @@ public class DealMessage
                 fenGong.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401925682&idx=2&sn=a927a70a459ba926708d5a51eb53b501&scene=1&srcid=1210sO097zRyvsmkJoQYwpum&from=singlemessage&isappinstalled=0#wechat_redirect";
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
-            case "抽奖" :
-                DateTime startTime = DateTime.Parse("2015-12-22 20:30");
-                DateTime endTime = DateTime.Parse("2015-12-23 23:59");
+            case "礼物":
+            case "抽奖":
+                DateTime startTime = DateTime.Parse("2015-12-22");
+                DateTime endTime = DateTime.Parse("2016-1-4");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
-                    int actId = 2;
+                    int actId = 3;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
-                    drawing.title = "“卢勤微课堂”幸运抽奖活动";
+                    drawing.title = "卢勤新年送大礼，礼品全白拿";
                     drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg";
                     drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
-                    drawing.description = "“卢勤微课堂”幸运抽奖活动";
+                    drawing.description = "卢勤新年送大礼，礼品全白拿";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
                 break;

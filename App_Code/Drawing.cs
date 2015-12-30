@@ -36,49 +36,97 @@ public class Drawing
     public static int NewDrawing(string opneId, int actId)
     {
         int numFannao = 0;
+        int numCD = 0;
+        int numZhangda = 0;
+
         DataTable dt;
         dt = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + actId.ToString() , Util.ConnectionStringGame);
         numFannao = dt.Rows.Count;
         dt.Dispose();
 
-        int seed = (new Random()).Next(0, 100);
+        dt = DBHelper.GetDataTable(" select * from random_awards where award = '家庭教育光盘' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numCD = dt.Rows.Count;
+        dt.Dispose();
 
+        dt = DBHelper.GetDataTable(" select * from random_awards where award = '长大不容易' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numZhangda = dt.Rows.Count;
+        dt.Dispose();
+
+        int seed = (new Random()).Next(0, 100);
         string award = "";
 
-        if (seed == 1 && numFannao < 50)
+        if (numZhangda + numFannao + numCD < 200)
         {
-            award = "和烦恼说再见";
-        }
-        else
-        {
-            if (seed < 20)
+            if (seed < 10 && numCD < 100)
             {
-                Coupon coupon = Coupon.AddCoupon(1000);
-                award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
-               
+                award = "家庭教育光盘";
             }
             else
             {
-                if (seed < 55)
+                if (seed < 20 && numZhangda < 100)
                 {
-                    Coupon coupon = Coupon.AddCoupon(500);
-                    award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
-
+                    award = "长大不容易";
                 }
                 else
                 {
-                    if (seed < 90)
+                    if (seed < 30 && numFannao < 200)
                     {
-                        Coupon coupon = Coupon.AddCoupon(200);
-                        award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        award = "和烦恼说再见";
                     }
                     else
                     {
-                        award = "";
+                        if (seed < 50)
+                        {
+                            Coupon coupon = Coupon.AddCoupon(500);
+                            award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        }
+                        else
+                        {
+                            Coupon coupon = Coupon.AddCoupon(200);
+                            award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        }
                     }
                 }
             }
         }
+        else
+        {
+            if (seed < 1 && numCD < 100)
+            {
+                award = "家庭教育光盘";
+            }
+            else
+            {
+                if (seed < 2 && numZhangda < 100)
+                {
+                    award = "长大不容易";
+                }
+                else
+                {
+                    if (seed < 3 && numFannao < 200)
+                    {
+                        award = "和烦恼说再见";
+                    }
+                    else
+                    {
+                        if (seed < 52)
+                        {
+                            Coupon coupon = Coupon.AddCoupon(500);
+                            award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        }
+                        else
+                        {
+                            Coupon coupon = Coupon.AddCoupon(200);
+                            award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        
 
         string[,] insertParameter = {{"act_id", "int", actId.ToString()},
                                     {"open_id", "varchar", opneId.Trim()},
