@@ -524,10 +524,17 @@ public class DealMessage
                 xinXinMessage1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=2&sn=3c90d24dbc06513fe83cea413a6eece9#rd";
 
                 RepliedMessage.news xinXinMessage2 = new RepliedMessage.news();
-                xinXinMessage2.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
-                xinXinMessage2.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
+                xinXinMessage2.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（中）";
+                xinXinMessage2.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（中）";
                 xinXinMessage2.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnISTsL2hSwAGQFFdABqvxuzwpZUNxXGKtZmFLxTEAdxQ2J0LfPKbeUZg/0?wx_fmt=jpeg";
                 xinXinMessage2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=3&sn=87b460db5bb5f1db61740dbfac8b378c#rd";
+
+                RepliedMessage.news xinXinMessage3 = new RepliedMessage.news();
+                xinXinMessage3.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
+                xinXinMessage3.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
+                xinXinMessage3.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnISTsL2hSwAGQFFdABqvxuzwpZUNxXGKtZmFLxTEAdxQ2J0LfPKbeUZg/0?wx_fmt=jpeg";
+                xinXinMessage3.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=4&sn=31fcd85d06a342215ae8b1c437f71df2#rd";
+
 
                 repliedMessage.type = "news";
 
