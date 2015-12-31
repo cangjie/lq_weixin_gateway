@@ -21,7 +21,7 @@ public class Drawing
     {
         DataTable dt = DBHelper.GetDataTable(" select * from random_awards where open_id = '" + opneId.Trim() + "'  and act_id = " + actId.ToString(), Util.ConnectionStringGame);
         int i = 0;
-        if (dt.Rows.Count > 0)
+        if (dt.Rows.Count > 1)
         {
             i = int.Parse(dt.Rows[0]["id"].ToString());
         }
