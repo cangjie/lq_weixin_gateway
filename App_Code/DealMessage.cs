@@ -508,6 +508,11 @@ public class DealMessage
                 fenGong.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401925682&idx=2&sn=a927a70a459ba926708d5a51eb53b501&scene=1&srcid=1210sO097zRyvsmkJoQYwpum&from=singlemessage&isappinstalled=0#wechat_redirect";
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
+            case "抽奖":
+            case "礼品":
+            case "礼包":
+            case "新年":
+            case "礼盒":
             case "礼物":
                 DateTime startTime = DateTime.Parse("2015-12-22");
                 DateTime endTime = DateTime.Parse("2016-1-4");
@@ -517,10 +522,10 @@ public class DealMessage
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
-                    drawing.title = "卢勤新年送大礼，礼品全白拿";
+                    drawing.title = "卢勤问答平台2016年新年大礼包！";
                     drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg";
                     drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
-                    drawing.description = "卢勤新年送大礼，礼品全白拿";
+                    drawing.description = "为答谢广大家长对“卢勤问答平台”热爱和大力支持，卢勤老师邀您开启新年大礼！全部白拿！动动手指，礼品就能领到手。还等什么？赶紧来领礼物吧！";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
                 break;
