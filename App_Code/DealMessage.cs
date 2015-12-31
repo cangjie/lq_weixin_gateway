@@ -581,14 +581,20 @@ public class DealMessage
                 //string token = Util.GetToken();
                 //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
 
-                string mediaIdWeikeTang = "QpoWUSlD-ybk1BzWBqgNOFxuZBR2-uvG0OTTVPa3tds7Sv92s6XZym7vRONhrK_q";
-                RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
-                xiaoZhuShouQrcodeReplymessageTang.type = "image";
-                xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
-                xiaoZhuShouQrcodeReplymessageTang.from = receivedMessage.to;
-                xiaoZhuShouQrcodeReplymessageTang.to = receivedMessage.from;
-                xiaoZhuShouQrcodeReplymessageTang.SendAsServiceMessage();
-
+                try
+                {
+                    string mediaIdWeikeTang = "QpoWUSlD-ybk1BzWBqgNOFxuZBR2-uvG0OTTVPa3tds7Sv92s6XZym7vRONhrK_q";
+                    RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
+                    xiaoZhuShouQrcodeReplymessageTang.type = "image";
+                    xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
+                    xiaoZhuShouQrcodeReplymessageTang.from = receivedMessage.to;
+                    xiaoZhuShouQrcodeReplymessageTang.to = receivedMessage.from;
+                    xiaoZhuShouQrcodeReplymessageTang.SendAsServiceMessage();
+                }
+                catch
+                { 
+                
+                }
                 System.Threading.Thread.Sleep(500);
 
                 repliedMessage.type = "news";
@@ -617,15 +623,20 @@ public class DealMessage
 
                 //string token = Util.GetToken();
                 //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
-
-                string mediaIdWeike = "3p4VnlXZ_v-iAR9bGy0AR7NUgGPzZVaH5CY8Lt_dVId_WK7NjlkUtt428k61Ii_v";
-                RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
-                xiaoZhuShouQrcodeReplymessage.type = "image";
-                xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
-                xiaoZhuShouQrcodeReplymessage.from = receivedMessage.to;
-                xiaoZhuShouQrcodeReplymessage.to = receivedMessage.from;
-                xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
-
+                try
+                {
+                    string mediaIdWeike = "3p4VnlXZ_v-iAR9bGy0AR7NUgGPzZVaH5CY8Lt_dVId_WK7NjlkUtt428k61Ii_v";
+                    RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
+                    xiaoZhuShouQrcodeReplymessage.type = "image";
+                    xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
+                    xiaoZhuShouQrcodeReplymessage.from = receivedMessage.to;
+                    xiaoZhuShouQrcodeReplymessage.to = receivedMessage.from;
+                    xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
+                }
+                catch
+                { 
+                
+                }
                 System.Threading.Thread.Sleep(500);
                 
                 repliedMessage.type = "news";
