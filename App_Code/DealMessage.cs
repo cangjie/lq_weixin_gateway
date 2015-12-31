@@ -508,6 +508,32 @@ public class DealMessage
                 fenGong.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401925682&idx=2&sn=a927a70a459ba926708d5a51eb53b501&scene=1&srcid=1210sO097zRyvsmkJoQYwpum&from=singlemessage&isappinstalled=0#wechat_redirect";
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
+            case "信心":
+            case "自信":
+            case "元旦":
+                RepliedMessage.news newYearMessage = new RepliedMessage.news();
+                newYearMessage.title = "卢勤老师祝您2016年元旦快乐";
+                newYearMessage.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnIpJHQU103t55Y3ed1dy0Fvsa0AWUk9FIfR4HzL9g4XRDR0nfbhPYABw/0?wx_fmt=jpeg";
+                newYearMessage.description = "卢勤老师祝您2016年元旦快乐";
+                newYearMessage.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=1&sn=ef57a87e2f9baa9c0a68aec7901d42e7#rd";
+
+                RepliedMessage.news xinXinMessage1 = new RepliedMessage.news();
+                xinXinMessage1.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（上）";
+                xinXinMessage1.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（上）";
+                xinXinMessage1.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnISTsL2hSwAGQFFdABqvxuzwpZUNxXGKtZmFLxTEAdxQ2J0LfPKbeUZg/0?wx_fmt=jpeg";
+                xinXinMessage1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=2&sn=3c90d24dbc06513fe83cea413a6eece9#rd";
+
+                RepliedMessage.news xinXinMessage2 = new RepliedMessage.news();
+                xinXinMessage2.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
+                xinXinMessage2.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
+                xinXinMessage2.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnISTsL2hSwAGQFFdABqvxuzwpZUNxXGKtZmFLxTEAdxQ2J0LfPKbeUZg/0?wx_fmt=jpeg";
+                xinXinMessage2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=3&sn=87b460db5bb5f1db61740dbfac8b378c#rd";
+
+                repliedMessage.type = "news";
+
+                repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2 };
+
+                break;
             case "抽奖":
             case "礼品":
             case "礼包":
