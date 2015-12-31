@@ -538,7 +538,7 @@ public class DealMessage
 
                 repliedMessage.type = "news";
 
-                repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2 };
+                repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2, xinXinMessage3 };
 
                 break;
             case "抽奖":
