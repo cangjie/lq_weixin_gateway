@@ -583,7 +583,7 @@ public class DealMessage
 
                 try
                 {
-                    string mediaIdWeikeTang = "QpoWUSlD-ybk1BzWBqgNOFxuZBR2-uvG0OTTVPa3tds7Sv92s6XZym7vRONhrK_q";
+                    string mediaIdWeikeTang = "xymQ5vM8DviL2K4AXrWSLnFb3nySwU49FFi5qmza8z3WNaBEVZZEUqfoaWarwawj";
                     RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
                     xiaoZhuShouQrcodeReplymessageTang.type = "image";
                     xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
@@ -625,7 +625,7 @@ public class DealMessage
                 //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
                 try
                 {
-                    string mediaIdWeike = "3p4VnlXZ_v-iAR9bGy0AR7NUgGPzZVaH5CY8Lt_dVId_WK7NjlkUtt428k61Ii_v";
+                    string mediaIdWeike = "C7UVcKIQlZ6d5EA7GaiyOjACFTDjOCcnuokF1IYrkS_9zYr2TAdGZX2ofiL04HW1";
                     RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
                     xiaoZhuShouQrcodeReplymessage.type = "image";
                     xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
