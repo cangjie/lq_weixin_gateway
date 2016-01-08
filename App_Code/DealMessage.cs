@@ -644,13 +644,13 @@ public class DealMessage
                 break;
 
             case "申请转播群":
-/*
+
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim(),1);
                 string randGroupCodeWeike = "A" + groupMasterWeike.ID.ToString().PadLeft(6, '0');
 
                 RepliedMessage texGroupMastertMessageWeike = new RepliedMessage();
                 texGroupMastertMessageWeike.type = "text";
-                texGroupMastertMessageWeike.content = "您的申请码是【" + randGroupCodeWeike + "】，把以下页面发放到群里或转发朋友圈，请您的朋友在“卢勤问答平台”公众号中，回复您的申请码【" + randGroupCodeWeike + "】即可获得支持票。活动截止日期：2015年12月29日12点。得票数排名前20名的群主，请将截图发送给平台旭老师（详见下方二维码），即可获得合作转播群资格。";
+                texGroupMastertMessageWeike.content = "您的申请码是【" + randGroupCodeWeike + "】，把以下页面发放到群里或转发朋友圈，请您的朋友在“卢勤问答平台”公众号中，回复您的申请码【" + randGroupCodeWeike + "】即可获得支持票。得票数满300个支持的群主，请将截图发送给平台旭老师（详见下方二维码），即可获得合作转播群资格。";
                 texGroupMastertMessageWeike.from = receivedMessage.to;
                 texGroupMastertMessageWeike.to = receivedMessage.from;
                 texGroupMastertMessageWeike.SendAsServiceMessage();
@@ -659,7 +659,7 @@ public class DealMessage
                 //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
                 try
                 {
-                    string mediaIdWeike = "C7UVcKIQlZ6d5EA7GaiyOjACFTDjOCcnuokF1IYrkS_9zYr2TAdGZX2ofiL04HW1";
+                    string mediaIdWeike = "CXyedP0YGV2Z72jB8YiRYm4jZgqqVKdgl8bcnB3zludq4KE2FzhiKflDdoUfSxJa";
                     RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
                     xiaoZhuShouQrcodeReplymessage.type = "image";
                     xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
@@ -681,7 +681,7 @@ public class DealMessage
                 inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/GroupJoin.aspx?id=" + groupMasterWeike.ID.ToString()
                     + "&code=" + randGroupCodeWeike;
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWK };
-*/
+
 
                 break;
             case "g":
