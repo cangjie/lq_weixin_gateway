@@ -175,7 +175,7 @@ public class DealMessage
                     newsArr[0].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjwVSwvk59DJnSicLpB8WwTg5mhCgCYJbxHpS33lh1FAZFQ0XcsQrdFGA/0?wx_fmt=jpeg";
                     newsArr[0].title = "卢勤和她的朋友们微课堂";
                     newsArr[0].description = "卢勤和她的朋友们微课堂";
-                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402860995&idx=1&sn=453d71462f565c127f775aa3b9951b14#rd";
+                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402860995&idx=2&sn=e280fe151147a4a27d0a377815427d9c#rd";
 
                   
                     newsArr[1] = new RepliedMessage.news();
