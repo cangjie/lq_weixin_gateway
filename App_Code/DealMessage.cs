@@ -606,7 +606,8 @@ public class DealMessage
 
                 RepliedMessage texGroupMastertMessageWeikeTang = new RepliedMessage();
                 texGroupMastertMessageWeikeTang.type = "text";
-                texGroupMastertMessageWeikeTang.content = "您的邀请码是【" + randGroupCodeWeikeTang + "】把下面的页面发放到群里或转发朋友圈，让您的朋友在“卢勤问答平台”公众号中，回复您的邀请码【" + randGroupCodeWeikeTang + "】即可获得支持票。支持人数超过10人，可申请加入听课群。达到数量后请将支持人数截图给平台小助手，然后由平台小助手安排加群。";
+                texGroupMastertMessageWeikeTang.content = "您的邀请码是【" + randGroupCodeWeikeTang + "】把下面的页面转发到100人以上的微信群或者您的朋友圈，让您的朋友在“卢勤问答平台”公众号中，回复您的邀请码【"
+                    + randGroupCodeWeikeTang + "】即可获得支持票。支持人数超过10人，可申请加入听课群。达到数量后请将支持人数截图给平台小助手，然后由平台小助手安排加群。";
                 texGroupMastertMessageWeikeTang.from = receivedMessage.to;
                 texGroupMastertMessageWeikeTang.to = receivedMessage.from;
                 texGroupMastertMessageWeikeTang.SendAsServiceMessage();
@@ -643,7 +644,7 @@ public class DealMessage
                 break;
 
             case "申请转播群":
-
+/*
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim(),1);
                 string randGroupCodeWeike = "A" + groupMasterWeike.ID.ToString().PadLeft(6, '0');
 
@@ -680,7 +681,7 @@ public class DealMessage
                 inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/GroupJoin.aspx?id=" + groupMasterWeike.ID.ToString()
                     + "&code=" + randGroupCodeWeike;
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWK };
-
+*/
 
                 break;
             case "g":
