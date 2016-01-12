@@ -541,12 +541,8 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2, xinXinMessage3 };
 
                 break;
-            case "抽奖":
-            case "礼品":
-            case "礼包":
-            case "新年":
-            case "礼盒":
-            case "礼物":
+            
+            case "读书卡":
                 DateTime startTime = DateTime.Parse("2015-12-22");
                 DateTime endTime = DateTime.Parse("2016-1-14");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
