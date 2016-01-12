@@ -555,10 +555,10 @@ public class DealMessage
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
-                    drawing.title = "卢勤问答平台2016年新年大礼包！";
+                    drawing.title = "请领取卢勤书城读书卡";
                     drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg";
                     drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
-                    drawing.description = "为答谢广大家长对“卢勤问答平台”热爱和大力支持，卢勤老师邀您开启新年大礼！全部白拿！动动手指，礼品就能领到手。还等什么？赶紧来领礼物吧！";
+                    drawing.description = "为答谢广大家长对“卢勤和她的朋友们微课堂”的厚爱和大力支持，卢勤老师邀您参加书城读书活动！请领取您的专属读书卡！多读书，读好书，让您的孩子发现阅读的乐趣！";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
                 break;
