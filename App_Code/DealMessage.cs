@@ -548,10 +548,10 @@ public class DealMessage
             case "礼盒":
             case "礼物":
                 DateTime startTime = DateTime.Parse("2015-12-22");
-                DateTime endTime = DateTime.Parse("2016-1-4");
+                DateTime endTime = DateTime.Parse("2016-1-14");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
-                    int actId = 3;
+                    int actId = 4;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
