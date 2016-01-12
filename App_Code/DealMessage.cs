@@ -598,7 +598,22 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { xiaoXin1, xiaoXin2 };
 
                 break;
+            case "真爱":
+                RepliedMessage.news zhenAi1 = new RepliedMessage.news();
+                zhenAi1.title = "【微课堂】回顾：给孩子一个真爱的世界0112（上）";
+                zhenAi1.description = "【微课堂】回顾：给孩子一个真爱的世界0112（上）";
+                zhenAi1.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUx1XnOMDXSuT7wUJkicRLQTWnqnKaCyMlBsKoR0CicaNMIbUtRKDIfLHYQF0LsIwohT0UJW8jJ0uQg/0?wx_fmt=jpeg";
+                zhenAi1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403415400&idx=3&sn=6fddcdeb3dc615421f779930ea28b7a2#rd";
 
+                RepliedMessage.news zhenAi2 = new RepliedMessage.news();
+                zhenAi2.title = "【微课堂】回顾：给孩子一个真爱的世界0112（下）";
+                zhenAi2.description = "【微课堂】回顾：给孩子一个真爱的世界0112（下）";
+                zhenAi2.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUx1XnOMDXSuT7wUJkicRLQTWnqnKaCyMlBsKoR0CicaNMIbUtRKDIfLHYQF0LsIwohT0UJW8jJ0uQg/0?wx_fmt=jpeg";
+                zhenAi2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403415400&idx=4&sn=846efb13d1f95ca3a5631e9514c01362#rd";
+
+                repliedMessage.newsContent = new RepliedMessage.news[] { zhenAi1, zhenAi2 };
+
+                break;
             case "微课":
             case "微课堂":
                 GroupMaster groupMasterWeikeTang = GroupMaster.CreateNew(repliedMessage.to.Trim());
