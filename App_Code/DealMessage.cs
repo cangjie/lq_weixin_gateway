@@ -120,6 +120,10 @@ public class DealMessage
                // repliedMessage.newsContent[0].url = "http://mall.luqinwenda.com/Activity_bj.aspx?fromsource=subscribe&preopenid=" + receivedMessage.from.Trim() + "&openid=" + receivedMessage.from.Trim() + "&source=1";
                // repliedMessage.newsContent[0].url = "http://www.luqinwenda.com";
                 break;
+            case "HEZUO":
+                repliedMessage.type = "text";
+                repliedMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！";
+                break;
             default:
                 break;
         }
