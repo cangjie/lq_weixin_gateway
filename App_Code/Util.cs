@@ -27,7 +27,7 @@ public class Util
 
     protected static string token = "";
 
-    protected static DateTime tokenTime = DateTime.MinValue;
+    public static DateTime tokenTime = DateTime.MinValue;
 
     public static string conStr = "";
 

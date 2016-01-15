@@ -357,7 +357,7 @@ public class ReceivedMessage
         }
         catch(Exception err)
         {
-            File.AppendAllText(@"c:\sqlerr.txt", err.ToString() + "\r\n" + sqlStr + "\r\n");
+            File.AppendAllText(@"d:\sqlerr.txt", err.ToString() + "\r\n" + sqlStr + "\r\n");
         }
         conn.Close();
         cmd.Dispose();
