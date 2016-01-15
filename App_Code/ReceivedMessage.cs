@@ -351,7 +351,14 @@ public class ReceivedMessage
         SqlCommand cmd = new SqlCommand(sqlStr, conn);
         conn.Open();
         int i = 0;
-        i = cmd.ExecuteNonQuery();
+        try
+        {
+            i = cmd.ExecuteNonQuery();
+        }
+        catch(Exception err)
+        {
+            File.AppendAllText(@"c:\sqlerr.txt", err.ToString() + "\r\n" + sqlStr + "\r\n");
+        }
         conn.Close();
         cmd.Dispose();
         conn.Dispose();
