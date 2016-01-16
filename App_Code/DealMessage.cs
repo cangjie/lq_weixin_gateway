@@ -616,6 +616,7 @@ public class DealMessage
                 break;
             case "微课":
             case "微课堂":
+            case "中国教育报":
                 GroupMaster groupMasterWeikeTang = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCodeWeikeTang = "B" + groupMasterWeikeTang.ID.ToString().PadLeft(6, '0');
 
