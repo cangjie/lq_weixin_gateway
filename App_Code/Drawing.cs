@@ -37,14 +37,14 @@ public class Drawing
     {
         string award = "";
         int seed = (new Random()).Next(0, 100);
-        if (seed < 20)
+        if (seed < 33)
         {
             Coupon coupon = Coupon.AddCoupon(500);
             award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
         }
         else
         {
-            if (seed < 50)
+            if (seed < 66)
             {
                 Coupon coupon = Coupon.AddCoupon(1000);
                 award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();

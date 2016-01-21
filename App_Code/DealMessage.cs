@@ -545,13 +545,14 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2, xinXinMessage3 };
 
                 break;
-            
             case "读书卡":
+            case "抽奖":
+            case "中国教育报":
                 DateTime startTime = DateTime.Parse("2015-12-22");
-                DateTime endTime = DateTime.Parse("2016-1-14");
+                DateTime endTime = DateTime.Parse("2016-1-23");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
-                    int actId = 4;
+                    int actId = 5;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
@@ -616,7 +617,7 @@ public class DealMessage
                 break;
             case "微课":
             case "微课堂":
-            case "中国教育报":
+            //case "中国教育报":
                 GroupMaster groupMasterWeikeTang = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCodeWeikeTang = "B" + groupMasterWeikeTang.ID.ToString().PadLeft(6, '0');
 

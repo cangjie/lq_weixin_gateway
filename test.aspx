@@ -20,7 +20,17 @@
         xmlD.LoadXml(xmlStr);
         xmlStr = xmlD.InnerXml.Trim();
 
+
+        System.Security.Cryptography.X509Certificates.X509CertificateCollection cerArr
+            = new System.Security.Cryptography.X509Certificates.X509CertificateCollection();
+        System.Security.Cryptography.X509Certificates.X509Certificate cer
+            = new System.Security.Cryptography.X509Certificates.X509Certificate(Server.MapPath("cer/client.crt"));
+
+        cerArr.Add(cer);
+        
+        
         HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://121.8.124.249:19210/syn10086");
+        req.ClientCertificates = cerArr;
         req.ContentType = "text/xml;charset=gbk";
         req.Method = "post";
         // 开始请求
