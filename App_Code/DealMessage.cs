@@ -183,10 +183,10 @@ public class DealMessage
 
                   
                     newsArr[1] = new RepliedMessage.news();
-                    newsArr[1].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjQ6zKJfYlNZEqaqsYCpngSNoJNkQaat5EGfribcXnUoEVibgAwdzxlT3w/0?wx_fmt=jpeg";
+                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/dingyue/images/weike_review.jpg";
                     newsArr[1].title = "【卢勤和她的朋友们微课堂】精彩微课回顾";
                     newsArr[1].description = "【卢勤和她的朋友们微课堂】精彩微课回顾";
-                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402860995&idx=2&sn=e280fe151147a4a27d0a377815427d9c#rd";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403626135&idx=2&sn=0b8e5f4b7ed076cb6f13f8b2e830cafa#rd";
                     
                    
                     newsArr[2] = new RepliedMessage.news();
@@ -196,10 +196,10 @@ public class DealMessage
                     newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402860995&idx=3&sn=d76829cb64c7e1911d10abec2c0eb328#rd";
 
                     newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUhS5ice0CpZZ6BpVIscFXDjc6IOWSkyxFztUPgf6MPJsu6oIJaoeVZS5pNtLely7wXn23WvEdiaOIg/0?wx_fmt=jpeg";
-                    newsArr[3].title = "【活动】“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[3].description = "【活动】“我要学演说” 少年口才培训火热征募中……";
-                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402859079&idx=1&sn=2ef5a37e2857b5f9f17d384e2ad9df55#rd";
+                    newsArr[3].picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbWZLfC69wgw7ZLibpAfgy6BYSGwSP5qW2U6994PKpf9c57FVGEiaNibb69Ieoz2ad6znQxqNAdmwnPDA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+                    newsArr[3].title = "卢勤老师亲著图书介绍";
+                    newsArr[3].description = "卢勤老师亲著图书介绍";
+                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403298213&idx=1&sn=0f898ed502192048fff893dc2cdb7b14#rd";
 
 
                     repliedMessage.newsContent = newsArr;
@@ -722,14 +722,14 @@ public class DealMessage
 
                 RepliedMessage.news createMessage1 = new RepliedMessage.news();
                 createMessage1.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbVicgKQUbubAibd9l2ic2P1K9InTjHeiaRBicgjLCkhs04fic6XCibl4XK95oBlq0ibRLAClREl7Ak5ruPmQg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-                createMessage1.title = "【微课堂】回顾：点燃孩子的创造力0121（上）";
-                createMessage1.description = "【微课堂】回顾：点燃孩子的创造力0121（上）";
+                createMessage1.title = "【微课堂】回顾：点燃孩子的创造力0121（程淮老师）";
+                createMessage1.description = "【微课堂】回顾：点燃孩子的创造力0121（程淮老师）";
                 createMessage1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403626135&idx=2&sn=0b8e5f4b7ed076cb6f13f8b2e830cafa#rd";
 
                 RepliedMessage.news createMessage2 = new RepliedMessage.news();
                 createMessage2.picUrl = "http://weixin.luqinwenda.com/dingyue/images/weike_review.jpg";
-                createMessage2.title = "【微课堂】回顾：点燃孩子的创造力0121（下）";
-                createMessage2.description = "【微课堂】回顾：点燃孩子的创造力0121（下）";
+                createMessage2.title = "【微课堂】回顾：点燃孩子的创造力0121（卢勤老师）";
+                createMessage2.description = "【微课堂】回顾：点燃孩子的创造力0121（卢勤老师）";
                 createMessage2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403626135&idx=3&sn=714c8d76ef7991df7712c03433694146#rd";
 
                 repliedMessage.newsContent = new RepliedMessage.news[] { createMessage1, createMessage2 };
