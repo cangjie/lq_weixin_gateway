@@ -727,7 +727,7 @@ public class DealMessage
                 createMessage1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403626135&idx=2&sn=0b8e5f4b7ed076cb6f13f8b2e830cafa#rd";
 
                 RepliedMessage.news createMessage2 = new RepliedMessage.news();
-                createMessage2.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbVicgKQUbubAibd9l2ic2P1K9InTjHeiaRBicgjLCkhs04fic6XCibl4XK95oBlq0ibRLAClREl7Ak5ruPmQg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+                createMessage2.picUrl = "http://weixin.luqinwenda.com/dingyue/images/weike_review.jpg";
                 createMessage2.title = "【微课堂】回顾：点燃孩子的创造力0121（下）";
                 createMessage2.description = "【微课堂】回顾：点燃孩子的创造力0121（下）";
                 createMessage2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403626135&idx=3&sn=714c8d76ef7991df7712c03433694146#rd";
