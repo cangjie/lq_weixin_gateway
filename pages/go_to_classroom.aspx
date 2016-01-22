@@ -30,7 +30,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        token : <%=Session["token"] %>
+        token : <%=Session["user_token"] %>
     </div>
     </form>
 </body>
