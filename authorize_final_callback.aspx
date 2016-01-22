@@ -84,7 +84,7 @@
         else
             callBack = callBack + "?token=" + token.Trim();
         Response.Write(callBack.Trim());
-        Response.Redirect(callBack);
+       // Response.Redirect(callBack);
     }
 </script>
 
