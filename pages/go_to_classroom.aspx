@@ -16,10 +16,7 @@
         }
 
         if (Request["token"] != null)
-            Session["user_token"] = Util.GetSafeRequestValue(Request, "token", "");
-        
-        
-        
+            Session["user_token"] = Util.GetSafeRequestValue(Request, "token", ""); 
     }
 </script>
 
