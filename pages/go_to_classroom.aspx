@@ -10,7 +10,7 @@
     {
         string callBack = Server.UrlEncode("dingyue/pages/go_to_classroom.aspx?dingyue_open_id=" 
             + Util.GetSafeRequestValue(Request, "dingyue_open_id", ""));
-        if ((Session["user_token"] == null || Session["user_token"].ToString().Trim().Equals("")) && Request["token"] == null )
+        if (Session["user_token"] == null || Session["user_token"].ToString().Trim().Equals("") || Request["token"] == null)
         {
             Response.Redirect("../../authorize_final.aspx?callback=" + callBack, true);
         }
@@ -30,7 +30,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        token : <%=Session["token"] %>
+        token : <%=Session["user_token"] %>
     </div>
     </form>
 </body>
