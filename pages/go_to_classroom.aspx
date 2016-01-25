@@ -17,7 +17,7 @@
         if (Request["token"] != null)
         {
             Session["user_token"] = Util.GetSafeRequestValue(Request, "token", "");
-           int userId =  Users.CheckToken(Session["user_token"].ToString());
+           int userId =  WeixinUser.Users.CheckToken(Session["user_token"].ToString());
            //Users users = new Users(userId);
             //DBHelper.up
 
