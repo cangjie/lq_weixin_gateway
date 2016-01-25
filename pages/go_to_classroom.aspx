@@ -22,6 +22,9 @@
         if (Request["token"] != null)
         {
             Session["user_token"] = Util.GetSafeRequestValue(Request, "token", "");
+        }
+        if (Session["user_token"] != null && !Session["user_token"].ToString().Trim().Equals(""))
+        {
            int userId = Users.CheckToken(Session["user_token"].ToString());
            //Users users = new Users(userId);
             //DBHelper.up
@@ -42,7 +45,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        token : <%=Session["user_token"] %>
+        token : <%=Session["user_token"] %><br />
         dingyue:<%=dingyueOpenId %>
     </div>
     </form>
