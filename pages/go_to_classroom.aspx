@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" %>
-
+<%@ Import Namespace="WeixinUser" %>
 <!DOCTYPE html>
 
 <script runat="server">
