@@ -6,10 +6,12 @@
 
     public string token = "";
 
+    public string dingyueOpenId = "";
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        int userIdTest = Users.CheckToken("aaaaa");
+       
         
         string callBack = Server.UrlEncode("dingyue/pages/go_to_classroom.aspx?dingyue_open_id=" 
             + Util.GetSafeRequestValue(Request, "dingyue_open_id", ""));
@@ -24,7 +26,9 @@
            //Users users = new Users(userId);
             //DBHelper.up
 
-           string[,] updateParameter = { { "dingyue_openid", "varchar", Util.GetSafeRequestValue(Request, "dingyue_openid", "") } };
+           dingyueOpenId = Util.GetSafeRequestValue(Request, "dingyue_openid", "");
+
+           string[,] updateParameter = { { "dingyue_openid", "varchar", dingyueOpenId.Trim() } };
             string[,] keyPatameter = {{"uid", "int", userId.ToString()}};
             DBHelper.UpdateData("m_user", updateParameter, keyPatameter, Util.ConnectionStringMall);
         }
@@ -39,6 +43,7 @@
     <form id="form1" runat="server">
     <div>
         token : <%=Session["user_token"] %>
+        dingyue:<%=dingyueOpenId %>
     </div>
     </form>
 </body>
