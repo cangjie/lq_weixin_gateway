@@ -15,7 +15,16 @@
             Response.Redirect("../../authorize_final.aspx?callback=" + callBack, true);
         }
         if (Request["token"] != null)
-            Session["user_token"] = Util.GetSafeRequestValue(Request, "token", ""); 
+        {
+            Session["user_token"] = Util.GetSafeRequestValue(Request, "token", "");
+           int userId =  Users.CheckToken(Session["user_token"].ToString());
+           //Users users = new Users(userId);
+            //DBHelper.up
+
+           string[,] updateParameter = { { "dingyue_openid", "varchar", Util.GetSafeRequestValue(Request, "dingyue_openid", "") } };
+            string[,] keyPatameter = {{"uid", "int", userId.ToString()}};
+            DBHelper.UpdateData("m_user", updateParameter, keyPatameter, Util.ConnectionStringMall);
+        }
     }
 </script>
 
