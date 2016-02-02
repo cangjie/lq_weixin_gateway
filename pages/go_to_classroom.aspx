@@ -50,7 +50,7 @@
     </div>
     </form>
     <script type="text/javascript" >
-        window.location.href = "http://game.luqinwenda.com/wktChat/wktList.aspx?roomid=1&token=<%=token%>";
+        window.location.href = "http://game.luqinwenda.com/wktChat/wktList.aspx?roomid=1&token=<%=Session["user_token"]%>";
     </script>
 </body>
 </html>
