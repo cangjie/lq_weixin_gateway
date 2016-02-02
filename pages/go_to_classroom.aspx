@@ -34,6 +34,8 @@
            string[,] updateParameter = { { "dingyue_openid", "varchar", dingyueOpenId.Trim() } };
             string[,] keyPatameter = {{"uid", "int", userId.ToString()}};
             DBHelper.UpdateData("m_user", updateParameter, keyPatameter, Util.ConnectionStringMall);
+
+            Response.Redirect("http://game.luqinwenda.com/wktChat/wktList.aspx?roomid=1&token=" + Session["user_token"].ToString(), true);
         }
     }
 </script>
