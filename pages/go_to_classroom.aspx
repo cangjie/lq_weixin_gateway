@@ -49,5 +49,8 @@
         dingyue:<%=dingyueOpenId %>
     </div>
     </form>
+    <script type="text/javascript" >
+        window.location.href = "http://game.luqinwenda.com/wktChat/wktList.aspx?roomid=1&token=<%=token%>";
+    </script>
 </body>
 </html>
