@@ -731,7 +731,7 @@ public class DealMessage
                 createMessage2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403626135&idx=3&sn=714c8d76ef7991df7712c03433694146#rd";
                 repliedMessage.newsContent = new RepliedMessage.news[] { createMessage1, createMessage2 };
                 break;
-            case "听课":
+            case "未来你好":
 
                 repliedMessage.type = "text";
                 repliedMessage.content = "http://weixin.luqinwenda.com/dingyue/pages/go_to_classroom.aspx?dingyue_openid=" + receivedMessage.from;
