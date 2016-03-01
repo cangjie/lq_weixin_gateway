@@ -134,7 +134,15 @@ public class DealMessage
 
                 System.Threading.Thread.Sleep(500);
 
-                repliedMessage.type = "image";
+                RepliedMessage imageMessage = new RepliedMessage();
+                imageMessage.from = receivedMessage.to;
+                imageMessage.to = receivedMessage.from;
+                imageMessage.type = "image";
+                imageMessage.mediaId = qrXuMediaId.Trim();
+                imageMessage.SendAsServiceMessage();
+
+
+                repliedMessage.type = "";
                 repliedMessage.mediaId = qrXuMediaId;
                 //repliedMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！";
                 break;
