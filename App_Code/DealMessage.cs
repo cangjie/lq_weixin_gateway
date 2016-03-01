@@ -121,8 +121,22 @@ public class DealMessage
                // repliedMessage.newsContent[0].url = "http://www.luqinwenda.com";
                 break;
             case "HEZUO":
-                repliedMessage.type = "text";
-                repliedMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！";
+
+                string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
+                    + "\\qr_xu.jpg", Util.GetToken());
+
+                RepliedMessage textMessage = new RepliedMessage();
+                textMessage.from = receivedMessage.to;
+                textMessage.to = receivedMessage.from;
+                textMessage.type = "text";
+                textMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！您也可以扫描以下二维码和旭老师联系。";
+                textMessage.SendAsServiceMessage();
+
+                System.Threading.Thread.Sleep(500);
+
+                repliedMessage.type = "image";
+                repliedMessage.mediaId = qrXuMediaId;
+                //repliedMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！";
                 break;
             default:
                 break;
