@@ -129,7 +129,7 @@ public class DealMessage
                 textMessage.from = receivedMessage.to;
                 textMessage.to = receivedMessage.from;
                 textMessage.type = "text";
-                textMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！您也可以扫描以下二维码和旭老师联系。";
+                textMessage.content = qrXuMediaId+"您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！您也可以扫描以下二维码和旭老师联系。";
                 textMessage.SendAsServiceMessage();
 
                 System.Threading.Thread.Sleep(500);
