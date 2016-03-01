@@ -196,7 +196,7 @@ public class DealMessage
                     newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=3&sn=76ce5ed22f81bc384d749ffbf39b0594#rd";
 
                     newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/tshu.jpg";
+                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/tushu.jpg";
                     newsArr[3].title = "卢勤老师亲著图书介绍";
                     newsArr[3].description = "卢勤老师亲著图书介绍";
                     newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=4&sn=11e7c46abdd6b8da9219838919693bf9#rd";
