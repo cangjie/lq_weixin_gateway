@@ -129,7 +129,7 @@ public class DealMessage
                 textMessage.from = receivedMessage.to;
                 textMessage.to = receivedMessage.from;
                 textMessage.type = "text";
-                textMessage.content = qrXuMediaId+"您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！您也可以扫描以下二维码和旭老师联系。";
+                textMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！您也可以扫描以下二维码和旭老师联系。";
                 textMessage.SendAsServiceMessage();
 
                 System.Threading.Thread.Sleep(500);
@@ -687,7 +687,7 @@ public class DealMessage
 
 
                 break;
-
+/*
             case "申请转播群":
 
                 GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim(),1);
@@ -729,6 +729,7 @@ public class DealMessage
 
 
                 break;
+ */ 
             case "g":
                 string replyGameContent = receivedMessage.content.Trim();
                 int gameId = int.Parse(replyGameContent.Trim().Remove(0,1));
@@ -765,6 +766,32 @@ public class DealMessage
                 repliedMessage.content = "http://weixin.luqinwenda.com/dingyue/pages/go_to_classroom.aspx?dingyue_openid=" + receivedMessage.from;
 
 
+                break;
+            case "合作":
+            case "转播":
+            case "合作转播":
+                string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
+                    + "\\qr_xu.jpg", Util.GetToken());
+
+                RepliedMessage textMessage = new RepliedMessage();
+                textMessage.from = receivedMessage.to;
+                textMessage.to = receivedMessage.from;
+                textMessage.type = "text";
+                textMessage.content = "您好，如果您有微课堂合作转播的需求，请联系长按识别以下二维码，微信联系旭老师。";
+                textMessage.SendAsServiceMessage();
+
+                System.Threading.Thread.Sleep(500);
+
+                RepliedMessage imageMessage = new RepliedMessage();
+                imageMessage.from = receivedMessage.to;
+                imageMessage.to = receivedMessage.from;
+                imageMessage.type = "image";
+                imageMessage.mediaId = qrXuMediaId.Trim();
+                imageMessage.SendAsServiceMessage();
+
+
+                repliedMessage.type = "";
+                repliedMessage.mediaId = qrXuMediaId;
                 break;
             default:
                 break;
