@@ -662,7 +662,7 @@ public class DealMessage
 
                 try
                 {
-                    string mediaIdWeikeTang = "jkDwLtjvN7B4GqgvdQYtlKOsEZYrnsR2usaNwoHqsg_SWZgNa1g5FNvpFidCtS2B";
+                    string mediaIdWeikeTang = "ii3q2XSK1fygLgPXX5Rs3kUHOpe72PKg7yIjtxaaMeK_jdcbM30SLveZwBxtK0GX";
                     RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
                     xiaoZhuShouQrcodeReplymessageTang.type = "image";
                     xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
