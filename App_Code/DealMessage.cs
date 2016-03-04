@@ -576,6 +576,9 @@ public class DealMessage
             case "读书卡":
             case "抽奖":
             case "中国教育报":
+                repliedMessage.type = "text";
+                repliedMessage.content = "我们的抽奖活动已经结束。";
+                /*
                 DateTime startTime = DateTime.Parse("2015-12-22");
                 DateTime endTime = DateTime.Parse("2016-1-23");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
@@ -590,6 +593,7 @@ public class DealMessage
                     drawing.description = "为答谢广大家长对“卢勤和她的朋友们微课堂”的厚爱和大力支持，卢勤老师邀您参加书城读书活动！请领取您的专属读书卡！多读书，读好书，让您的孩子发现阅读的乐趣！";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
+                 */ 
                 break;
             case "平安":
                 repliedMessage.type = "news";
@@ -642,6 +646,15 @@ public class DealMessage
 
                 repliedMessage.newsContent = new RepliedMessage.news[] { zhenAi1, zhenAi2 };
 
+                break;
+            case "人才":
+                RepliedMessage.news renCai = new RepliedMessage.news();
+                renCai.title = "微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
+                renCai.description = "微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
+                renCai.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbUKMZiciaficqqibia6hcdXl9oQ8p9g2D6LeIX1MZ29agib7DJ5f0rhESNCBMuuTH4qL0ObGSE6hiasZEZhg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+                renCai.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404944624&idx=1&sn=f8818dc2a96761f08100af2b3160b5f8#rd";
+                repliedMessage.type = "news";
+                repliedMessage.newsContent = new RepliedMessage.news[] { renCai };
                 break;
             case "微课":
             case "微课堂":
