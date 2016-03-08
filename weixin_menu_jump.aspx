@@ -14,7 +14,7 @@
                 jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403387018&idx=2&sn=ce2982e4d8024ad6ac21e2f2ed960a8b#rd";
                 break;
             case 23:
-                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404944624&idx=1&sn=f8818dc2a96761f08100af2b3160b5f8#rd";
+                jumpUrl = "https://mp.weixin.qq.com/cgi-bin/appmsg?begin=10&count=10&t=media/appmsg_list2&type=10&action=list_card&token=1518177255&lang=zh_CN";
                 break;
             case 31:
                 jumpUrl = "http://game.luqinwenda.com/dingyue/Default.aspx";
