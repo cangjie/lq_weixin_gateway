@@ -11,10 +11,10 @@
                 jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405128253&idx=1&sn=d56b08ebdbf1cf37c84cca58a5d95311#rd";
                 break;
             case 22:
-                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403387018&idx=2&sn=ce2982e4d8024ad6ac21e2f2ed960a8b#rd";
+                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=2&sn=ae0c64da8d02002e0172303c1625ca21#rd";
                 break;
             case 23:
-                jumpUrl = "https://mp.weixin.qq.com/cgi-bin/appmsg?begin=10&count=10&t=media/appmsg_list2&type=10&action=list_card&token=1518177255&lang=zh_CN";
+                jumpUrl = "https://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=2&sn=ae0c64da8d02002e0172303c1625ca21&key=710a5d99946419d9153b41dae430268d7f0c716563569d79e7564acce355e15f1bedd227b4e8f0df534d2a022174ee03&ascene=0&uin=ODk3MzEzNzY0&devicetype=iMac+MacBookAir6%2C2++10.11.3+build(15D21)&version=11020201&pass_ticket=DoDG0KgnLvpaAOSrBmhxd3SMBHuQd4FEkfvqq280WqukFe898MHexipdePVFLLAq";
                 break;
             case 31:
                 jumpUrl = "http://game.luqinwenda.com/dingyue/Default.aspx";
