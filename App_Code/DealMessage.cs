@@ -649,12 +649,21 @@ public class DealMessage
                 break;
             case "人才":
                 RepliedMessage.news renCai = new RepliedMessage.news();
-                renCai.title = "微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
-                renCai.description = "微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
+                renCai.title = "【微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
+                renCai.description = "【微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
                 renCai.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbUKMZiciaficqqibia6hcdXl9oQ8p9g2D6LeIX1MZ29agib7DJ5f0rhESNCBMuuTH4qL0ObGSE6hiasZEZhg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
                 renCai.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404944624&idx=1&sn=f8818dc2a96761f08100af2b3160b5f8#rd";
                 repliedMessage.type = "news";
                 repliedMessage.newsContent = new RepliedMessage.news[] { renCai };
+                break;
+            case "目标":
+                RepliedMessage.news target = new RepliedMessage.news();
+                target.title = "【微课堂】回顾：卢勤-心灵的成长需要目标0308";
+                target.description = "【微课堂】回顾：卢勤-心灵的成长需要目标0308";
+                target.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbXfdrbCVI3MGfMmtwwk1aGIWy4nHsp5mLPcqCa99IdLwfGcDRVPGv8Y4ibpakk6R6geiby5nXqLt1UQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
+                target.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405127063&idx=1&sn=2a63a852b07a563176f251261e4c1123#rd";
+                repliedMessage.type = "news";
+                repliedMessage.newsContent = new RepliedMessage.news[] { target };
                 break;
             case "微课":
             case "微课堂":
