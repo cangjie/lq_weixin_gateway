@@ -8,7 +8,7 @@
         switch (id)
         { 
             case 21:
-                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405128253&idx=1&sn=d56b08ebdbf1cf37c84cca58a5d95311#rd";
+                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404799164&idx=1&sn=0c3db5b778a73fcebbcd3464499d752d#rd";
                 break;
             case 22:
                 jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=2&sn=ae0c64da8d02002e0172303c1625ca21#rd";
