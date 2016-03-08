@@ -28,5 +28,6 @@
             default:
                 break;
         }
+        Response.Redirect(jumpUrl, true);
     }
 </script>
