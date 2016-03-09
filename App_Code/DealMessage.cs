@@ -816,9 +816,71 @@ public class DealMessage
                 repliedMessage.mediaId = qrXuMediaId;
                 break;
             default:
+                repliedMessage = BuildMessageByKeyword(repliedMessage, command.Trim());
                 break;
         }
         return repliedMessage;
+    }
+
+
+    public static RepliedMessage BuildMessageByKeyword(RepliedMessage message, string keyword)
+    {
+        DataTable dtAllMessages = DBHelper.GetDataTable(" select * from weixin_reply_message order by sort , [id]  ", Util.conStr);
+        DataTable dtReadyToBuild = dtAllMessages.Clone();
+
+        foreach (DataRow drAllMessages in dtAllMessages.Rows)
+        {
+            string[] keyWordsArray = drAllMessages["keywords"].ToString().Trim().Split(',');
+            bool keyWordIsMatch = false;
+            foreach (string keywordToBeMatch in keyWordsArray)
+            { 
+                if (keywordToBeMatch.Trim().Equals(keyword))
+                {
+                    keyWordIsMatch = true;
+                    break;
+                }
+            }
+            if (keyWordIsMatch)
+            {
+                DataRow drReadyToBuild = dtReadyToBuild.NewRow();
+                foreach(DataColumn c in dtReadyToBuild.Columns)
+                {
+                    drReadyToBuild[c] = drAllMessages[c.Caption.Trim()];
+                }
+                dtReadyToBuild.Rows.Add(drReadyToBuild);
+            }
+        }
+
+        if (dtReadyToBuild.Rows.Count == 1)
+        {
+            message.type = dtReadyToBuild.Rows[0]["type"].ToString();
+        }
+        else
+        {
+            message.type = "news";
+        }
+
+        switch (message.type.Trim())
+        { 
+            case "news":
+            default:
+                RepliedMessage.news[] newsArray = new RepliedMessage.news[dtReadyToBuild.Rows.Count];
+                for (int i = 0; i < dtReadyToBuild.Rows.Count; i++)
+                {
+                    newsArray[i] = new RepliedMessage.news();
+                    newsArray[i].title = dtReadyToBuild.Rows[i]["title"].ToString().Trim();
+                    newsArray[i].description = dtReadyToBuild.Rows[i]["memo"].ToString().Trim();
+                    newsArray[i].picUrl = dtReadyToBuild.Rows[i]["image_url"].ToString().Trim();
+                    newsArray[i].url = dtReadyToBuild.Rows[i]["target_url"].ToString().Trim();
+
+                }
+                message.newsContent = newsArray;
+                break;
+        }
+
+
+        return message;
+    
     }
 
     public static RepliedMessage CreateQrCodeReplyMessage(ReceivedMessage receivedMessage, RepliedMessage repliedMessage)
