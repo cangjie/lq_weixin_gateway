@@ -575,9 +575,9 @@ public class DealMessage
                 break;
             case "读书卡":
             case "抽奖":
-            case "中国教育报":
-                repliedMessage.type = "text";
-                repliedMessage.content = "我们的抽奖活动已经结束。";
+            //case "中国教育报":
+                //repliedMessage.type = "text";
+                //repliedMessage.content = "我们的抽奖活动已经结束。";
                 /*
                 DateTime startTime = DateTime.Parse("2015-12-22");
                 DateTime endTime = DateTime.Parse("2016-1-23");
@@ -594,7 +594,7 @@ public class DealMessage
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
                  */ 
-                break;
+                //break;
             case "平安":
                 repliedMessage.type = "news";
                 RepliedMessage.news pingAn1 = new RepliedMessage.news();
@@ -665,6 +665,7 @@ public class DealMessage
                 repliedMessage.type = "news";
                 repliedMessage.newsContent = new RepliedMessage.news[] { target };
                 break;
+            case "中国教育报":
             case "微课":
             case "微课堂":
             //case "中国教育报":
@@ -684,7 +685,7 @@ public class DealMessage
 
                 try
                 {
-                    string mediaIdWeikeTang = "ii3q2XSK1fygLgPXX5Rs3kUHOpe72PKg7yIjtxaaMeK_jdcbM30SLveZwBxtK0GX";
+                    string mediaIdWeikeTang = "a3G-2yxsHFd-k5qX4wJ1-2IKvwmf1UADPXe7_JIF2YBx1pwZioFntzzYV5RuS97Q";
                     RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
                     xiaoZhuShouQrcodeReplymessageTang.type = "image";
                     xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
