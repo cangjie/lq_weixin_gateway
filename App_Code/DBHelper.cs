@@ -21,13 +21,34 @@ public class DBHelper
     public static KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] ConvertStringArryToKeyValuePairArray(string[,] parameters)
     {
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parametersKeyValuePairArr
-            = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[parameters.Length];
-        for (int i = 0; i < parameters.Length; i++)
+            = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[parameters.Length / 3];
+        for (int i = 0; i < parameters.Length / 3; i++)
         {
             parametersKeyValuePairArr[i] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>(parameters[i, 0].Trim(),
                 new KeyValuePair<SqlDbType, object>(GetSqlDbType(parameters[i, 1].Trim()), (object)parameters[i, 2].Trim()));
         }
         return parametersKeyValuePairArr;
+    }
+
+    public static SqlDbType GetSqlDbType(string type)
+    {
+        SqlDbType sqlType;
+        switch (type.ToLower())
+        {
+            case "int":
+                sqlType = SqlDbType.Int;
+                break;
+            case "varchar":
+                sqlType = SqlDbType.VarChar;
+                break;
+            case "datetime":
+                sqlType = SqlDbType.DateTime;
+                break;
+            default:
+                sqlType = SqlDbType.VarChar;
+                break;
+        }
+        return sqlType;
     }
 
     public static int UpdateData(string tableName, string[,] updateParameters, string[,] keyParameters, string connectionString)
@@ -78,6 +99,11 @@ public class DBHelper
         return i;
     }
 
+    public static int DeleteData(string tableName, string[,] parameters, string connectionString)
+    {
+        return DeleteData(tableName, ConvertStringArryToKeyValuePairArray(parameters), connectionString);
+    }
+
     public static int DeleteData(string tableName, KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parameters, string connectionString)
     {
         if (parameters.Length == 0)
@@ -108,8 +134,6 @@ public class DBHelper
     {
         return InsertData(tableName, ConvertStringArryToKeyValuePairArray(parameters), connectionString);
     }
-
-
 
     public static int InsertData(string tableName, KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parameters, string connectionString)
     {
@@ -165,27 +189,5 @@ public class DBHelper
         da.Dispose();
         return dt;
     }
-
-    public static SqlDbType GetSqlDbType(string type)
-    {
-        SqlDbType sqlType;
-        switch (type.ToLower())
-        {
-            case "int":
-                sqlType = SqlDbType.Int;
-                break;
-            case "varchar":
-                sqlType = SqlDbType.VarChar;
-                break;
-            case "datetime":
-                sqlType = SqlDbType.DateTime;
-                break;
-            default:
-                sqlType = SqlDbType.VarChar;
-                break;
-        }
-        return sqlType;
-    }
-
 
 }
