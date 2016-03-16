@@ -16,6 +16,9 @@
             case 23:
                 jumpUrl = "https://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=2&sn=ae0c64da8d02002e0172303c1625ca21&key=710a5d99946419d9153b41dae430268d7f0c716563569d79e7564acce355e15f1bedd227b4e8f0df534d2a022174ee03&ascene=0&uin=ODk3MzEzNzY0&devicetype=iMac+MacBookAir6%2C2++10.11.3+build(15D21)&version=11020201&pass_ticket=DoDG0KgnLvpaAOSrBmhxd3SMBHuQd4FEkfvqq280WqukFe898MHexipdePVFLLAq";
                 break;
+            case 30:
+                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405506371&idx=1&sn=22c914fcc7ae5fbf8a5f621540c41c65#rd";
+                break;
             case 31:
                 jumpUrl = "http://game.luqinwenda.com/dingyue/Default.aspx";
                 break;
