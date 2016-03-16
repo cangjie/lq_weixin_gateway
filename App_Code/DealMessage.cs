@@ -247,6 +247,10 @@ public class DealMessage
         {
             command = "送书";
         }
+        if (inputString.Trim().IndexOf("微课") >= 0)
+        {
+            command = "微课";
+        }
         if ((inputString.Trim().IndexOf("营") >= 0) || (inputString.Trim().IndexOf("演讲") >= 0)
             || (inputString.Trim().IndexOf("演说") >= 0) || (inputString.Trim().IndexOf("新加坡") >= 0)
             || (inputString.Trim().IndexOf("文明") >= 0))
