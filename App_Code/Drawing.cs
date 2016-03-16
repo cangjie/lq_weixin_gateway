@@ -35,24 +35,70 @@ public class Drawing
 
     public static int NewDrawing(string openId, int actId)
     {
+
+        int numFannao = 0;
+        DataTable dtBook;
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numFannao = dtBook.Rows.Count;
+        dtBook.Dispose();
+
+
+        int numDanao = 0;
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '发掘孩子的大脑潜能' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numDanao = dtBook.Rows.Count;
+        dtBook.Dispose();
+
+
+
         string award = "";
         int seed = (new Random()).Next(0, 100);
-        if (seed < 33)
+        if (seed < 40)
         {
             Coupon coupon = Coupon.AddCoupon(500);
-            award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
+            award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
         }
         else
         {
-            if (seed < 66)
+            if (seed < 80)
             {
                 Coupon coupon = Coupon.AddCoupon(1000);
-                award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
+                award = "15元优惠券:" + coupon._fields["code"].ToString().Trim();
             }
             else
             {
-                Coupon coupon = Coupon.AddCoupon(1500);
-                award = "15元优惠券:" + coupon._fields["code"].ToString().Trim();
+                if (seed < 90)
+                {
+                    Coupon coupon = Coupon.AddCoupon(1500);
+                    award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
+                }
+                else
+                {
+                    if (seed < 95)
+                    {
+                        if (numDanao < 20)
+                        {
+                            award = "发掘孩子的大脑潜能";
+                        }
+                        else
+                        {
+                            Coupon coupon = Coupon.AddCoupon(1500);
+                            award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        }
+                    }
+                    else
+                    {
+                        if (numFannao < 20)
+                        {
+                            award = "和烦恼说再见";
+                        }
+                        else
+                        {
+                            Coupon coupon = Coupon.AddCoupon(1500);
+                            award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        }
+                    }
+
+                }
             }
         }
 

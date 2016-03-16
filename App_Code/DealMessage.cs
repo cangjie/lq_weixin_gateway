@@ -582,12 +582,12 @@ public class DealMessage
             //case "中国教育报":
                 //repliedMessage.type = "text";
                 //repliedMessage.content = "我们的抽奖活动已经结束。";
-                /*
-                DateTime startTime = DateTime.Parse("2015-12-22");
-                DateTime endTime = DateTime.Parse("2016-1-23");
+                
+                DateTime startTime = DateTime.Parse("2016-3-16");
+                DateTime endTime = DateTime.Parse("2016-3-18");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
-                    int actId = 5;
+                    int actId = 6;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
@@ -597,8 +597,8 @@ public class DealMessage
                     drawing.description = "为答谢广大家长对“卢勤和她的朋友们微课堂”的厚爱和大力支持，卢勤老师邀您参加书城读书活动！请领取您的专属读书卡！多读书，读好书，让您的孩子发现阅读的乐趣！";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
-                 */ 
-                //break;
+                 
+                break;
             case "平安":
                 repliedMessage.type = "news";
                 RepliedMessage.news pingAn1 = new RepliedMessage.news();
