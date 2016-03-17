@@ -581,6 +581,7 @@ public class DealMessage
 
                 break;
             case "读书卡":
+            case "礼物":
             case "抽奖":
             //case "中国教育报":
                 //repliedMessage.type = "text";
