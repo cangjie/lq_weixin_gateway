@@ -146,6 +146,9 @@ public class DealMessage
                 repliedMessage.mediaId = qrXuMediaId;
                 //repliedMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！";
                 break;
+            case "HUIGU":
+                repliedMessage = BuildMessageByKeyword(repliedMessage, "女儿");
+                break;
             default:
                 break;
         }
