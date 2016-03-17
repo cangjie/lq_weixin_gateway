@@ -23,7 +23,7 @@
                 jumpUrl = "http://game.luqinwenda.com/dingyue/Default.aspx";
                 break;
             case 32:
-                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404561527&idx=1&sn=30ca26b010856e8af05db2dc183a0522#rd";
+                jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405549793&idx=4&sn=bc7a1049128a075b81bf6f0f5692db0e#rd";
                 break;
             case 33:
                 jumpUrl = "http://mall.luqinwenda.com/default.aspx";
