@@ -256,7 +256,7 @@ public class DealMessage
         {
             command = "微课";
         }
-        if ((inputString.Trim().IndexOf("营") >= 0) || (inputString.Trim().IndexOf("演讲") >= 0)
+        if (((inputString.Trim().IndexOf("营") >= 0) && (inputString.Trim().IndexOf("营养") <= 0 )) || (inputString.Trim().IndexOf("演讲") >= 0)
             || (inputString.Trim().IndexOf("演说") >= 0) || (inputString.Trim().IndexOf("新加坡") >= 0)
             || (inputString.Trim().IndexOf("文明") >= 0))
         {
