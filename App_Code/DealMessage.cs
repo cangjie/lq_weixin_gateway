@@ -675,10 +675,11 @@ public class DealMessage
                 repliedMessage.type = "news";
                 repliedMessage.newsContent = new RepliedMessage.news[] { target };
                 break;
+            case "营养国":
             case "中国教育报":
             case "微课":
             case "微课堂":
-            case "营养国":
+            
             //case "中国教育报":
                 GroupMaster groupMasterWeikeTang = GroupMaster.CreateNew(repliedMessage.to.Trim());
                 string randGroupCodeWeikeTang = "B" + groupMasterWeikeTang.ID.ToString().PadLeft(6, '0');
