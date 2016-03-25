@@ -8,6 +8,8 @@ using System.Data;
 /// </summary>
 public class DealMessage
 {
+    public static string qrXiaozhushouMediaId = "";
+
 	public DealMessage()
 	{
 		//
@@ -691,9 +693,15 @@ public class DealMessage
                 //string token = Util.GetToken();
                 //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
 
+                if (qrXiaozhushouMediaId.Trim().Equals(""))
+                {
+                    qrXiaozhushouMediaId = Util.UploadImageToWeixin(@"D:\webs\weixin.luqinwenda.com\dingyue\images\xiaozhushou.jpg", Util.GetToken());
+                }
+
+
                 try
                 {
-                    string mediaIdWeikeTang = "a3G-2yxsHFd-k5qX4wJ1-2IKvwmf1UADPXe7_JIF2YBx1pwZioFntzzYV5RuS97Q";
+                    string mediaIdWeikeTang = qrXiaozhushouMediaId;
                     RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
                     xiaoZhuShouQrcodeReplymessageTang.type = "image";
                     xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
@@ -702,8 +710,16 @@ public class DealMessage
                     xiaoZhuShouQrcodeReplymessageTang.SendAsServiceMessage();
                 }
                 catch
-                { 
-                
+                {
+                    qrXiaozhushouMediaId = Util.UploadImageToWeixin(@"D:\webs\weixin.luqinwenda.com\dingyue\images\xiaozhushou.jpg", Util.GetToken());
+                    string mediaIdWeikeTang = qrXiaozhushouMediaId;
+                    RepliedMessage xiaoZhuShouQrcodeReplymessageTang = new RepliedMessage();
+                    xiaoZhuShouQrcodeReplymessageTang.type = "image";
+                    xiaoZhuShouQrcodeReplymessageTang.mediaId = mediaIdWeikeTang;
+                    xiaoZhuShouQrcodeReplymessageTang.from = receivedMessage.to;
+                    xiaoZhuShouQrcodeReplymessageTang.to = receivedMessage.from;
+                    xiaoZhuShouQrcodeReplymessageTang.SendAsServiceMessage();
+
                 }
                 System.Threading.Thread.Sleep(500);
 
