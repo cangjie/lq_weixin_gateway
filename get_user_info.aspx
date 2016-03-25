@@ -34,7 +34,7 @@
         conn.Close();
         cmd.Dispose();
 
-        if (updateTime < DateTime.Now.AddDays(-1))
+        if (updateTime < DateTime.Now.AddDays(-1) ||  json.IndexOf("nickname") < 0 )
         {
             string[,] keyValue = { { "openid", "varchar", openId } };
             DBHelper.DeleteData("weixin_user_info", keyValue, Util.conStr);
@@ -57,7 +57,7 @@
             //Response.Write(j);
 
 
-            if (json.IndexOf("errcode") < 0)
+            if (json.IndexOf("errcode") < 0 && json.IndexOf("nickname") >= 0 )
             {
 
                 cmd.CommandText = " insert into  weixin_user_info (openid,info_json) values (@openid,@json)";
