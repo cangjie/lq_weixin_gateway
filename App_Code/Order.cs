@@ -104,4 +104,20 @@ public class Order
         conn.Dispose();
         return i;
     }
+
+    public static Order GetOrderByOriginInfo(string body, int productId, int amount)
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from orders where order_body = '" + body.Trim().Replace("'", "") + "'  and "
+            + "  order_product_id = " + productId.ToString() + "  and order_total_fee = " + amount.ToString() + "  ", Util.conStr.Trim());
+        if (dt.Rows.Count > 0)
+        {
+            return new Order(dt.Rows[0][0].ToString());
+        }
+        else
+        {
+            return null;
+        }
+
+    }
+
 }
