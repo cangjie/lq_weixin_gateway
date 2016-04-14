@@ -704,6 +704,11 @@ public class Util
         return str;
     }
 
+    public static string GetWebContent(string url)
+    {
+        return GetWebContent(url, "get", "", "html/text");
+    }
+
     public static string GetWebContent(string url, string method, string content, string contentType)
     {
         HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
