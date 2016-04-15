@@ -468,11 +468,12 @@ public class DealMessage
 
                 texGroupMastertMessageW.from = receivedMessage.to;
                 texGroupMastertMessageW.to = receivedMessage.from;
-                texGroupMastertMessageW.SendAsServiceMessage();
+                //texGroupMastertMessageW.SendAsServiceMessage();
+
+                repliedMessage = texGroupMastertMessageW;
 
 
-
-
+                /*
                 repliedMessage.type = "news";
                 RepliedMessage.news inviteMessageW = new RepliedMessage.news();
                 inviteMessageW.title = "微课邀请函";
@@ -480,7 +481,7 @@ public class DealMessage
                 inviteMessageW.description = "微课邀请函";
                 inviteMessageW.url = url.Trim();
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageW };
-                
+                */
                 break;
             case "4":
                 /*
