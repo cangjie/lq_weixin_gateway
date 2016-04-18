@@ -35,7 +35,7 @@ public class Drawing
 
     public static int NewDrawing(string openId, int actId)
     {
-
+        /*
         int numFannao = 0;
         DataTable dtBook;
         dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
@@ -47,7 +47,7 @@ public class Drawing
         dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '发掘孩子的大脑潜能' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
         numDanao = dtBook.Rows.Count;
         dtBook.Dispose();
-
+        */
 
 
         string award = "";
@@ -66,11 +66,12 @@ public class Drawing
             }
             else
             {
-                if (seed < 90)
-                {
+                //if (seed < 90)
+                //{
                     Coupon coupon = Coupon.AddCoupon(1500);
                     award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
-                }
+                //}
+                /*
                 else
                 {
                     if (seed < 95)
@@ -99,6 +100,7 @@ public class Drawing
                     }
 
                 }
+                 * */
             }
         }
 

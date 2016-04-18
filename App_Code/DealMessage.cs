@@ -585,11 +585,11 @@ public class DealMessage
                 //repliedMessage.type = "text";
                 //repliedMessage.content = "我们的抽奖活动已经结束。";
                 
-                DateTime startTime = DateTime.Parse("2016-3-16");
-                DateTime endTime = DateTime.Parse("2016-3-18");
+                DateTime startTime = DateTime.Parse("2016-4-18");
+                DateTime endTime = DateTime.Parse("2016-4-19 12:00");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
-                    int actId = 6;
+                    int actId = 7;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
