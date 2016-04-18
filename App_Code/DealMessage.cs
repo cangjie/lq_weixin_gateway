@@ -578,6 +578,7 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2, xinXinMessage3 };
 
                 break;
+            case "天下女人":
             case "读书卡":
             case "礼物":
             case "抽奖":
