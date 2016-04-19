@@ -54,21 +54,21 @@ public class Drawing
         int seed = (new Random()).Next(0, 100);
         if (seed < 40)
         {
-            Coupon coupon = Coupon.AddCoupon(500);
+            Coupon coupon = Coupon.AddCoupon(1000);
             award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
         }
         else
         {
             if (seed < 80)
             {
-                Coupon coupon = Coupon.AddCoupon(1000);
+                Coupon coupon = Coupon.AddCoupon(1500);
                 award = "15元优惠券:" + coupon._fields["code"].ToString().Trim();
             }
             else
             {
                 //if (seed < 90)
                 //{
-                    Coupon coupon = Coupon.AddCoupon(1500);
+                    Coupon coupon = Coupon.AddCoupon(2000);
                     award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
                 //}
                 /*
