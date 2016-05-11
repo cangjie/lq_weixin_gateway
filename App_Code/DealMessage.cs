@@ -591,7 +591,7 @@ public class DealMessage
                 DateTime endTime = DateTime.Parse("2016-5-13 12:00");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
-                    int actId = 7;
+                    int actId = 8;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
