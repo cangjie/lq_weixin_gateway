@@ -66,6 +66,7 @@ public class Drawing
             }
             else
             {
+
                 if (seed == 80 && numPant < 12)
                 {
                     award = "朱林禾羽独家定制科学内衣（内裤）";
