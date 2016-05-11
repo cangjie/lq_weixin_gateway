@@ -35,72 +35,54 @@ public class Drawing
 
     public static int NewDrawing(string openId, int actId)
     {
-        /*
-        int numFannao = 0;
+        
+        int numBra = 0;
         DataTable dtBook;
-        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
-        numFannao = dtBook.Rows.Count;
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（文胸）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numBra = dtBook.Rows.Count;
         dtBook.Dispose();
 
 
-        int numDanao = 0;
-        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '发掘孩子的大脑潜能' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
-        numDanao = dtBook.Rows.Count;
+        int numPant = 0;
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（内裤）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numPant = dtBook.Rows.Count;
         dtBook.Dispose();
-        */
+        
 
 
         string award = "";
         int seed = (new Random()).Next(0, 100);
         if (seed < 40)
         {
-            Coupon coupon = Coupon.AddCoupon(500);
+            Coupon coupon = Coupon.AddCoupon(1000);
             award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
         }
         else
         {
             if (seed < 80)
             {
-                Coupon coupon = Coupon.AddCoupon(1000);
+                Coupon coupon = Coupon.AddCoupon(1500);
                 award = "15元优惠券:" + coupon._fields["code"].ToString().Trim();
             }
             else
             {
-                //if (seed < 90)
-                //{
-                    Coupon coupon = Coupon.AddCoupon(1500);
-                    award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
-                //}
-                /*
+                if (seed == 80 && numPant < 12)
+                {
+                    award = "朱林禾羽独家定制科学内衣（内裤）";
+                }
                 else
                 {
-                    if (seed < 95)
+                    if (seed == 90 && numBra < 5)
                     {
-                        if (numDanao < 20)
-                        {
-                            award = "发掘孩子的大脑潜能";
-                        }
-                        else
-                        {
-                            Coupon coupon = Coupon.AddCoupon(1500);
-                            award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
-                        }
+                        award = "朱林禾羽独家定制科学内衣（文胸）";
                     }
                     else
                     {
-                        if (numFannao < 20)
-                        {
-                            award = "和烦恼说再见";
-                        }
-                        else
-                        {
-                            Coupon coupon = Coupon.AddCoupon(1500);
-                            award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
-                        }
+                        Coupon coupon = Coupon.AddCoupon(2000);
+                        award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
                     }
-
                 }
-                 * */
+               
             }
         }
 
