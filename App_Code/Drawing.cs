@@ -36,7 +36,7 @@ public class Drawing
     public static int NewDrawing(string openId, int actId)
     {
         
-        int numBra = 0;
+        int numBra = 10;
         DataTable dtBook;
         dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（文胸）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
         numBra = dtBook.Rows.Count;
