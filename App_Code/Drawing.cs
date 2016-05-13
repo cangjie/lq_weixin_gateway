@@ -40,6 +40,7 @@ public class Drawing
         DataTable dtBook;
         dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（文胸）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
         numBra = dtBook.Rows.Count;
+	numBra = 10;
         dtBook.Dispose();
 
 
