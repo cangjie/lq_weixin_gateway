@@ -19,7 +19,7 @@
             + "&response_type=code&scope="+scope+"&state=1000#wechat_redirect";
         
         
-        
+        //Response.Write(redirectUrl);
         Response.Redirect(redirectUrl, true);
     }
 </script>

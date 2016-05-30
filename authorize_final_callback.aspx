@@ -31,6 +31,11 @@
                 + "&secret=" + System.Configuration.ConfigurationSettings.AppSettings["wxappsecret"].Trim()
                 + "&code=" + code + "&grant_type=authorization_code", "GET", "", "text/htm");
             JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+		
+
+
+
             Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(jsonStr);
             object openId;
             json.TryGetValue("openid", out openId);

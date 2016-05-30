@@ -20,6 +20,8 @@
     protected void Page_Load(object sender, EventArgs e)
     {
 
+	Response.Redirect("http://weiketang.streaming.mediaservices.chinacloudapi.cn/a0c34c3b-eefc-4238-91f7-3c0d8d7ad65d/992057c9-0e81-4afa-95df-33ab93449783.ism/Manifest(format=m3u8-aapl)",true);
+
 
         jsMD5Str = "appId=wx905b45631b024b9c&timeStamp=" + timeStamp.Trim() + "&nonceStr=" + nonceStr.Trim() + "&package=prepay_id=" + prepayId.Trim() + "&signType=SHA1";
         //string jsMD5Str = "appId=wx905b45631b024b9c&nonceStr=lcfndscnduapju9z6bxy52tznxrpfurr&package=prepay_id=wx20150214161922fb4f1f4c860428369837&signType=MD5&timeStamp=1423901962&key=jihuowangluoactivenetworkjarrodc";
