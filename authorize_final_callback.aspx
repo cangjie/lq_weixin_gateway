@@ -51,10 +51,13 @@
             
             }
 
-            Session["user_access_token"] = userAccessToken.ToString();
+            //Session["user_access_token"] = userAccessToken.ToString();
             
             openIdStr = openId.ToString().Trim();
 
+            Util.GetWebContent("http://weixin.luqinwenda.com/get_user_info.aspx?openid=" + openIdStr + "&accesstoken=" + userAccessToken);
+            
+            
         }
         catch
         { 

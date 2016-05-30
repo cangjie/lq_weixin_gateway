@@ -13,7 +13,8 @@
 
         string openId = ((Request["openid"] == null) ? "oqrMvt36Tp9hHcCVgkvqylmsbXRk" : Request["openid"].Trim().Replace("'", ""));
 
-
+        string userAccessToken = Util.GetSafeRequestValue(Request, "accesstoken", "");
+        
         SqlConnection conn = new SqlConnection(Util.conStr.Trim());
         SqlCommand cmd = new SqlCommand(" select info_json , update_time from weixin_user_info where openid = '" + openId.Trim()  +"'  ", conn);
 
@@ -58,7 +59,7 @@
             if (json.IndexOf("errcode") > 0 || json.IndexOf("nickname") < 0)
             {
                 req = (HttpWebRequest)WebRequest.Create("https://api.weixin.qq.com/sns/userinfo?access_token="
-                    + Session["user_access_token"].ToString() + "&openid=" + openId + "&lang=zh_CN");
+                    + userAccessToken.Trim() + "&openid=" + openId + "&lang=zh_CN");
                 res = (HttpWebResponse)req.GetResponse();
                 s = res.GetResponseStream();
                 sdr = new StreamReader(s);
