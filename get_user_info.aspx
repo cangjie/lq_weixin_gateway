@@ -54,6 +54,23 @@
             res.Close();
             req.Abort();
             json = j;
+
+            if (json.IndexOf("errcode") > 0 || json.IndexOf("nickname") < 0)
+            {
+                req = (HttpWebRequest)WebRequest.Create("https://api.weixin.qq.com/sns/userinfo?access_token="
+                    + Session["user_access_token"].ToString() + "&openid=" + openId + "&lang=zh_CN");
+                res = (HttpWebResponse)req.GetResponse();
+                s = res.GetResponseStream();
+                sdr = new StreamReader(s);
+                j = sdr.ReadToEnd();
+                sdr.Close();
+                s.Close();
+                res.Close();
+                req.Abort();
+                json = j;
+            }
+            
+            
             //Response.Write(j);
 
 

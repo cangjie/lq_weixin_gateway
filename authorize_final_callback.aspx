@@ -35,6 +35,19 @@
             object openId;
             json.TryGetValue("openid", out openId);
 
+            object userAccessToken = "";
+
+            try
+            {
+                json.TryGetValue("access_token", out userAccessToken);
+            }
+            catch
+            { 
+            
+            }
+
+            Session["user_access_token"] = userAccessToken.ToString();
+            
             openIdStr = openId.ToString().Trim();
 
         }
