@@ -40,7 +40,7 @@
             DBHelper.DeleteData("weixin_user_info", keyValue, Util.conStr);
         }
         
-        if (json.Trim().Equals("") && updateTime < DateTime.Now.AddDays(-1))
+        if ((json.Trim().Equals("") || json.IndexOf("nickname")<0) && updateTime < DateTime.Now.AddDays(-1))
         {
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://api.weixin.qq.com/cgi-bin/user/info?access_token="
