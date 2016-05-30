@@ -9,23 +9,16 @@
         string callBack = Util.GetSafeRequestValue(Request, "callback",
             ((Request.UrlReferrer==null) ? "" : Request.UrlReferrer.ToString().Trim()));
 
-        
+        string scope = Util.GetSafeRequestValue(Request, "scope", "snsapi_userinfo");
         
         string redirectUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" 
             + System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim()   
             + "&redirect_uri=" + Server.UrlEncode("http://"
-            //+ System.Configuration.ConfigurationSettings.AppSettings["domain_name"].Trim()
-            
             + "weixin.luqinwenda.com" 
-            
-            //+ "/authorize_callback.aspx?callback=" + Server.UrlEncode(callBack))
-
             + "/authorize_final_callback.aspx?callback=" + Server.UrlEncode(callBack))
-            
-            + "&response_type=code&scope=snsapi_base&state=1000#wechat_redirect";
+            + "&response_type=code&scope="+scope+"&state=1000#wechat_redirect";
         
         
-        //Response.Write("<a href='" + redirectUrl + "'  >"+redirectUrl + "</a><br/>"+callBack);
         
         Response.Redirect(redirectUrl, true);
     }
