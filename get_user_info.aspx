@@ -11,7 +11,7 @@
     {
         string token = Util.GetToken();
 
-        string openId = ((Request["openid"]==null)? "oqrMvt-Us9oUyRpmHttQKeKOdAA4" :  Request["openid"].Trim().Replace("'",""));
+        string openId = ((Request["openid"] == null) ? "oqrMvt36Tp9hHcCVgkvqylmsbXRk" : Request["openid"].Trim().Replace("'", ""));
 
 
         SqlConnection conn = new SqlConnection(Util.conStr.Trim());
@@ -34,13 +34,13 @@
         conn.Close();
         cmd.Dispose();
 
-        if (updateTime < DateTime.Now.AddDays(-1) ||  json.IndexOf("nickname") < 0 )
+        if (updateTime < DateTime.Now.AddDays(-1) || json.IndexOf("nickname") < 0 )
         {
             string[,] keyValue = { { "openid", "varchar", openId } };
             DBHelper.DeleteData("weixin_user_info", keyValue, Util.conStr);
         }
         
-        if (json.Trim().Equals("") && updateTime < DateTime.Now.AddDays(-1))
+        if ((json.Trim().Equals("") || json.IndexOf("nickname")<0) && updateTime < DateTime.Now.AddDays(-1))
         {
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://api.weixin.qq.com/cgi-bin/user/info?access_token="
@@ -57,7 +57,7 @@
             //Response.Write(j);
 
 
-            if (json.IndexOf("errcode") < 0 && json.IndexOf("nickname") >= 0 )
+            if (json.IndexOf("errcode") < 0  &&  json.IndexOf("nickname") >= 0)
             {
 
                 cmd.CommandText = " insert into  weixin_user_info (openid,info_json) values (@openid,@json)";
