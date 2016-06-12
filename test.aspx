@@ -20,6 +20,8 @@
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        Order.GetPaidResultFromWeixin("146570977610000684");
+
 	Response.Redirect("http://weiketang.streaming.mediaservices.chinacloudapi.cn/a0c34c3b-eefc-4238-91f7-3c0d8d7ad65d/992057c9-0e81-4afa-95df-33ab93449783.ism/Manifest(format=m3u8-aapl)",true);
 
 

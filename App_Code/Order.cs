@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml;
 
 /// <summary>
 /// Summary description for Order
@@ -43,7 +44,27 @@ public class Order
     {
         get
         {
-            return int.Parse(_fields["order_is_paid"].ToString().Trim());
+            //Status = 0;
+            int currentStatus = int.Parse(_fields["order_is_paid"].ToString().Trim());
+            if (currentStatus == 1)
+            {
+                bool realPaidResult = GetPaidResultFromWeixin(_fields["order_out_trade_no"].ToString().Trim());
+                if (realPaidResult)
+                {
+                    Status = 2;
+                    return 2;
+                }
+                else
+                {
+                    Status = -1;
+                    return -1;
+                }
+                
+            }
+            else
+            {
+                return int.Parse(_fields["order_is_paid"].ToString().Trim());
+            }
         }
         set
         {
@@ -118,6 +139,43 @@ public class Order
             return null;
         }
 
+    }
+
+    public static bool GetPaidResultFromWeixin(string outTradeNo)
+    {
+        string appId = System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim();
+        string mchId = System.Configuration.ConfigurationSettings.AppSettings["mch_id"].Trim();
+        string queryXmlString = "<xml><appid>" + appId.Trim() + "</appid><mch_id>" + mchId.Trim() + "</mch_id><nonce_str>"
+            + Util.GetNonceString(10) + "</nonce_str><out_trade_no>" + outTradeNo.Trim()+"</out_trade_no></xml>";
+        XmlDocument xmlD = new XmlDocument();
+        xmlD.LoadXml(queryXmlString);
+        string stringWillBeEcrypt = "";
+        foreach (XmlNode n in xmlD.SelectSingleNode("//xml").ChildNodes)
+        {
+            stringWillBeEcrypt = stringWillBeEcrypt + "&"
+                + n.Name.Trim() + "=" + n.InnerText.Trim();
+        }
+        if (stringWillBeEcrypt.StartsWith("&"))
+            stringWillBeEcrypt = stringWillBeEcrypt.Remove(0, 1);
+        string sign = Util.GetMd5Sign(stringWillBeEcrypt, "jihuowangluoactivenetworkjarrodc");
+        XmlNode signNode = xmlD.CreateNode(XmlNodeType.Element, "sign", "");
+        signNode.InnerText = sign.ToUpper().Trim();
+        xmlD.SelectSingleNode("//xml").AppendChild(signNode);
+        string resultStr = Util.GetWebContent("https://api.mch.weixin.qq.com/pay/orderquery", "POST", xmlD.InnerXml, "html/xml");
+        xmlD.LoadXml(resultStr);
+        bool result = false;
+        try
+        {
+            if (xmlD.SelectSingleNode("//xml/return_msg").InnerText.Trim().ToUpper().Equals("OK")
+                && xmlD.SelectSingleNode("//xml/return_code").InnerText.Trim().ToUpper().Equals("SUCCESS"))
+            {
+                result = true;
+            }
+        }
+        catch
+        { 
+        }
+        return result;
     }
 
 }
