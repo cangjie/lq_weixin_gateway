@@ -56,8 +56,7 @@ public class Order
                 }
                 else
                 {
-                    Status = -1;
-                    return -1;
+                    return int.Parse(_fields["order_is_paid"].ToString().Trim());
                 }
                 
             }
