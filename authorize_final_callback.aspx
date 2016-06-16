@@ -2,6 +2,7 @@
 <%@ Import Namespace="System.Runtime.Serialization" %>
 <%@ Import Namespace="System.Runtime.Serialization.Json" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
+<%@ Import Namespace="System.IO" %>
 <!DOCTYPE html>
 
 <script runat="server">
@@ -47,8 +48,10 @@
                 json.TryGetValue("access_token", out userAccessToken);
             }
             catch
-            { 
-            
+            {
+                File.AppendAllText(Server.MapPath("/log/authorize_error.txt"), DateTime.Now.ToString() + "\t"
+                    + jsonStr.Trim() + "\r\n");
+                Response.Write(jsonStr.Trim());
             }
 
             //Session["user_access_token"] = userAccessToken.ToString();
@@ -79,6 +82,7 @@
         string code = Request["code"].Trim();
         string state = Request["state"].Trim();
         string openId = GetOpenId(code);
+        
         string callBack = Request["callback"].Trim();
         callBack = Server.UrlDecode(callBack);
         Users user;
