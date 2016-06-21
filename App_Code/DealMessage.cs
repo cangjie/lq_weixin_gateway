@@ -200,7 +200,7 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[5];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[4];
 
                     newsArr[0] = new RepliedMessage.news();
                     newsArr[0].picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbXbmYqaSzFZem1doyiapP7FPT5icibupbOVucer5fCBQuVbdWPF6RrvrCiarLNUBYBUWvAicHquUhVNlPA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
