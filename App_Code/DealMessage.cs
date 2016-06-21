@@ -208,31 +208,31 @@ public class DealMessage
                     newsArr[0].description = "卢勤和她的朋友们微课堂";
                     newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=1&sn=468728e78db7e69488e128e714dffd22#rd";
 
-                  
+                  /*
                     newsArr[1] = new RepliedMessage.news();
                     newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/huigu.jpg";
                     newsArr[1].title = "【卢勤和她的朋友们微课堂】精彩微课回顾";
                     newsArr[1].description = "【卢勤和她的朋友们微课堂】精彩微课回顾";
                     newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=2&sn=ae0c64da8d02002e0172303c1625ca21#rd";
-                    
+                  */  
                    
+                    newsArr[1] = new RepliedMessage.news();
+                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/wenda.jpg";
+                    newsArr[1].title = "问答指南：如何向卢勤老师提问？";
+                    newsArr[1].description = "问答指南：如何向卢勤老师提问？";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=3&sn=76ce5ed22f81bc384d749ffbf39b0594#rd";
+
                     newsArr[2] = new RepliedMessage.news();
-                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/images/wenda.jpg";
-                    newsArr[2].title = "问答指南：如何向卢勤老师提问？";
-                    newsArr[2].description = "问答指南：如何向卢勤老师提问？";
-                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=3&sn=76ce5ed22f81bc384d749ffbf39b0594#rd";
+                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/images/tushu.jpg";
+                    newsArr[2].title = "卢勤老师亲著图书介绍";
+                    newsArr[2].description = "卢勤老师亲著图书介绍";
+                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=4&sn=11e7c46abdd6b8da9219838919693bf9#rd";
 
                     newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/tushu.jpg";
-                    newsArr[3].title = "卢勤老师亲著图书介绍";
-                    newsArr[3].description = "卢勤老师亲著图书介绍";
-                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=4&sn=11e7c46abdd6b8da9219838919693bf9#rd";
-
-                    newsArr[4] = new RepliedMessage.news();
-                    newsArr[4].picUrl = "http://weixin.luqinwenda.com/images/ying.jpg";
-                    newsArr[4].title = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
-                    newsArr[4].description = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
-                    newsArr[4].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=5&sn=d95feb398f1f3142332ce5d5713c321a#rd";
+                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/ying.jpg";
+                    newsArr[3].title = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
+                    newsArr[3].description = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
+                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=5&sn=d95feb398f1f3142332ce5d5713c321a#rd";
 
 
                     repliedMessage.newsContent = newsArr;
