@@ -545,6 +545,7 @@ public class DealMessage
                 fenGong.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401925682&idx=2&sn=a927a70a459ba926708d5a51eb53b501&scene=1&srcid=1210sO097zRyvsmkJoQYwpum&from=singlemessage&isappinstalled=0#wechat_redirect";
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
+                /*
             case "信心":
             case "自信":
             case "元旦":
@@ -578,6 +579,7 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2, xinXinMessage3 };
 
                 break;
+                 */ 
 	case "杨澜":
             case "天下女人":
             case "读书卡":
@@ -603,6 +605,7 @@ public class DealMessage
                 }
                  
                 break;
+                /*
             case "平安":
                 repliedMessage.type = "news";
                 RepliedMessage.news pingAn1 = new RepliedMessage.news();
@@ -639,6 +642,7 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { xiaoXin1, xiaoXin2 };
 
                 break;
+                 */ 
             case "真爱":
                 RepliedMessage.news zhenAi1 = new RepliedMessage.news();
                 zhenAi1.title = "【微课堂】回顾：给孩子一个真爱的世界0112（上）";
