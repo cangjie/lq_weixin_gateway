@@ -82,9 +82,9 @@
         string code = Request["code"].Trim();
         string state = Request["state"].Trim();
         string openId = GetOpenId(code);
-        
         string callBack = Request["callback"].Trim();
         callBack = Server.UrlDecode(callBack);
+        
         Users user;
         if (Users.IsExistsUser(openId))
         {
