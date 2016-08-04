@@ -521,6 +521,7 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessage };
                
                 break;
+                /*
             case "戒尺":
                 repliedMessage.type = "news";
                 RepliedMessage.news jieChi1 = new RepliedMessage.news();
@@ -535,7 +536,7 @@ public class DealMessage
                 jieChi2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402196345&idx=3&sn=ce62e3a0b564541a5993f8a707236b9c&scene=1&srcid=1210mGOhZbtGnzG9JBtSFhuf#wechat_redirect";
                 
                 repliedMessage.newsContent = new RepliedMessage.news[] { jieChi1, jieChi2};
-                break;
+                break;*/
             case "分工":
                 repliedMessage.type = "news";
                 RepliedMessage.news fenGong = new RepliedMessage.news();
@@ -643,6 +644,7 @@ public class DealMessage
 
                 break;
                  */ 
+                /*
             case "真爱":
                 RepliedMessage.news zhenAi1 = new RepliedMessage.news();
                 zhenAi1.title = "【微课堂】回顾：给孩子一个真爱的世界0112（上）";
@@ -659,6 +661,7 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { zhenAi1, zhenAi2 };
 
                 break;
+                 */ 
             case "人才":
                 RepliedMessage.news renCai = new RepliedMessage.news();
                 renCai.title = "【微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
