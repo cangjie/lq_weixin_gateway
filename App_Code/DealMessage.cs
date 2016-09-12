@@ -848,6 +848,7 @@ public class DealMessage
                 break;
             default:
                 repliedMessage = BuildMessageByKeyword(repliedMessage, command.Trim());
+		
                 break;
         }
         return repliedMessage;
@@ -888,13 +889,16 @@ public class DealMessage
         }
         else
         {
-            message.type = "news";
+	    if (dtReadyToBuild.Rows.Count != 0)
+	    {
+	    	message.type = "news";
+	    }	    
+                
         }
 
         switch (message.type.Trim())
         { 
             case "news":
-            default:
                 RepliedMessage.news[] newsArray = new RepliedMessage.news[dtReadyToBuild.Rows.Count];
                 for (int i = 0; i < dtReadyToBuild.Rows.Count; i++)
                 {
@@ -907,6 +911,8 @@ public class DealMessage
                 }
                 message.newsContent = newsArray;
                 break;
+	    default:
+		break;
         }
 
 
