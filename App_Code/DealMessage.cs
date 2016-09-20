@@ -65,19 +65,19 @@ public class DealMessage
                 break;
             case "PINGTAI":
                 repliedMessage.content = Util.GetMenuWodeHit(receivedMessage.from, "http://weixin.luqinwenda.com/dingyue/images/1.jpg"
-                                , 1, "卢勤问答平台", "这里是卢勤问答平台，你可以在这里浏览和评论他人的提问。");
+                                , 1, "专家问答平台", "这里是专家问答平台，你可以在这里浏览和评论他人的提问。");
                 repliedMessage.messageCount = 1;
                 repliedMessage.type = "news";
                 break;
             case "TIWEN":
                 repliedMessage.content = Util.GetMenuWodeHit(receivedMessage.from, "http://weixin.luqinwenda.com/dingyue/images/3.jpg"
-                                , 3, "快速提问", "点击进入快速提问，把你的问题提出来，卢勤老师帮你排忧解难。");
+                                , 3, "快速提问", "点击进入快速提问，把你的问题提出来，教育专家帮你排忧解难。");
                 repliedMessage.messageCount = 1;
                 repliedMessage.type = "news";
                 break;
             case "WENDA":
                 repliedMessage.content = Util.GetMenuWodeHit(receivedMessage.from, "http://weixin.luqinwenda.com/dingyue/images/2.jpg"
-                                , 2, "卢老师的回答", "卢勤老师的回答都在这里，点击即可浏览。");
+                                , 2, "专家的回答", "专家老师的回答都在这里，点击即可浏览。");
                 repliedMessage.messageCount = 1;
                 repliedMessage.type = "news";
                 break;
