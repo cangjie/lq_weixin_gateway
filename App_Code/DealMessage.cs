@@ -82,7 +82,7 @@ public class DealMessage
                 repliedMessage.type = "news";
                 break;
             case "WODE":
-                repliedMessage.content = Util.GetMenuWodeHit(receivedMessage.from, "http://weixin.luqinwenda.com/dingyue/images/4.jpg"
+                repliedMessage.content = Util.GetMenuWodeHit(receivedMessage.from, "http://weixin.luqinwenda.com/dingyue/images/3.jpg?ssss"
                                 , 4, "还记得自己提过的问题吗？点击进入，即可查看提问历史。", "还记得自己提过的问题吗？点击进入，即可查看提问历史。");
                 repliedMessage.messageCount = 1;
                 repliedMessage.type = "news";
