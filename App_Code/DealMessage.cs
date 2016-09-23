@@ -64,7 +64,7 @@ public class DealMessage
                 repliedMessage.type = "news";
                 break;
             case "PINGTAI":
-                repliedMessage.content = Util.GetMenuWodeHit(receivedMessage.from, "http://weixin.luqinwenda.com/dingyue/images/1.jpg?asdfsaww"
+                repliedMessage.content = Util.GetMenuWodeHit(receivedMessage.from, "http://weixin.luqinwenda.com/dingyue/images/1.jpg?aaww"
                                 , 1, "专家问答平台", "这里是悦长大家庭教育专家问答平台，你可以在这里浏览和评论他人的提问。");
                 repliedMessage.messageCount = 1;
                 repliedMessage.type = "news";
