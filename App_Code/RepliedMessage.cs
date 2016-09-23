@@ -30,9 +30,9 @@ public class RepliedMessage
     public string picUrl = "";
     public bool isService = false;
     public bool hasSent = false;
-    
 
-    public  struct news
+
+    public struct news
     {
         public string title;
         public string description;
@@ -40,10 +40,10 @@ public class RepliedMessage
         public string url;
     }
 
-	public RepliedMessage()
-	{
-		
-	}
+    public RepliedMessage()
+    {
+
+    }
 
     public RepliedMessage(int messageId)
     {
@@ -67,9 +67,9 @@ public class RepliedMessage
             thumbMediaId = dt.Rows[0]["wxreplymsg_thumbmediaid"].ToString().Trim();
             url = dt.Rows[0]["wxreplymsg_url"].ToString().Trim();
             picUrl = dt.Rows[0]["wxreplymsg_picurl"].ToString().Trim();
-            isService = (dt.Rows[0]["wxreplymsg_isservice"].ToString().Trim().Equals("1")? true:false);
+            isService = (dt.Rows[0]["wxreplymsg_isservice"].ToString().Trim().Equals("1") ? true : false);
             hasSent = (dt.Rows[0]["wxreplymsg_send"].ToString().Trim().Equals("1") ? true : false);
-            
+
         }
         else
         {
@@ -80,7 +80,8 @@ public class RepliedMessage
 
     public int SendAsServiceMessage()
     {
-        string url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + Util.GetToken();
+        string token = Util.GetToken();
+        string url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + token;
         HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
         req.Method = "post";
         req.ContentType = "raw";
@@ -155,12 +156,12 @@ public class RepliedMessage
             json = json + "\"msgtype\":\"" + type.Trim() + "\",";
             json = json + "\"" + type.Trim() + "\":{";
             switch (type.Trim().ToLower())
-            { 
+            {
                 case "text":
                     json = json + "\"content\":\"" + content.Trim() + "\"";
                     break;
                 case "image":
-                    json = json + "\"media_id\":\"" + content.Trim() + "\"";
+                    json = json + "\"media_id\":\"" + mediaId.Trim() + "\"";
                     break;
                 case "voice":
                     json = json + "\"media_id\":\"" + content.Trim() + "\"";
@@ -209,7 +210,7 @@ public class RepliedMessage
                 + "</item>";
 
         }
-        
+
         return xmlStr;
     }
 
