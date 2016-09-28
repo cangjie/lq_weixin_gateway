@@ -6,7 +6,6 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
     }
 
     public static string GetMd5(string str)
