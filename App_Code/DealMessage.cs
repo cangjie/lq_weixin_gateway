@@ -215,7 +215,7 @@ public class DealMessage
                     newsArr[1].description = "【热】“少年演说家”潜能开发营寒假营报名开启！";
                     newsArr[1].url = "http://mall.luqinwenda.com/detail_xly.aspx?productid=86";
 
-newsArr[2] = new RepliedMessage.news();
+                    newsArr[2] = new RepliedMessage.news();
                     newsArr[2].picUrl = "http://weixin.luqinwenda.com/dingyue/images/weike.png";
                     newsArr[2].title = "【学】“悦长大微课堂”，和孩子共同成长！";
                     newsArr[2].description = "【学】“悦长大微课堂”，和孩子共同成长！";
@@ -587,7 +587,7 @@ newsArr[2] = new RepliedMessage.news();
 
                 break;
                  */ 
-	case "杨澜":
+	        case "杨澜":
             case "天下女人":
             case "读书卡":
             case "礼物":
@@ -847,6 +847,7 @@ newsArr[2] = new RepliedMessage.news();
             case "合作":
             case "转播":
             case "合作转播":
+            case "商务合作":
                 string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                     + "\\qr_xu.jpg", Util.GetToken());
 
@@ -854,7 +855,7 @@ newsArr[2] = new RepliedMessage.news();
                 textMessage.from = receivedMessage.to;
                 textMessage.to = receivedMessage.from;
                 textMessage.type = "text";
-                textMessage.content = "您好，如果您有微课堂合作转播的需求，请联系长按识别以下二维码，微信联系旭老师。";
+                textMessage.content = "商务合作、课程转播等请联系悦长大平台旭老师，18511998488(电话/微信)。";
                 textMessage.SendAsServiceMessage();
 
                 System.Threading.Thread.Sleep(500);
