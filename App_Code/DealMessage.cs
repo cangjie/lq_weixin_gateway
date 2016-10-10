@@ -826,6 +826,7 @@ public class DealMessage
 
 
                 break;
+/*
             case "微课":
             case "上课":
             case "微客":
@@ -844,6 +845,7 @@ public class DealMessage
 		        repliedMessage.type = "text";
                 repliedMessage.content = "为确保最有需要的家长前来听课，请转发本期<a href=\"http://weixin.luqinwenda.com/dingyue/baoming_jump.aspx\" >【悦长大微课堂】本期课程预告图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群群，谢谢！";
                 break;
+*/
             case "合作":
             case "转播":
             case "合作转播":
