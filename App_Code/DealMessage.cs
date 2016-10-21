@@ -587,7 +587,7 @@ public class DealMessage
 
                 break;
                  */ 
-	        case "杨澜":
+	    case "杨澜":
             case "天下女人":
             case "读书卡":
             case "礼物":
@@ -597,7 +597,7 @@ public class DealMessage
                 //repliedMessage.content = "我们的抽奖活动已经结束。";
                 
                 DateTime startTime = DateTime.Parse("2016-5-1");
-                DateTime endTime = DateTime.Parse("2016-5-13 12:00");
+                DateTime endTime = DateTime.Parse("2017-5-13 12:00");
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
                     int actId = 8;
