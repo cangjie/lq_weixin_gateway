@@ -605,7 +605,7 @@ public class DealMessage
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
                     drawing.title = "请领取悦长大书城读书卡";
-                    drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg？yuezhangda";
+                    drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg?yuezhangda";
                     drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
                     drawing.description = "为答谢广大家长对“悦长大微课堂”的厚爱和大力支持，卢勤老师邀您参加书城读书活动！请领取您的专属读书卡！多读书，读好书，让您的孩子发现读书的乐趣！";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
