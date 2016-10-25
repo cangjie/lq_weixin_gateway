@@ -38,14 +38,14 @@ public class Drawing
         
         int numBra = 10;
         DataTable dtBook;
-        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（文胸）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '写给世纪父母' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
         numBra = dtBook.Rows.Count;
-	numBra = 10;
+	    numBra = 10;
         dtBook.Dispose();
 
 
         int numPant = 0;
-        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（内裤）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
         numPant = dtBook.Rows.Count;
         dtBook.Dispose();
         
@@ -53,14 +53,14 @@ public class Drawing
 
         string award = "";
         int seed = (new Random()).Next(0, 100);
-        if (seed < 40)
+        if (seed < 20)
         {
-            Coupon coupon = Coupon.AddCoupon(1000);
-            award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
+            Coupon coupon = Coupon.AddCoupon(500);
+            award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
         }
         else
         {
-            if (seed < 80)
+            if (seed < 50)
             {
                 Coupon coupon = Coupon.AddCoupon(1500);
                 award = "15元优惠券:" + coupon._fields["code"].ToString().Trim();
@@ -68,20 +68,20 @@ public class Drawing
             else
             {
 
-                if (seed == 80 && numPant < 12)
+                if (seed < 60 && numPant < 10)
                 {
-                    award = "朱林禾羽独家定制科学内衣（内裤）";
+                    award = "写给世纪父母";
                 }
                 else
                 {
-                    if (seed == 90 && numBra < 5)
+                    if (seed < 70 && numBra < 10)
                     {
-                        award = "朱林禾羽独家定制科学内衣（文胸）";
+                        award = "和烦恼说再见";
                     }
                     else
                     {
-                        Coupon coupon = Coupon.AddCoupon(2000);
-                        award = "20元优惠券:" + coupon._fields["code"].ToString().Trim();
+                        Coupon coupon = Coupon.AddCoupon(1000);
+                        award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
                     }
                 }
                
