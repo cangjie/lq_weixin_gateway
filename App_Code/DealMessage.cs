@@ -203,17 +203,16 @@ public class DealMessage
                     RepliedMessage.news[] newsArr = new RepliedMessage.news[3];
 
                     newsArr[0] = new RepliedMessage.news();
-                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/tiwen.png";
-                    newsArr[0].title = "问答指南：如何向专家提问？";
-                    newsArr[0].description = "问答指南：如何向专家提问？";
-                    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506767735&idx=1&sn=bd603935b2ab0fb8b5cc8addd83e93bd&chksm=04eec6fe33994fe8ab607bae5966ee0d4428e1deeb1fbe3765e4e9a16d3b16a7c09b6ab42406&scene=0#wechat_redirect";
+                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/baoming.jpg";
+                    newsArr[0].title = "【热】“少年演说家”潜能开发营寒假营报名开启！";
+                    newsArr[0].description = "【热】“少年演说家”潜能开发营寒假营报名开启！";
+                    newsArr[0].url = "http://mall.luqinwenda.com/detail_xly.aspx?productid=86";
 
-                  
                     newsArr[1] = new RepliedMessage.news();
-                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/dingyue/images/baoming.png";
-                    newsArr[1].title = "【热】“少年演说家”潜能开发营寒假营报名开启！";
-                    newsArr[1].description = "【热】“少年演说家”潜能开发营寒假营报名开启！";
-                    newsArr[1].url = "http://mall.luqinwenda.com/detail_xly.aspx?productid=86";
+                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/dingyue/images/tiwen.jpg";
+                    newsArr[1].title = "问答指南：如何向专家提问？";
+                    newsArr[1].description = "问答指南：如何向专家提问？";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506767735&idx=1&sn=bd603935b2ab0fb8b5cc8addd83e93bd&chksm=04eec6fe33994fe8ab607bae5966ee0d4428e1deeb1fbe3765e4e9a16d3b16a7c09b6ab42406&scene=0#wechat_redirect";
 
                     newsArr[2] = new RepliedMessage.news();
                     newsArr[2].picUrl = "http://weixin.luqinwenda.com/dingyue/images/weike.png";
