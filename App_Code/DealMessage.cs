@@ -206,7 +206,8 @@ public class DealMessage
                     newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/baoming.jpg";
                     newsArr[0].title = "【热】“少年演说家”潜能开发营寒假营报名开启！";
                     newsArr[0].description = "【热】“少年演说家”潜能开发营寒假营报名开启！";
-                    newsArr[0].url = "http://mall.luqinwenda.com/detail_xly.aspx?productid=86";
+                    //newsArr[0].url = "http://mall.luqinwenda.com/detail_xly.aspx?productid=86";
+		    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506767735&idx=2&sn=028d709c1ebe8762598e899b6528fcfb&chksm=04eec6fe33994fe8f945a307692930745d3dc8cf5659f2d170a989494838f44a405d9db79432&scene=0#rd";
 
                     newsArr[1] = new RepliedMessage.news();
                     newsArr[1].picUrl = "http://weixin.luqinwenda.com/dingyue/images/tiwen.jpg";
