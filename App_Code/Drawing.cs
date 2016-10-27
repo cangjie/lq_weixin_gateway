@@ -40,7 +40,7 @@ public class Drawing
         DataTable dtBook;
         dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '写给世纪父母' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
         numBra = dtBook.Rows.Count;
-	    numBra = 10;
+	    
         dtBook.Dispose();
 
 
@@ -68,13 +68,13 @@ public class Drawing
             else
             {
 
-                if (seed < 60 && numPant < 10)
+                if (seed < 70 && numPant < 10)
                 {
                     award = "写给世纪父母";
                 }
                 else
                 {
-                    if (seed < 70 && numBra < 10)
+                    if (seed < 90 && numBra < 10)
                     {
                         award = "和烦恼说再见";
                     }
