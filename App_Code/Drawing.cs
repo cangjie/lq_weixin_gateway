@@ -68,13 +68,13 @@ public class Drawing
             else
             {
 
-                if (seed < 70 && numPant < 10)
+                if (seed < 70 && numBra < 10)
                 {
                     award = "写给世纪父母";
                 }
                 else
                 {
-                    if (seed < 90 && numBra < 10)
+                    if (seed < 90 && numPant < 8)
                     {
                         award = "和烦恼说再见";
                     }
