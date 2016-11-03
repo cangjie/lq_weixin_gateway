@@ -596,11 +596,13 @@ public class DealMessage
                 //repliedMessage.type = "text";
                 //repliedMessage.content = "我们的抽奖活动已经结束。";
                 
-                DateTime startTime = DateTime.Parse("2016-10-27 20:40");
-                DateTime endTime = DateTime.Parse("2016-10-28 12:00");
+
+                DateTime startTime = DateTime.Parse("2016-11-2 20:40");
+                DateTime endTime = DateTime.Parse("2016-11-4 12:00");
+
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
                 {
-                    int actId = 9;
+                    int actId = 10;
                     int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
                     repliedMessage.type = "news";
                     RepliedMessage.news drawing = new RepliedMessage.news();
@@ -610,7 +612,6 @@ public class DealMessage
                     drawing.description = "为答谢广大家长对“悦长大微课堂”的厚爱和大力支持，卢勤老师邀您参加书城读书活动！请领取您的专属读书卡！多读书，读好书，让您的孩子发现读书的乐趣！";
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
-                 
                 break;
                 /*
             case "平安":
