@@ -36,17 +36,17 @@ public class Drawing
     public static int NewDrawing(string openId, int actId)
     {
         
-        int numBra = 10;
+        int numQianneng = 0;
         DataTable dtBook;
-        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '写给世纪父母' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
-        numBra = dtBook.Rows.Count;
-	    numBra = 10;
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '发掘孩子大脑潜能（签名版）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numQianneng = dtBook.Rows.Count;
+	    //numBra = 10;
         dtBook.Dispose();
 
 
-        int numPant = 0;
-        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
-        numPant = dtBook.Rows.Count;
+        int numFannao = 0;
+        dtBook = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见（签名版）' and act_id = " + actId.ToString(), Util.ConnectionStringGame);
+        numFannao = dtBook.Rows.Count;
         dtBook.Dispose();
         
 
@@ -68,15 +68,15 @@ public class Drawing
             else
             {
 
-                if (seed < 60 && numPant < 10)
+                if (seed < 55 && numQianneng < 15 )
                 {
-                    award = "写给世纪父母";
+                    award = "发掘孩子大脑潜能（签名版）";
                 }
                 else
                 {
-                    if (seed < 70 && numBra < 10)
+                    if (seed < 60 && numFannao < 10)
                     {
-                        award = "和烦恼说再见";
+                        award = "和烦恼说再见（签名版）";
                     }
                     else
                     {
