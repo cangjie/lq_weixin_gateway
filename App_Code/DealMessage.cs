@@ -831,10 +831,6 @@ public class DealMessage
             case "微课":
             case "上课":
             case "微客":
-            case "我要报名":
-            case "报名":
-            case "报名参加":
-            case "我要参加":
 		        string qrXuMediaId1 = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                        + "\\qrcode_luqinwenda001.jpg", Util.GetToken());
                 RepliedMessage imageMessage1 = new RepliedMessage();
@@ -846,7 +842,22 @@ public class DealMessage
 		        repliedMessage.type = "text";
                 repliedMessage.content = "为确保最有需要的家长前来听课，请转发本期<a href=\"http://weixin.luqinwenda.com/dingyue/baoming_jump.aspx\" >【悦长大微课堂】本期课程预告图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群群，谢谢！";
                 break;
+            case "我要报名":
+            case "报名":
+            case "报名参加":
+            case "我要参加":
+                string qrXuMediaIdYaoqing = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
+                       + "\\qrcode_yaoqingka.jpg", Util.GetToken());
+                RepliedMessage imageMessageYaoqing = new RepliedMessage();
+                imageMessageYaoqing.from = receivedMessage.to;
+                imageMessageYaoqing.to = receivedMessage.from;
+                imageMessageYaoqing.type = "image";
+                imageMessageYaoqing.mediaId = qrXuMediaIdYaoqing.Trim();
+                imageMessageYaoqing.SendAsServiceMessage();
+                repliedMessage.type = "text";
+                repliedMessage.content = "您的直播间密令是1222，长按识别下方图片中的二维码或点击<a href=\"http://pttmy.cn/bdDr\" >http://pttmy.cn/bdDr</a>，进入悦长大直播间。";
 
+                break;
             case "合作":
             case "转播":
             case "合作转播":
