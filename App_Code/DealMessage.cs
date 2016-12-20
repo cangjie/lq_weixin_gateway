@@ -597,7 +597,7 @@ public class DealMessage
                 //repliedMessage.content = "我们的抽奖活动已经结束。";
                 
 
-                DateTime startTime = DateTime.Parse("2016-11-2 20:40");
+                DateTime startTime = DateTime.Parse("2016-11-3 20:30");
                 DateTime endTime = DateTime.Parse("2016-11-4 12:00");
 
                 if (startTime < DateTime.Now && DateTime.Now < endTime)
