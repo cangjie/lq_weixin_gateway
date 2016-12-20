@@ -848,14 +848,16 @@ public class DealMessage
             case "我要参加":
                 string qrXuMediaIdYaoqing = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                        + "\\qrcode_yaoqingka.jpg", Util.GetToken());
+/*
                 RepliedMessage imageMessageYaoqing = new RepliedMessage();
                 imageMessageYaoqing.from = receivedMessage.to;
                 imageMessageYaoqing.to = receivedMessage.from;
                 imageMessageYaoqing.type = "image";
                 imageMessageYaoqing.mediaId = qrXuMediaIdYaoqing.Trim();
                 imageMessageYaoqing.SendAsServiceMessage();
+*/
                 repliedMessage.type = "text";
-                repliedMessage.content = "您的直播间密令是1222，长按识别下方图片中的二维码或<a href=\"http://pttmy.cn/bdDr\" >点击这里</a>，进入悦长大直播间,输入密令即可听课。";
+                repliedMessage.content = "您的直播间密令是1222，<a href=\"http://pttmy.cn/bdDr\" >点击这里</a>，进入悦长大直播间,输入密令即可听课。";
 
                 break;
             case "合作":
