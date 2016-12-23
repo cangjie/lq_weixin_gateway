@@ -858,7 +858,7 @@ public class DealMessage
                 imageMessageYaoqing.mediaId = qrXuMediaIdYaoqing.Trim();
                 imageMessageYaoqing.SendAsServiceMessage();
                 repliedMessage.type = "text";
-                repliedMessage.content = "您的直播间密令是1222，长按识别下方图片中的二维码或<a href=\"http://v8.qianliao.tv/topic/850000027001439.htm?pro_source=link\" >点击这里</a>，进入悦长大直播间,输入密令即可听课。";
+                repliedMessage.content = "长按识别下方图片中的二维码或<a href=\"http://m.qlchat.com/topic/850000033004553.htm?shareKey=1a2d04df84552b99b0d52b0c24bc757b&winzoom=1\" >点击这里</a>，进入悦长大直播间即可听课。";
 
                 break;
             case "合作":
