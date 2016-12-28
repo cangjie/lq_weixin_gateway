@@ -443,12 +443,62 @@ public class DealMessage
                 usaNewsArr[7].title = "孩子们的希望，好莱坞的星光。";
                 usaNewsArr[7].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
                 usaNewsArr[7].url = "https://mp.weixin.qq.com/s/QMyHtart06NCOgAOsRQwLg";
-                usaNewsArr[7].picUrl = "http://weixin.luqinwenda.com/images/usa6.png";
+                usaNewsArr[7].picUrl = "http://weixin.luqinwenda.com/images/usa7.png";
 
                 repliedMessage.newsContent = usaNewsArr;
 
                 break;
             case "新加坡":
+                repliedMessage.type = "news";
+                RepliedMessage.news[] sinNewsArr = new RepliedMessage.news[8];
+                sinNewsArr[0] = new RepliedMessage.news();
+                sinNewsArr[0].title = "带着开心启程 ——“大开眼界，文明小使者感受新加坡”冬令营";
+                sinNewsArr[0].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[0].url = "https://mp.weixin.qq.com/s/7DkwA_b7UwaNdL1Bnr9wAQ";
+                sinNewsArr[0].picUrl = "http://weixin.luqinwenda.com/images/sin.png";
+
+                sinNewsArr[1] = new RepliedMessage.news();
+                sinNewsArr[1].title = "开启信心之旅，让“我能行＂成为生命底色。";
+                sinNewsArr[1].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[1].url = "http://mp.weixin.qq.com/s/wjEoU_j6XUSpcFJSNUD45w";
+                sinNewsArr[1].picUrl = "http://weixin.luqinwenda.com/images/sin1.png";
+
+                sinNewsArr[2] = new RepliedMessage.news();
+                sinNewsArr[2].title = "让自由和爱心飞扬。";
+                sinNewsArr[2].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[2].url = "https://mp.weixin.qq.com/s/Ff2o1gyqnBeWIB-PLf6AWQ";
+                sinNewsArr[2].picUrl = "http://weixin.luqinwenda.com/images/sin2.png";
+
+                sinNewsArr[3] = new RepliedMessage.news();
+                sinNewsArr[3].title = "学会关心，感恩成长。";
+                sinNewsArr[3].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[3].url = "https://mp.weixin.qq.com/s/YKfK6PSXC5sgGqm-8fMjjA";
+                sinNewsArr[3].picUrl = "http://weixin.luqinwenda.com/images/sin3.png";
+
+                sinNewsArr[4] = new RepliedMessage.news();
+                sinNewsArr[4].title = "亲近自然 学会交流 感悟孝心。";
+                sinNewsArr[4].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[4].url = "https://mp.weixin.qq.com/s/5jOkyyzUcaWuJlWt6QJ5TQ";
+                sinNewsArr[4].picUrl = "http://weixin.luqinwenda.com/images/sin4.png";
+
+                sinNewsArr[5] = new RepliedMessage.news();
+                sinNewsArr[5].title = "留驻＂五心＂回程 ，带着梦想起飞。";
+                sinNewsArr[5].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[5].url = "https://mp.weixin.qq.com/s/_rKKK9LvFjbTVk-L7gNHfA";
+                sinNewsArr[5].picUrl = "http://weixin.luqinwenda.com/images/sin5.png";
+
+                sinNewsArr[6] = new RepliedMessage.news();
+                sinNewsArr[6].title = "大开眼界，文明小使者感受新加坡”冬令营-精彩瞬间。";
+                sinNewsArr[6].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[6].url = "https://mp.weixin.qq.com/s/n3noplufiw3ne5ejhpfovA";
+                sinNewsArr[6].picUrl = "http://weixin.luqinwenda.com/images/sin6.png";
+
+                sinNewsArr[7] = new RepliedMessage.news();
+                sinNewsArr[7].title = "大开眼界，文明小使者感受新加坡”冬令营——精彩回顾。";
+                sinNewsArr[7].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
+                sinNewsArr[7].url = "https://mp.weixin.qq.com/s/rqUhJi_UYAeEhGCtzRpYGA";
+                sinNewsArr[7].picUrl = "http://weixin.luqinwenda.com/images/sin7.png";
+
 
                 break;
             case "演讲":
