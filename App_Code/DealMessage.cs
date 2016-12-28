@@ -499,12 +499,20 @@ public class DealMessage
                 sinNewsArr[7].url = "https://mp.weixin.qq.com/s/rqUhJi_UYAeEhGCtzRpYGA";
                 sinNewsArr[7].picUrl = "http://weixin.luqinwenda.com/images/sin7.png";
 
+                repliedMessage.newsContent = sinNewsArr;
 
                 break;
             case "演讲":
 
-                break;
+                RepliedMessage.news speechNewsSingle = new RepliedMessage.news();
+                speechNewsSingle.title = "“少年演说家”潜能开发营（香港/深圳）寒假营火热报名中！";
+                speechNewsSingle.description = "家庭教育专家为家长分享最实用的育儿干货。著名家庭教育专家卢勤老师《爱孩子的八种方法》、中国正面管教协会主委会成员郑淑丽老师《如何与孩子有效沟通》等多堂精品家庭教育课程，家长学做智慧父母，为孩子成长助力！";
+                speechNewsSingle.url = "https://mp.weixin.qq.com/s/qafnrLQlRO93EmbKQ544Ww";
+                speechNewsSingle.picUrl = "http://weixin.luqinwenda.com/images/speech.jpg";
 
+                repliedMessage.newsContent = new RepliedMessage.news[] { speechNewsSingle };
+
+                break;
             case "营":
 
                 RepliedMessage.news singaporeNews = new RepliedMessage.news();
