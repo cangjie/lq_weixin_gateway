@@ -213,12 +213,21 @@ public class DealMessage
         {
             command = "送书";
         }
+        /*
         if ((inputString.Trim().IndexOf("营") >= 0) || (inputString.Trim().IndexOf("演讲") >= 0)
             || (inputString.Trim().IndexOf("演说") >= 0) || (inputString.Trim().IndexOf("新加坡") >= 0)
             || (inputString.Trim().IndexOf("文明") >= 0))
         {
             command = "营";
         }
+        */
+
+        if (inputString.Trim().IndexOf("美国")>=0)
+            command = "美国";
+        if (inputString.Trim().IndexOf("新加坡") >= 0)
+            command = "新加坡";
+        if (inputString.Trim().IndexOf("演") >= 0 || inputString.Trim().IndexOf("寒")>=0 || inputString.Trim().IndexOf("冬")>=0)
+            command = "演讲";
 
         return command;
     }
@@ -289,6 +298,67 @@ public class DealMessage
 
                 repliedMessage.type = "news";
                 repliedMessage.newsContent = new RepliedMessage.news[] { singaporeNews, speechNews  };
+
+                break;
+
+            case "美国":
+                repliedMessage.type = "news";
+                RepliedMessage.news[] usaNewsArr = new RepliedMessage.news[8];
+                usaNewsArr[0] = new RepliedMessage.news();
+                usaNewsArr[0].title = "创新科技体验营美国行：美国，我来了！";
+                usaNewsArr[0].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[0].url = "http://mp.weixin.qq.com/s/BikN9Ze4FXt6pxwyRG22kA";
+                usaNewsArr[0].picUrl = "http://weixin.luqinwenda.com/images/usa.jpg";
+
+                usaNewsArr[1] = new RepliedMessage.news();
+                usaNewsArr[1].title = "创新：让孩子的潜能充分发挥，孩子一生受益的能力。";
+                usaNewsArr[1].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[1].url = "https://mp.weixin.qq.com/s/cdsSY7IrOgZIllaB9CvadQ";
+                usaNewsArr[1].picUrl = "http://weixin.luqinwenda.com/images/usa1.png";
+
+                usaNewsArr[2] = new RepliedMessage.news();
+                usaNewsArr[2].title = "走进科技之都，体验梦想之旅。";
+                usaNewsArr[2].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[2].url = "https://mp.weixin.qq.com/s/MWS_Pe-LVml7wy4xLd7vKQ";
+                usaNewsArr[2].picUrl = "http://weixin.luqinwenda.com/images/usa2.png";
+
+                usaNewsArr[3] = new RepliedMessage.news();
+                usaNewsArr[3].title = "在文化的交融互动中感受世界，让孩子自信地认识自己！";
+                usaNewsArr[3].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[3].url = "https://mp.weixin.qq.com/s/VpGtTePE2OsuOpI9WKlX2w";
+                usaNewsArr[3].picUrl = "http://weixin.luqinwenda.com/images/usa3.png";
+
+                usaNewsArr[4] = new RepliedMessage.news();
+                usaNewsArr[4].title = "如何让孩子独立起来？放手让孩子学会自我管理。";
+                usaNewsArr[4].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[4].url = "https://mp.weixin.qq.com/s/Rw5AYN7NO5OeBsc7QmjM0w";
+                usaNewsArr[4].picUrl = "http://weixin.luqinwenda.com/images/usa4.png";
+
+                usaNewsArr[5] = new RepliedMessage.news();
+                usaNewsArr[5].title = "体验科技，让孩子的生命更饱满！";
+                usaNewsArr[5].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[5].url = "https://mp.weixin.qq.com/s/FYekStCYab3AU-Gen4zJWA";
+                usaNewsArr[5].picUrl = "http://weixin.luqinwenda.com/images/usa5.png";
+
+                usaNewsArr[6] = new RepliedMessage.news();
+                usaNewsArr[6].title = "迎接挑战，我们要说“太好了”！";
+                usaNewsArr[6].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[6].url = "https://mp.weixin.qq.com/s/w0UY9Pan3BfGyaTC4Cr6Vg";
+                usaNewsArr[6].picUrl = "http://weixin.luqinwenda.com/images/usa6.png";
+
+                usaNewsArr[7] = new RepliedMessage.news();
+                usaNewsArr[7].title = "孩子们的希望，好莱坞的星光。";
+                usaNewsArr[7].description = "两天前的开营式已经让大家满怀期待，现在孩子们终于站在了这块土地上，我们一起来期待未来十几天的美国创新科技之旅，在这里，遇见未来的自己！";
+                usaNewsArr[7].url = "https://mp.weixin.qq.com/s/QMyHtart06NCOgAOsRQwLg";
+                usaNewsArr[7].picUrl = "http://weixin.luqinwenda.com/images/usa6.png";
+
+                repliedMessage.newsContent = usaNewsArr;
+
+                break;
+            case "新加坡":
+
+                break;
+            case "演讲":
 
                 break;
             case "洗刷刷":
