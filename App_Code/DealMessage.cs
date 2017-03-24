@@ -122,6 +122,7 @@ public class DealMessage
                // repliedMessage.newsContent[0].url = "http://mall.luqinwenda.com/Activity_bj.aspx?fromsource=subscribe&preopenid=" + receivedMessage.from.Trim() + "&openid=" + receivedMessage.from.Trim() + "&source=1";
                // repliedMessage.newsContent[0].url = "http://www.luqinwenda.com";
                 break;
+/*
             case "HEZUO":
 
                 string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
@@ -148,9 +149,56 @@ public class DealMessage
                 repliedMessage.mediaId = qrXuMediaId;
                 //repliedMessage.content = "您好，欢迎关注卢勤问答平台订阅号！麻烦您将商务合作细则、内容发至hezuo@luqinwenda.com，我们的工作人员会尽快与您联系！";
                 break;
+*/
             case "HUIGU":
                 repliedMessage = BuildMessageByKeyword(repliedMessage, "女儿");
                 break;
+	    case "COOP":
+string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
+                    + "\\qr_xu.jpg", Util.GetToken());
+
+                RepliedMessage textMessage = new RepliedMessage();
+                textMessage.from = receivedMessage.to;
+                textMessage.to = receivedMessage.from;
+                textMessage.type = "text";
+                textMessage.content = "商务合作、课程转播等请联系悦长大平台旭老师，18511998488(电话/微信)。";
+                textMessage.SendAsServiceMessage();
+
+                System.Threading.Thread.Sleep(500);
+
+                RepliedMessage imageMessage = new RepliedMessage();
+                imageMessage.from = receivedMessage.to;
+                imageMessage.to = receivedMessage.from;
+                imageMessage.type = "image";
+                imageMessage.mediaId = qrXuMediaId.Trim();
+                imageMessage.SendAsServiceMessage();
+
+
+                repliedMessage.type = "";
+                repliedMessage.mediaId = qrXuMediaId;
+		break;
+	    case "CAMP":
+		
+		newsContent = new RepliedMessage.news();
+                newsContent.picUrl = "http://weixin.luqinwenda.com/dingyue/images/singapore.png";
+                newsContent.url = "https://mp.weixin.qq.com/s/nKGQEpDMIJBHWO8J-cT4FA";
+                   
+                newsContent.title = "【夏令营】“大开眼界”新加坡摄影营（7月15-21）";
+                newsContent.description = "【夏令营】“大开眼界”新加坡摄影营（7月15-21）";
+
+		RepliedMessage.news newsContent1 = new RepliedMessage.news();
+		newsContent1.picUrl = "http://weixin.luqinwenda.com/dingyue/images/aus.png";
+                newsContent1.url = "http://mp.weixin.qq.com/s/ekPi71MpNSq3vLhBVthXLQ";
+                   
+                newsContent1.title = "【夏令营】“大开眼界”澳大利亚交流之旅（8月9-20）";
+                newsContent1.description = "【夏令营】“大开眼界”澳大利亚交流之旅（8月9-20）";
+
+	
+
+                repliedMessage.newsContent = new RepliedMessage.news[] { newsContent, newsContent1 };
+
+
+		break;
             default:
                 break;
         }
@@ -267,6 +315,8 @@ public class DealMessage
         if (inputString.Trim().IndexOf("美国") >= 0)
             command = "美国";
         if (inputString.Trim().IndexOf("新加坡") >= 0)
+            command = "新加坡";
+	if (inputString.Trim().IndexOf("摄影") >= 0)
             command = "新加坡";
         if (inputString.Trim().IndexOf("演") >= 0 || inputString.Trim().IndexOf("寒") >= 0 || inputString.Trim().IndexOf("冬") >= 0)
             command = "演讲";
@@ -452,10 +502,10 @@ public class DealMessage
                 repliedMessage.type = "news";
                 RepliedMessage.news[] sinNewsArr = new RepliedMessage.news[8];
                 sinNewsArr[0] = new RepliedMessage.news();
-                sinNewsArr[0].title = "带着开心启程 ——“大开眼界，文明小使者感受新加坡”冬令营";
+                sinNewsArr[0].title = "【夏令营】“大开眼界”新加坡摄影营（7月15-21）";
                 sinNewsArr[0].description = "当地球已以一个村庄的形态出现之时，面对未来，面对必然的世界公民，打开眼界，跨出国门，感受新异，已成为很多父母培养孩子的必须。因为他们深深知道，眼界决定未来，视野开启航向！";
                 sinNewsArr[0].url = "https://mp.weixin.qq.com/s/7DkwA_b7UwaNdL1Bnr9wAQ";
-                sinNewsArr[0].picUrl = "http://weixin.luqinwenda.com/images/sin.png";
+                sinNewsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/singapore.png";
 
                 sinNewsArr[1] = new RepliedMessage.news();
                 sinNewsArr[1].title = "开启信心之旅，让“我能行＂成为生命底色。";

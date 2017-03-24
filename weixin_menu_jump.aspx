@@ -26,7 +26,7 @@
                 jumpUrl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405844141&idx=1&sn=fb85317b54adbd207fbb7a56ffd5b4eb#rd";
                 break;
             case 33:
-                jumpUrl = "http://mall.luqinwenda.com/default.aspx";
+                jumpUrl = "https://weidian.com/?userid=842789047&wfr=wx&share_id=842789047&code=011P0V9r05cD0s1rgp9r05gD9r0P0V99&state=H5WXshare";
                 break;
             default:
                 break;
