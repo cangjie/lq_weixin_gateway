@@ -1028,7 +1028,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
             case "报名参加":
             case "我要参加":
                 string qrXuMediaIdYaoqing = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
-                       + "\\qrcode_yaoqingka.jpg", Util.GetToken());
+                       + "\\qr_xiaozhushou.jpg", Util.GetToken());
 
                 RepliedMessage imageMessageYaoqing = new RepliedMessage();
                 imageMessageYaoqing.from = receivedMessage.to;
@@ -1037,7 +1037,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 imageMessageYaoqing.mediaId = qrXuMediaIdYaoqing.Trim();
                 imageMessageYaoqing.SendAsServiceMessage();
                 repliedMessage.type = "text";
-                repliedMessage.content = "长按识别下方图片中的二维码或<a href=\"http://v8.qianliao.tv/topic/840000049130580.htm?pro_source=link\" >点击这里</a>，进入悦长大直播间即可听课。";
+                repliedMessage.content = "为确保最有需要的家长前来听课，请转发<a href='http://mp.weixin.qq.com/s/LmTymvFl4BIvGHc6PtuZ8Q' >本期【悦长大微课堂】图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群，谢谢！";
 
                 break;
             case "合作":
