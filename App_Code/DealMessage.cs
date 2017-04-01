@@ -272,7 +272,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[3];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[7];
 
                     newsArr[0] = new RepliedMessage.news();
                     newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_1.jpg";
