@@ -177,21 +177,22 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 repliedMessage.type = "";
                 repliedMessage.mediaId = qrXuMediaId;
 		break;
-	    case "CAMP":
+	    case "SPEECH":
 		
 		newsContent = new RepliedMessage.news();
-                newsContent.picUrl = "http://weixin.luqinwenda.com/dingyue/images/singapore.png";
-                newsContent.url = "https://mp.weixin.qq.com/s/nKGQEpDMIJBHWO8J-cT4FA";
+                newsContent.picUrl = "http://weixin.luqinwenda.com/dingyue/images/speech_rec.jpg";
+                newsContent.url = "http://mp.weixin.qq.com/s/jg6ObWKDHHNVwOanU6LD5g";
                    
-                newsContent.title = "【夏令营】“大开眼界”新加坡摄影营（7月15-21）";
-                newsContent.description = "【夏令营】“大开眼界”新加坡摄影营（7月15-21）";
+                newsContent.title = "2017少年演说家潜能开发营、提高营火热报名中！";
+                newsContent.description = "想学说话，就要找中国最会说话的人！名师一对一授学，让孩子敢说话、会说话、说自己的话，善于运用语言的力量！";
 
-		RepliedMessage.news newsContent1 = new RepliedMessage.news();
-		newsContent1.picUrl = "http://weixin.luqinwenda.com/dingyue/images/aus.png";
-                newsContent1.url = "http://mp.weixin.qq.com/s/ekPi71MpNSq3vLhBVthXLQ";
+
+        RepliedMessage.news newsContent1 = new RepliedMessage.news();
+		newsContent1.picUrl = "http://weixin.luqinwenda.com/dingyue/images/speech_sqr.png";
+                newsContent1.url = "http://mp.weixin.qq.com/s/kSZGzf7mB-3DTpvp6UaAPQ";
                    
-                newsContent1.title = "【夏令营】“大开眼界”澳大利亚交流之旅（8月9-20）";
-                newsContent1.description = "【夏令营】“大开眼界”澳大利亚交流之旅（8月9-20）";
+                newsContent1.title = "2017“少年演说家”智慧父母课堂火热报名中！";
+                newsContent1.description = "孩子参营学习，家长更不能落后！“少年演说家”活动组委会同期开设“智慧父母课堂”，名师大咖加盟，助力打造幸福家庭，让父母与孩子齐步并肩，共成长！";
 
 	
 
@@ -199,6 +200,29 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
 
 
 		break;
+            case "GLOBAL":
+
+                newsContent = new RepliedMessage.news();
+                newsContent.picUrl = "http://weixin.luqinwenda.com/dingyue/images/jpn_rec.jpg";
+                newsContent.url = "http://mp.weixin.qq.com/s/M8iZoAcnrNz7fy_eFvRq5A";
+
+                newsContent.title = "“大开眼界”日本科技文化发现之旅";
+                newsContent.description = "在东京！在大阪！体验科技，玩转动漫，感受传统文化与多元文化的融合。开阔视野，在日本学与游当中能获得丰富多彩意想不到的收获！";
+
+                RepliedMessage.news newsContent2 = new RepliedMessage.news();
+                newsContent2.picUrl = "http://weixin.luqinwenda.com/dingyue/images/aus.png";
+                newsContent2.url = "http://mp.weixin.qq.com/s/ekPi71MpNSq3vLhBVthXLQ";
+
+                newsContent2.title = "“大开眼界”澳大利亚交流之旅火热报名中！";
+                newsContent2.description = "这是一个集文化探访、都市采风、自然探索为一体的夏令营。";
+
+
+
+                repliedMessage.newsContent = new RepliedMessage.news[] { newsContent, newsContent2 };
+
+
+                break;
+
             default:
                 break;
         }
