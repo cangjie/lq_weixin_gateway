@@ -275,43 +275,76 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                     RepliedMessage.news[] newsArr = new RepliedMessage.news[3];
 
                     newsArr[0] = new RepliedMessage.news();
-                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/baoming.jpg";
-                    newsArr[0].title = "【热】“少年演说家”潜能开发营寒假营报名开启！";
-                    newsArr[0].description = "【热】“少年演说家”潜能开发营寒假营报名开启！";
-                    //newsArr[0].url = "http://mall.luqinwenda.com/detail_xly.aspx?productid=86";
-		    newsArr[0].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506767735&idx=2&sn=028d709c1ebe8762598e899b6528fcfb&chksm=04eec6fe33994fe8f945a307692930745d3dc8cf5659f2d170a989494838f44a405d9db79432&scene=0#rd";
+                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_1.jpg";
+                    newsArr[0].title = "2017少年演说家潜能开发营、提高营火热报名中！";
+                    newsArr[0].description = "想学说话，就要找中国最会说话的人！名师一对一授学，让孩子敢说话、会说话、说自己的话，善于运用语言的力量！";
+                    newsArr[0].url = "https://mp.weixin.qq.com/s/jg6ObWKDHHNVwOanU6LD5g";
 
                     newsArr[1] = new RepliedMessage.news();
-                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/dingyue/images/tiwen.jpg";
-                    newsArr[1].title = "问答指南：如何向专家提问？";
-                    newsArr[1].description = "问答指南：如何向专家提问？";
-                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506767735&idx=1&sn=bd603935b2ab0fb8b5cc8addd83e93bd&chksm=04eec6fe33994fe8ab607bae5966ee0d4428e1deeb1fbe3765e4e9a16d3b16a7c09b6ab42406&scene=0#wechat_redirect";
+                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_2.png";
+                    newsArr[1].title = "2017“少年演说家”智慧父母课堂火热报名中！";
+                    newsArr[1].description = "孩子参营学习，家长更不能落后！“少年演说家”活动组委会同期开设“智慧父母课堂”，名师大咖加盟，助力打造幸福家庭，让父母与孩子齐步并肩，共成长！";
+                    newsArr[1].url = "http://mp.weixin.qq.com/s/kSZGzf7mB-3DTpvp6UaAPQ";
 
+                    
                     newsArr[2] = new RepliedMessage.news();
-                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/dingyue/images/weike.png";
-                    newsArr[2].title = "【学】“悦长大微课堂”，和孩子共同成长！";
-                    newsArr[2].description = "【学】“悦长大微课堂”，和孩子共同成长！";
-                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506767735&idx=3&sn=905374034d596d81d9c74de984cbc90c&chksm=04eec6fe33994fe86397b612963f0da4a29a21f5166fd3d32b6e764b9363bea2aa1c6fd206ae&scene=0#rd";
-                   
-                  /* 
-                    newsArr[1] = new RepliedMessage.news();
-                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/wenda.jpg";
-                    newsArr[1].title = "问答指南：如何向卢勤老师提问？";
-                    newsArr[1].description = "问答指南：如何向卢勤老师提问？";
-                    newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=3&sn=76ce5ed22f81bc384d749ffbf39b0594#rd";
-
-                    newsArr[2] = new RepliedMessage.news();
-                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/images/tushu.jpg";
-                    newsArr[2].title = "卢勤老师亲著图书介绍";
-                    newsArr[2].description = "卢勤老师亲著图书介绍";
-                    newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=4&sn=11e7c46abdd6b8da9219838919693bf9#rd";
+                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_3.jpg";
+                    newsArr[2].title = "“大开眼界”日本科技文化发现之旅";
+                    newsArr[2].description = "在东京！在大阪！体验科技，玩转动漫，感受传统文化与多元文化的融合。开阔视野，在日本学与游当中能获得丰富多彩意想不到的收获。";
+                    newsArr[2].url = "https://mp.weixin.qq.com/s/M8iZoAcnrNz7fy_eFvRq5A";
 
                     newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/ying.jpg";
-                    newsArr[3].title = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
-                    newsArr[3].description = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
-                    newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=5&sn=d95feb398f1f3142332ce5d5713c321a#rd";
-			*/
+                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_4.png";
+                    newsArr[3].title = "“大开眼界”澳大利亚交流之旅火热报名中！";
+                    newsArr[3].description = "这是一个集文化探访、都市采风、自然探索为一体的夏令营。";
+                    newsArr[3].url = "http://mp.weixin.qq.com/s/K_yAyIBz_mJeM0gnBWmY0g";
+
+
+
+                    newsArr[4] = new RepliedMessage.news();
+                    newsArr[4].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_5.png";
+                    newsArr[4].title = "【五一精品家长课】卢勤老师：把孩子培养成财富";
+                    newsArr[4].description = "卢勤老师倾心传授40年的家庭教育精华，帮您开启孩子心灵智慧，挖掘孩子内在潜能；以生动真实的家庭教育事例，全面、深入、科学地助您做孩子喜爱、敬佩的父母，把孩子培养成财富！";
+                    newsArr[4].url = "http://mp.weixin.qq.com/s/q2JTekmlvVpLduSYC2zOBw";
+
+                    newsArr[5] = new RepliedMessage.news();
+                    newsArr[5].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_6.png";
+                    newsArr[5].title = "问答指南：如何向专家提问？";
+                    newsArr[5].description = "问答指南：如何向专家提问？";
+                    newsArr[5].url = "http://mp.weixin.qq.com/s/fFaRmHsHZctCRCYPkrDFzQ";
+
+                    newsArr[6] = new RepliedMessage.news();
+                    newsArr[6].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_6.png";
+                    newsArr[6].title = "“悦长大微课堂”，和孩子共同成长！";
+                    newsArr[6].description = "悦长大家庭教育专家问答平台创办的，每周以微信群的方式进行授课的互动式线上课堂。";
+                    newsArr[6].url = "http://mp.weixin.qq.com/s/V5dgg4Jwlslxu7MDHrhBPA";
+
+
+
+
+
+
+
+
+                    /* 
+                      newsArr[1] = new RepliedMessage.news();
+                      newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/wenda.jpg";
+                      newsArr[1].title = "问答指南：如何向卢勤老师提问？";
+                      newsArr[1].description = "问答指南：如何向卢勤老师提问？";
+                      newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=3&sn=76ce5ed22f81bc384d749ffbf39b0594#rd";
+
+                      newsArr[2] = new RepliedMessage.news();
+                      newsArr[2].picUrl = "http://weixin.luqinwenda.com/images/tushu.jpg";
+                      newsArr[2].title = "卢勤老师亲著图书介绍";
+                      newsArr[2].description = "卢勤老师亲著图书介绍";
+                      newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=4&sn=11e7c46abdd6b8da9219838919693bf9#rd";
+
+                      newsArr[3] = new RepliedMessage.news();
+                      newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/ying.jpg";
+                      newsArr[3].title = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
+                      newsArr[3].description = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
+                      newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=5&sn=d95feb398f1f3142332ce5d5713c321a#rd";
+              */
 
                     repliedMessage.newsContent = newsArr;
                     deal = true;
