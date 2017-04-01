@@ -272,7 +272,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 }
                 if (!deal)
                 {
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[7];
+                    RepliedMessage.news[] newsArr = new RepliedMessage.news[6];
 
                     newsArr[0] = new RepliedMessage.news();
                     newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_1.jpg";
@@ -300,24 +300,17 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                     newsArr[3].url = "http://mp.weixin.qq.com/s/K_yAyIBz_mJeM0gnBWmY0g";
 
 
-
                     newsArr[4] = new RepliedMessage.news();
-                    newsArr[4].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_5.png";
-                    newsArr[4].title = "【五一精品家长课】卢勤老师：把孩子培养成财富";
-                    newsArr[4].description = "卢勤老师倾心传授40年的家庭教育精华，帮您开启孩子心灵智慧，挖掘孩子内在潜能；以生动真实的家庭教育事例，全面、深入、科学地助您做孩子喜爱、敬佩的父母，把孩子培养成财富！";
-                    newsArr[4].url = "http://mp.weixin.qq.com/s/q2JTekmlvVpLduSYC2zOBw";
+                    newsArr[4].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_6.png";
+                    newsArr[4].title = "问答指南：如何向专家提问？";
+                    newsArr[4].description = "问答指南：如何向专家提问？";
+                    newsArr[4].url = "http://mp.weixin.qq.com/s/fFaRmHsHZctCRCYPkrDFzQ";
 
                     newsArr[5] = new RepliedMessage.news();
-                    newsArr[5].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_6.png";
-                    newsArr[5].title = "问答指南：如何向专家提问？";
-                    newsArr[5].description = "问答指南：如何向专家提问？";
-                    newsArr[5].url = "http://mp.weixin.qq.com/s/fFaRmHsHZctCRCYPkrDFzQ";
-
-                    newsArr[6] = new RepliedMessage.news();
-                    newsArr[6].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_7.png";
-                    newsArr[6].title = "“悦长大微课堂”，和孩子共同成长！";
-                    newsArr[6].description = "悦长大家庭教育专家问答平台创办的，每周以微信群的方式进行授课的互动式线上课堂。";
-                    newsArr[6].url = "http://mp.weixin.qq.com/s/V5dgg4Jwlslxu7MDHrhBPA";
+                    newsArr[5].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_7.png";
+                    newsArr[5].title = "“悦长大微课堂”，和孩子共同成长！";
+                    newsArr[5].description = "悦长大家庭教育专家问答平台创办的，每周以微信群的方式进行授课的互动式线上课堂。";
+                    newsArr[5].url = "http://mp.weixin.qq.com/s/V5dgg4Jwlslxu7MDHrhBPA";
 
 
 
