@@ -314,7 +314,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                     newsArr[5].url = "http://mp.weixin.qq.com/s/fFaRmHsHZctCRCYPkrDFzQ";
 
                     newsArr[6] = new RepliedMessage.news();
-                    newsArr[6].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_6.png";
+                    newsArr[6].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_7.png";
                     newsArr[6].title = "“悦长大微课堂”，和孩子共同成长！";
                     newsArr[6].description = "悦长大家庭教育专家问答平台创办的，每周以微信群的方式进行授课的互动式线上课堂。";
                     newsArr[6].url = "http://mp.weixin.qq.com/s/V5dgg4Jwlslxu7MDHrhBPA";
