@@ -757,6 +757,31 @@ public class Util
         return i;
     }
 
+    public static Dictionary<string, object>[] GetObjectArrayFromJsonByKey(string jsonStr, string key)
+    {
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+        Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(jsonStr);
+        object v;
+        json.TryGetValue(key, out v);
+        object[] vArr = (object[])v;
+        Dictionary<string, object>[] retArr = new Dictionary<string, object>[vArr.Length];
+        for (int i = 0; i < retArr.Length; i++)
+        {
+            Dictionary<string, object> keyPairObjectArray = (Dictionary<string, object>)vArr[i];
+            retArr[i] = keyPairObjectArray;
+        }
+        return retArr;
+    }
+
+    public static Dictionary<string, object> GetObjectFromJsonByKey(string jsonStr, string key)
+    {
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+        Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(jsonStr);
+        object v;
+        json.TryGetValue(key, out v);
+        return (Dictionary<string, object>)v;
+    }
+
     public static RepliedMessage.news[] GetInviteMessage(string openId, string action)
     {
         RepliedMessage.news message = new RepliedMessage.news();
