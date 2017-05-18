@@ -275,7 +275,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                     RepliedMessage.news[] newsArr = new RepliedMessage.news[6];
 
                     newsArr[0] = new RepliedMessage.news();
-                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_1.jpg";
+                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/speech_rec.jpg";
                     newsArr[0].title = "2017少年演说家潜能开发营、提高营火热报名中！";
                     newsArr[0].description = "想学说话，就要找中国最会说话的人！名师一对一授学，让孩子敢说话、会说话、说自己的话，善于运用语言的力量！";
                     newsArr[0].url = "https://mp.weixin.qq.com/s/jg6ObWKDHHNVwOanU6LD5g";
