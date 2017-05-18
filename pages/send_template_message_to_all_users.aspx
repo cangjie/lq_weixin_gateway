@@ -69,7 +69,7 @@
         }
 
         function send_single_message(open_id) {
-            var template_data = document.getElementById("txt_template_data").innerText;
+            var template_data = document.getElementById("txt_template_data").value;
             template_data = template_data.replace("<@to_user_open_id@>", open_id);
             //alert(template_data);
             $.ajax({
