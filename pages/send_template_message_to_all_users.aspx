@@ -77,7 +77,7 @@
                 type: "POST",
                 dataType: "text",
                 data: template_data,
-                async: false,
+                async: true,
                 success: function () {
                     send_num++;
                     document.getElementById("send_num").innerText = send_num;
