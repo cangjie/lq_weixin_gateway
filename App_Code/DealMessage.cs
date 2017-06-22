@@ -1090,6 +1090,20 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 repliedMessage.content = "为确保最有需要的家长前来听课，请转发<a href=\"http://mp.weixin.qq.com/s/9comEfTUYMX2rfpQjDqKpg\" >本期【悦长大微课堂】图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群，谢谢！";
 
                 break;
+            case "福利":
+                string qrXuMediaIdFuli = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
+                       + "\\qr_fuli.jpg", Util.GetToken());
+
+                RepliedMessage imageMessageFuli = new RepliedMessage();
+                imageMessageFuli.from = receivedMessage.to;
+                imageMessageFuli.to = receivedMessage.from;
+                imageMessageFuli.type = "image";
+                imageMessageFuli.mediaId = qrXuMediaIdFuli.Trim();
+                imageMessageFuli.SendAsServiceMessage();
+                repliedMessage.type = "text";
+                repliedMessage.content = "长按识别二维码或添加xiaokellq为微信好友，即可免费获取价值300元坤德农业有机蔬菜大礼包一份，仅限北京地区六环以内。";
+
+                break;
             case "合作":
             case "转播":
             case "合作转播":
