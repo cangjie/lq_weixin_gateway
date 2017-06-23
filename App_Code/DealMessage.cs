@@ -1093,16 +1093,17 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
             case "福利":
                 string qrXuMediaIdFuli = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                        + "\\qr_fuli.jpg", Util.GetToken());
-
+                /*
                 RepliedMessage imageMessageFuli = new RepliedMessage();
                 imageMessageFuli.from = receivedMessage.to;
                 imageMessageFuli.to = receivedMessage.from;
                 imageMessageFuli.type = "image";
                 imageMessageFuli.mediaId = qrXuMediaIdFuli.Trim();
                 imageMessageFuli.SendAsServiceMessage();
-                repliedMessage.type = "text";
-                repliedMessage.content = "长按识别二维码或添加xiaokellq为微信好友，即可免费获取价值300元坤德农业有机蔬菜大礼包一份，仅限北京地区六环以内。";
-
+                */
+                repliedMessage.type = "image";
+                //repliedMessage.content = "长按识别二维码或添加xiaokellq为微信好友，即可免费获取价值300元坤德农业有机蔬菜大礼包一份，仅限北京地区六环以内。";
+                repliedMessage.mediaId = qrXuMediaIdFuli;
                 break;
             case "合作":
             case "转播":
