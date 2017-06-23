@@ -1093,17 +1093,17 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
             case "福利":
                 string qrXuMediaIdFuli = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                        + "\\qr_fuli.jpg", Util.GetToken());
-                
+                /*
                 RepliedMessage imageMessageFuli = new RepliedMessage();
                 imageMessageFuli.from = receivedMessage.to;
                 imageMessageFuli.to = receivedMessage.from;
                 imageMessageFuli.type = "image";
                 imageMessageFuli.mediaId = qrXuMediaIdFuli.Trim();
                 imageMessageFuli.SendAsServiceMessage();
-                
-                repliedMessage.type = "text";
-                repliedMessage.content = "";
-                //repliedMessage.mediaId = qrXuMediaIdFuli;
+                */
+                repliedMessage.type = "image";
+                repliedMessage.content = qrXuMediaIdFuli;
+                repliedMessage.mediaId = qrXuMediaIdFuli;
                 break;
             case "合作":
             case "转播":
