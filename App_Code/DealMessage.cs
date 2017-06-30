@@ -1087,7 +1087,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 imageMessageYaoqing.mediaId = qrXuMediaIdYaoqing.Trim();
                 imageMessageYaoqing.SendAsServiceMessage();
                 repliedMessage.type = "text";
-                repliedMessage.content = "为确保最有需要的家长前来听课，请转发<a href=\"http://mp.weixin.qq.com/s/9comEfTUYMX2rfpQjDqKpg\" >本期【悦长大微课堂】图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群，谢谢！";
+                repliedMessage.content = "为确保最有需要的家长前来听课，请转发<a href=\"http://mp.weixin.qq.com/s/JS2nnshSF9cuZ9cKjNWWhA\" >本期【悦长大微课堂】图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群，谢谢！";
 
                 break;
             case "福利":
