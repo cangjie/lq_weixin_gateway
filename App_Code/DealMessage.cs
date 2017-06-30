@@ -1074,6 +1074,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 break;
 */
             case "我要报名":
+            case "微课":
             case "报名":
             case "报名参加":
             case "我要参加":
