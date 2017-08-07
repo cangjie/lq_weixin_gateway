@@ -154,6 +154,12 @@ public class DealMessage
                 repliedMessage = BuildMessageByKeyword(repliedMessage, "女儿");
                 break;
 	    case "COOP":
+                //RepliedMessage replyMessage = new RepliedMessage();
+                repliedMessage.type = "text";
+                repliedMessage.from = receivedMessage.to;
+                repliedMessage.to = receivedMessage.from;
+                repliedMessage.content = "广告、商家请联系微信：daimoyingbai；团购请联系微信：luqinwenda001；原创文章授权请联系微信号：daimoyingbai。";
+                /*
 string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                     + "\\qr_xu.jpg", Util.GetToken());
 
@@ -176,7 +182,8 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
 
                 repliedMessage.type = "";
                 repliedMessage.mediaId = qrXuMediaId;
-		break;
+                */
+                break;
 	    case "SPEECH":
 		
 		newsContent = new RepliedMessage.news();
