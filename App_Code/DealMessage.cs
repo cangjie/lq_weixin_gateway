@@ -279,6 +279,12 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 }
                 if (!deal)
                 {
+
+                    repliedMessage.type = "text";
+                    repliedMessage.content = "欢迎加入悦长大！\r\n9月6日晚上8点，悦长大微课堂：\r\n超实用小学一年级孩子成长指南--【如何帮助一年级的孩子适应小学生活】<a href=\"http://mp.weixin.qq.com/s/WSMVsfXvo6imG8HS2-4JFA\" >点击这里</a>查看微课详情\r\n主讲嘉宾：卓立\r\n北京史家小学终身名誉校长\r\n50余年一线小学教育生涯的儿童教育专家\r\n全国十大明星校长\r\n北京市杰出校长\r\n北京教育功勋人物\r\n今日前98名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
+
+
+                    /*
                     RepliedMessage.news[] newsArr = new RepliedMessage.news[6];
 
                     newsArr[0] = new RepliedMessage.news();
@@ -318,36 +324,10 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                     newsArr[5].title = "“悦长大微课堂”，和孩子共同成长！";
                     newsArr[5].description = "悦长大家庭教育专家问答平台创办的，每周以微信群的方式进行授课的互动式线上课堂。";
                     newsArr[5].url = "http://mp.weixin.qq.com/s/V5dgg4Jwlslxu7MDHrhBPA";
-
-
-
-
-
-
-
-
-                    /* 
-                      newsArr[1] = new RepliedMessage.news();
-                      newsArr[1].picUrl = "http://weixin.luqinwenda.com/images/wenda.jpg";
-                      newsArr[1].title = "问答指南：如何向卢勤老师提问？";
-                      newsArr[1].description = "问答指南：如何向卢勤老师提问？";
-                      newsArr[1].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=3&sn=76ce5ed22f81bc384d749ffbf39b0594#rd";
-
-                      newsArr[2] = new RepliedMessage.news();
-                      newsArr[2].picUrl = "http://weixin.luqinwenda.com/images/tushu.jpg";
-                      newsArr[2].title = "卢勤老师亲著图书介绍";
-                      newsArr[2].description = "卢勤老师亲著图书介绍";
-                      newsArr[2].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=4&sn=11e7c46abdd6b8da9219838919693bf9#rd";
-
-                      newsArr[3] = new RepliedMessage.news();
-                      newsArr[3].picUrl = "http://weixin.luqinwenda.com/images/ying.jpg";
-                      newsArr[3].title = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
-                      newsArr[3].description = "【活动】“少年演说家”潜能开发营初级班火热征募中~";
-                      newsArr[3].url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=404790715&idx=5&sn=d95feb398f1f3142332ce5d5713c321a#rd";
-              */
-
                     repliedMessage.newsContent = newsArr;
+                    */
                     deal = true;
+                    
                 }
                 break;
             default:
