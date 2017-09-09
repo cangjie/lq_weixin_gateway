@@ -282,7 +282,9 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
 
                     repliedMessage.type = "text";
                     //repliedMessage.content = "欢迎加入悦长大！\r\n9月6日晚上8点，悦长大微课堂：\r\n超实用小学一年级孩子成长指南--【如何帮助一年级的孩子适应小学生活】<a href=\"http://mp.weixin.qq.com/s/WSMVsfXvo6imG8HS2-4JFA\" >点击这里</a>查看微课详情\r\n主讲嘉宾：卓立\r\n北京史家小学终身名誉校长\r\n50余年一线小学教育生涯的儿童教育专家\r\n全国十大明星校长\r\n北京市杰出校长\r\n北京教育功勋人物\r\n今日前98名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
-                    repliedMessage.content = "欢迎加入悦长大！\r\n【微课预告】\r\n9月6日晚上8点\r\n【主题】\r\n超实用小学一年级孩子成长指南--如何帮助一年级的孩子适应小学生活，<a href=\"http://mp.weixin.qq.com/s/WSMVsfXvo6imG8HS2-4JFA\" >点击这里查看微课详情</a>。\r\n【主讲嘉宾】\r\n卓立\r\n北京史家小学终身名誉校长\r\n50余年一线小学教育生涯的儿童教育专家\r\n全国十大明星校长\r\n北京市杰出校长\r\n【报名方法】\r\n今日前98名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
+                    repliedMessage.content = "欢迎加入悦长大！\r\n【微课预告】\r\n9月14日（周四）20:00\r\n《让每个孩子都精彩》，激发孩子内在成长动力\r\n"
+                        + "<a href=\"http://mp.weixin.qq.com/s/txsjdtXVsSjOzrrHePFKWg\" >点击这里查看微课详情</a>\r\n【主讲嘉宾】\r\n卢勤\r\n中国教育学会家庭教育专业委员会副理事长，高级编辑；中国少年儿童新闻出版总社首席教育专家，原总编辑；著名的“知心姐姐”"
+                        + "\r\n【报名方法】\r\n今日前100名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
 
                     /*
                     RepliedMessage.news[] newsArr = new RepliedMessage.news[6];
