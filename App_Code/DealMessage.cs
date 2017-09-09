@@ -1068,7 +1068,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
             case "报名参加":
             case "我要参加":
                 string qrXuMediaIdYaoqing = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
-                       + "\\grade_1.jpg", Util.GetToken());
+                       + "\\jingcai.jpg", Util.GetToken());
 
                 RepliedMessage imageMessageYaoqing = new RepliedMessage();
                 imageMessageYaoqing.from = receivedMessage.to;
@@ -1077,7 +1077,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 imageMessageYaoqing.mediaId = qrXuMediaIdYaoqing.Trim();
                 imageMessageYaoqing.SendAsServiceMessage();
                 repliedMessage.type = "text";
-                repliedMessage.content = "悦长大邀请你参加微课《如何帮助一年级的孩子适应小学生活》，<a href=\"http://mp.weixin.qq.com/s/WSMVsfXvo6imG8HS2-4JFA\" >点击这里查看微课详情</a>。\r\n【免费听课方法】将下面的海报分享至朋友圈，保留30分钟以上时间，截图分享好的界面； 将截图发送给悦长大小助手（luqinwenda001），领取免费听课特权（仅限前98名）。";
+                repliedMessage.content = "悦长大邀请你参加卢勤老师主讲微课《让每个孩子都精彩》。\r\n【免费听课方法】将下面的海报分享至朋友圈，保留30分钟以上时间，截图分享好的界面； 将截图发送给悦长大小助手（luqinwenda001），领取免费听课特权（仅限前100名）。";
 
                 break;
             case "福利":
