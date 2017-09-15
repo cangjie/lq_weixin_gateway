@@ -282,9 +282,9 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
 
                     repliedMessage.type = "text";
                     //repliedMessage.content = "欢迎加入悦长大！\r\n9月6日晚上8点，悦长大微课堂：\r\n超实用小学一年级孩子成长指南--【如何帮助一年级的孩子适应小学生活】<a href=\"http://mp.weixin.qq.com/s/WSMVsfXvo6imG8HS2-4JFA\" >点击这里</a>查看微课详情\r\n主讲嘉宾：卓立\r\n北京史家小学终身名誉校长\r\n50余年一线小学教育生涯的儿童教育专家\r\n全国十大明星校长\r\n北京市杰出校长\r\n北京教育功勋人物\r\n今日前98名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
-                    repliedMessage.content = "欢迎加入悦长大！\r\n【微课预告】\r\n9月14日（周四）20:00\r\n《让每个孩子都精彩》，激发孩子内在成长动力\r\n"
-                        + "<a href=\"http://mp.weixin.qq.com/s/txsjdtXVsSjOzrrHePFKWg\" >点击这里查看微课详情</a>\r\n【主讲嘉宾】\r\n卢勤\r\n中国教育学会家庭教育专业委员会副理事长，高级编辑；中国少年儿童新闻出版总社首席教育专家，原总编辑；著名的“知心姐姐”"
-                        + "\r\n【报名方法】\r\n今日前100名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
+                    repliedMessage.content = "欢迎加入悦长大！\r\n【微课预告】\\r\n《校园霸凌，不仅要打回去更要走出来》\r\n<a href=\"http://mp.weixin.qq.com/s/XQTKQkE-V5IJK99YYFcJ3w\" >点击这里查看微课详情</a>。\r\n"
+                        + "【主讲嘉宾】\r\n清暇老师\r\n中国教育学会家庭教育专业委员会理事和专家讲师团成员；“悦长大”家庭教育专家平台专家。\r\n美国“天下”文化教育交流中心CEO，中美基础教育、家庭教育研究专家。"
+                        + "\r\n【报名方法】\r\n今日前98名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
 
                     /*
                     RepliedMessage.news[] newsArr = new RepliedMessage.news[6];
@@ -1068,7 +1068,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
             case "报名参加":
             case "我要参加":
                 string qrXuMediaIdYaoqing = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
-                       + "\\jingcai.jpg", Util.GetToken());
+                       + "\\baling.jpg", Util.GetToken());
 
                 RepliedMessage imageMessageYaoqing = new RepliedMessage();
                 imageMessageYaoqing.from = receivedMessage.to;
@@ -1077,7 +1077,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 imageMessageYaoqing.mediaId = qrXuMediaIdYaoqing.Trim();
                 imageMessageYaoqing.SendAsServiceMessage();
                 repliedMessage.type = "text";
-                repliedMessage.content = "悦长大邀请你参加卢勤老师主讲微课《让每个孩子都精彩》。\r\n【免费听课方法】将下面的海报分享至朋友圈，保留30分钟以上时间，截图分享好的界面； 将截图发送给悦长大小助手（luqinwenda001），领取免费听课特权（仅限前100名）。";
+                repliedMessage.content = "悦长大邀请你参加9月20日清瑕老师主讲微课《校园霸凌，不仅要打回去更要走出来》。\r\n【免费听课方法】将下面的海报分享至朋友圈，保留30分钟以上时间，截图分享好的界面； 将截图发送给悦长大小助手（luqinwenda001），领取免费听课特权（仅限前98名）。";
 
                 break;
             case "福利":
