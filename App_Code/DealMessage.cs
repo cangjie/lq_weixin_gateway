@@ -279,55 +279,10 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 }
                 if (!deal)
                 {
-
                     repliedMessage.type = "text";
-                    //repliedMessage.content = "欢迎加入悦长大！\r\n9月6日晚上8点，悦长大微课堂：\r\n超实用小学一年级孩子成长指南--【如何帮助一年级的孩子适应小学生活】<a href=\"http://mp.weixin.qq.com/s/WSMVsfXvo6imG8HS2-4JFA\" >点击这里</a>查看微课详情\r\n主讲嘉宾：卓立\r\n北京史家小学终身名誉校长\r\n50余年一线小学教育生涯的儿童教育专家\r\n全国十大明星校长\r\n北京市杰出校长\r\n北京教育功勋人物\r\n今日前98名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
                     repliedMessage.content = "欢迎加入悦长大！\r\n【微课预告】\\r\n《校园霸凌，不仅要打回去更要走出来》\r\n<a href=\"http://mp.weixin.qq.com/s/XQTKQkE-V5IJK99YYFcJ3w\" >点击这里查看微课详情</a>。\r\n"
                         + "【主讲嘉宾】\r\n清暇老师\r\n中国教育学会家庭教育专业委员会理事和专家讲师团成员；“悦长大”家庭教育专家平台专家。\r\n美国“天下”文化教育交流中心CEO，中美基础教育、家庭教育研究专家。"
                         + "\r\n【报名方法】\r\n今日前98名，可获取免费听课特权。回复“报名”，获取免费听课方法。";
-
-                    /*
-                    RepliedMessage.news[] newsArr = new RepliedMessage.news[6];
-
-                    newsArr[0] = new RepliedMessage.news();
-                    newsArr[0].picUrl = "http://weixin.luqinwenda.com/dingyue/images/speech_rec.jpg";
-                    newsArr[0].title = "2017少年演说家潜能开发营、提高营火热报名中！";
-                    newsArr[0].description = "想学说话，就要找中国最会说话的人！名师一对一授学，让孩子敢说话、会说话、说自己的话，善于运用语言的力量！";
-                    newsArr[0].url = "https://mp.weixin.qq.com/s/jg6ObWKDHHNVwOanU6LD5g";
-
-                    newsArr[1] = new RepliedMessage.news();
-                    newsArr[1].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_2.png";
-                    newsArr[1].title = "2017“少年演说家”智慧父母课堂火热报名中！";
-                    newsArr[1].description = "孩子参营学习，家长更不能落后！“少年演说家”活动组委会同期开设“智慧父母课堂”，名师大咖加盟，助力打造幸福家庭，让父母与孩子齐步并肩，共成长！";
-                    newsArr[1].url = "http://mp.weixin.qq.com/s/kSZGzf7mB-3DTpvp6UaAPQ";
-
-                    
-                    newsArr[2] = new RepliedMessage.news();
-                    newsArr[2].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_3.jpg";
-                    newsArr[2].title = "“大开眼界”日本科技文化发现之旅";
-                    newsArr[2].description = "在东京！在大阪！体验科技，玩转动漫，感受传统文化与多元文化的融合。开阔视野，在日本学与游当中能获得丰富多彩意想不到的收获。";
-                    newsArr[2].url = "https://mp.weixin.qq.com/s/M8iZoAcnrNz7fy_eFvRq5A";
-
-                    newsArr[3] = new RepliedMessage.news();
-                    newsArr[3].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_4.png";
-                    newsArr[3].title = "“大开眼界”澳大利亚交流之旅火热报名中！";
-                    newsArr[3].description = "这是一个集文化探访、都市采风、自然探索为一体的夏令营。";
-                    newsArr[3].url = "http://mp.weixin.qq.com/s/K_yAyIBz_mJeM0gnBWmY0g";
-
-
-                    newsArr[4] = new RepliedMessage.news();
-                    newsArr[4].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_6.png";
-                    newsArr[4].title = "问答指南：如何向专家提问？";
-                    newsArr[4].description = "问答指南：如何向专家提问？";
-                    newsArr[4].url = "http://mp.weixin.qq.com/s/fFaRmHsHZctCRCYPkrDFzQ";
-
-                    newsArr[5] = new RepliedMessage.news();
-                    newsArr[5].picUrl = "http://weixin.luqinwenda.com/dingyue/images/subscribe_7.png";
-                    newsArr[5].title = "“悦长大微课堂”，和孩子共同成长！";
-                    newsArr[5].description = "悦长大家庭教育专家问答平台创办的，每周以微信群的方式进行授课的互动式线上课堂。";
-                    newsArr[5].url = "http://mp.weixin.qq.com/s/V5dgg4Jwlslxu7MDHrhBPA";
-                    repliedMessage.newsContent = newsArr;
-                    */
                     deal = true;
                     
                 }
@@ -770,41 +725,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 fenGong.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=401925682&idx=2&sn=a927a70a459ba926708d5a51eb53b501&scene=1&srcid=1210sO097zRyvsmkJoQYwpum&from=singlemessage&isappinstalled=0#wechat_redirect";
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
-                /*
-            case "信心":
-            case "自信":
-            case "元旦":
-                RepliedMessage.news newYearMessage = new RepliedMessage.news();
-                newYearMessage.title = "卢勤老师祝您2016年元旦快乐";
-                newYearMessage.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnIpJHQU103t55Y3ed1dy0Fvsa0AWUk9FIfR4HzL9g4XRDR0nfbhPYABw/0?wx_fmt=jpeg";
-                newYearMessage.description = "卢勤老师祝您2016年元旦快乐";
-                newYearMessage.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=1&sn=ef57a87e2f9baa9c0a68aec7901d42e7#rd";
-
-                RepliedMessage.news xinXinMessage1 = new RepliedMessage.news();
-                xinXinMessage1.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（上）";
-                xinXinMessage1.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（上）";
-                xinXinMessage1.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnISTsL2hSwAGQFFdABqvxuzwpZUNxXGKtZmFLxTEAdxQ2J0LfPKbeUZg/0?wx_fmt=jpeg";
-                xinXinMessage1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=2&sn=3c90d24dbc06513fe83cea413a6eece9#rd";
-
-                RepliedMessage.news xinXinMessage2 = new RepliedMessage.news();
-                xinXinMessage2.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（中）";
-                xinXinMessage2.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（中）";
-                xinXinMessage2.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnISTsL2hSwAGQFFdABqvxuzwpZUNxXGKtZmFLxTEAdxQ2J0LfPKbeUZg/0?wx_fmt=jpeg";
-                xinXinMessage2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=3&sn=87b460db5bb5f1db61740dbfac8b378c#rd";
-
-                RepliedMessage.news xinXinMessage3 = new RepliedMessage.news();
-                xinXinMessage3.title = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
-                xinXinMessage3.description = "【微课堂】回顾：自信，让孩子喊出“我能行”1231（下）";
-                xinXinMessage3.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXX0Xp6yLq049EJX5aZLDnISTsL2hSwAGQFFdABqvxuzwpZUNxXGKtZmFLxTEAdxQ2J0LfPKbeUZg/0?wx_fmt=jpeg";
-                xinXinMessage3.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403132220&idx=4&sn=31fcd85d06a342215ae8b1c437f71df2#rd";
-
-
-                repliedMessage.type = "news";
-
-                repliedMessage.newsContent = new RepliedMessage.news[] { newYearMessage, xinXinMessage1, xinXinMessage2, xinXinMessage3 };
-
-                break;
-                 */ 
+               
 	    case "杨澜":
             case "天下女人":
             case "读书卡":
@@ -831,62 +752,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                     repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
                 }
                 break;
-                /*
-            case "平安":
-                repliedMessage.type = "news";
-                RepliedMessage.news pingAn1 = new RepliedMessage.news();
-                pingAn1.title = "【微课堂】回顾：给孩子一个平安的世界1214（上）";
-                pingAn1.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbWt1X6wuZof9Jd4dHFUpKFgjn7K2MONpyUFVtexJGWibPSCCQkJSSiczo1D1ffWGq9ibjhT3bKhxyRwQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-                pingAn1.description = "【微课堂】回顾：给孩子一个平安的世界1214（上）";
-                pingAn1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402385605&idx=2&sn=12e96dc35ccd970ffe383f113d083c1e&scene=0#wechat_redirect";
-                
-                RepliedMessage.news pingAn2 = new RepliedMessage.news();
-                pingAn2.title = "【微课堂】回顾：给孩子一个平安的世界1214（下）";
-                pingAn2.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUN9L0g5RkVhwO3KJT4KurpchXibibNIbVvYPM4p889ib2nyYAnDlxBVIGgeWQGl9GyGcaiaPNSK3gw4A/0?wx_fmt=jpeg";
-                pingAn2.description = "【微课堂】回顾：给孩子一个平安的世界1214（下）";
-                pingAn2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402385605&idx=3&sn=0c2a998ad65c4b07585b47edfce56241&scene=0#wechat_redirect";
-
-
-                repliedMessage.newsContent = new RepliedMessage.news[] { pingAn1, pingAn2  };
-                break;
-            case "孝心":
-                repliedMessage.type = "news";
-
-                RepliedMessage.news xiaoXin1 = new RepliedMessage.news();
-                xiaoXin1.title = "【微课堂】回顾：孝心，凝聚家人的力量1222（上）";
-                xiaoXin1.description = "【微课堂】回顾：孝心，凝聚家人的力量1222（上）";
-                xiaoXin1.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbUecibmIiaXmCwZQQflfdRxXkFBY5pccvRomKnVFNFJ5pL4HjvBOpgPIsdzwGkJ0WicibZOfRlNQbIhxQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-                xiaoXin1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402823939&idx=2&sn=1fc919e1a4974cb4e7c1e212e83868f8#rd";
-
-                RepliedMessage.news xiaoXin2 = new RepliedMessage.news();
-
-                xiaoXin2.title = "【微课堂】回顾：孝心，凝聚家人的力量1222（下）";
-                xiaoXin2.description = "【微课堂】回顾：孝心，凝聚家人的力量1222（下）";
-                xiaoXin2.picUrl = "http://mmbiz.qpic.cn/mmbiz/2x9sALwpIbUecibmIiaXmCwZQQflfdRxXkFBY5pccvRomKnVFNFJ5pL4HjvBOpgPIsdzwGkJ0WicibZOfRlNQbIhxQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1";
-                xiaoXin2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=402823939&idx=3&sn=f42075b18dc9ff3a9da22a797aadf441#rd";
-
-                repliedMessage.newsContent = new RepliedMessage.news[] { xiaoXin1, xiaoXin2 };
-
-                break;
-                 */ 
-                /*
-            case "真爱":
-                RepliedMessage.news zhenAi1 = new RepliedMessage.news();
-                zhenAi1.title = "【微课堂】回顾：给孩子一个真爱的世界0112（上）";
-                zhenAi1.description = "【微课堂】回顾：给孩子一个真爱的世界0112（上）";
-                zhenAi1.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUx1XnOMDXSuT7wUJkicRLQTWnqnKaCyMlBsKoR0CicaNMIbUtRKDIfLHYQF0LsIwohT0UJW8jJ0uQg/0?wx_fmt=jpeg";
-                zhenAi1.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403415400&idx=3&sn=6fddcdeb3dc615421f779930ea28b7a2#rd";
-
-                RepliedMessage.news zhenAi2 = new RepliedMessage.news();
-                zhenAi2.title = "【微课堂】回顾：给孩子一个真爱的世界0112（下）";
-                zhenAi2.description = "【微课堂】回顾：给孩子一个真爱的世界0112（下）";
-                zhenAi2.picUrl = "https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUx1XnOMDXSuT7wUJkicRLQTWnqnKaCyMlBsKoR0CicaNMIbUtRKDIfLHYQF0LsIwohT0UJW8jJ0uQg/0?wx_fmt=jpeg";
-                zhenAi2.url = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=403415400&idx=4&sn=846efb13d1f95ca3a5631e9514c01362#rd";
-
-                repliedMessage.newsContent = new RepliedMessage.news[] { zhenAi1, zhenAi2 };
-
-                break;
-                 */ 
+               
             case "人才":
                 RepliedMessage.news renCai = new RepliedMessage.news();
                 renCai.title = "【微课堂】回顾：贺淑曼-站在人才的高度务教育0304";
@@ -966,47 +832,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
 
                 break;
 /*
-            case "申请转播群":
-
-                GroupMaster groupMasterWeike = GroupMaster.CreateNew(repliedMessage.to.Trim(),1);
-                string randGroupCodeWeike = "A" + groupMasterWeike.ID.ToString().PadLeft(6, '0');
-
-                RepliedMessage texGroupMastertMessageWeike = new RepliedMessage();
-                texGroupMastertMessageWeike.type = "text";
-                texGroupMastertMessageWeike.content = "您的申请码是【" + randGroupCodeWeike + "】，把以下页面发放到群里或转发朋友圈，请您的朋友在“卢勤问答平台”公众号中，回复您的申请码【" + randGroupCodeWeike + "】即可获得支持票。得票数满300个支持的群主，请将截图发送给平台旭老师（详见下方二维码），即可获得合作转播群资格。";
-                texGroupMastertMessageWeike.from = receivedMessage.to;
-                texGroupMastertMessageWeike.to = receivedMessage.from;
-                texGroupMastertMessageWeike.SendAsServiceMessage();
-
-                //string token = Util.GetToken();
-                //string filePathNameWeike = System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim() + "\\xiaozhushou.jpg";
-                try
-                {
-                    string mediaIdWeike = "kwiALQLMgF4AyJ4GkenGXJYnP9ZCviumOKvqoO6f20t950ovC1ClA6CRZytyLGan";
-                    RepliedMessage xiaoZhuShouQrcodeReplymessage = new RepliedMessage();
-                    xiaoZhuShouQrcodeReplymessage.type = "image";
-                    xiaoZhuShouQrcodeReplymessage.mediaId = mediaIdWeike;
-                    xiaoZhuShouQrcodeReplymessage.from = receivedMessage.to;
-                    xiaoZhuShouQrcodeReplymessage.to = receivedMessage.from;
-                    xiaoZhuShouQrcodeReplymessage.SendAsServiceMessage();
-                }
-                catch
-                { 
-                
-                }
-                System.Threading.Thread.Sleep(500);
-                
-                repliedMessage.type = "news";
-                RepliedMessage.news inviteMessageWK = new RepliedMessage.news();
-                inviteMessageWK.title = "微课邀请函";
-                inviteMessageWK.picUrl = "http://game.luqinwenda.com/images/groupjoinBanner.jpg";
-                inviteMessageWK.description = "微课邀请函";
-                inviteMessageWK.url = "http://game.luqinwenda.com/weiketang/GroupJoin.aspx?id=" + groupMasterWeike.ID.ToString()
-                    + "&code=" + randGroupCodeWeike;
-                repliedMessage.newsContent = new RepliedMessage.news[] { inviteMessageWK };
-
-
-                break;
+            
  */ 
             case "g":
                 string replyGameContent = receivedMessage.content.Trim();
@@ -1045,23 +871,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
 
 
                 break;
-/*
-            case "微课":
-            case "上课":
 
-            case "微客":
-		        string qrXuMediaId1 = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
-                       + "\\qrcode_luqinwenda001.jpg", Util.GetToken());
-                RepliedMessage imageMessage1 = new RepliedMessage();
-                imageMessage1.from = receivedMessage.to;
-                imageMessage1.to = receivedMessage.from;
-                imageMessage1.type = "image";
-                imageMessage1.mediaId = qrXuMediaId1.Trim();
-                imageMessage1.SendAsServiceMessage();
-		        repliedMessage.type = "text";
-                repliedMessage.content = "为确保最有需要的家长前来听课，请转发本期<a href=\"http://weixin.luqinwenda.com/dingyue/baoming_jump.aspx\" >【悦长大微课堂】本期课程预告图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群群，谢谢！";
-                break;
-*/
             case "我要报名":
             case "微课":
             case "报名":
@@ -1083,14 +893,7 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
             case "福利":
                 string qrXuMediaIdFuli = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                        + "\\qr_fuli.jpg", Util.GetToken());
-                /*
-                RepliedMessage imageMessageFuli = new RepliedMessage();
-                imageMessageFuli.from = receivedMessage.to;
-                imageMessageFuli.to = receivedMessage.from;
-                imageMessageFuli.type = "image";
-                imageMessageFuli.mediaId = qrXuMediaIdFuli.Trim();
-                imageMessageFuli.SendAsServiceMessage();
-                */
+               
                 repliedMessage.type = "image";
                 repliedMessage.content = qrXuMediaIdFuli;
                 repliedMessage.mediaId = qrXuMediaIdFuli;
@@ -1121,6 +924,24 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
 
                 repliedMessage.type = "";
                 repliedMessage.mediaId = qrXuMediaId;
+                break;
+            case "陈默":
+            case "沉默":
+            case "沉没":
+            case "陈墨":
+            case "陈末":
+                repliedMessage.type = "text";
+                string content = "终于等到你了~\r\n"
+                    + "悦长大粉丝福利：7天学做不焦虑的家长免费课程（陈默 授课）\r\n"
+                    + "第1课：孩子不想做作业怎么办？\r\n"
+                    + "第2课：孩子不想考试怎么办？\r\n"
+                    + "第3课：孩子不想补课怎么办？\r\n"
+                    + "第4课：孩子不想看大人指定的书怎么办？\r\n"
+                    + "第5课：孩子不想被比较怎么办？"
+                    + "第6课：孩子不想被爸妈老催怎么办？\r\n"
+                    + "第7课：孩子不想整天谈学习怎么办？\r\n"
+                    + "对陈默老师《如何做不焦虑的家长》完整课程（40节课）感兴趣的小伙伴可以购买课程：";
+                repliedMessage.content = content;
                 break;
             default:
                 repliedMessage = BuildMessageByKeyword(repliedMessage, command.Trim());
