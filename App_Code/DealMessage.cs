@@ -933,14 +933,14 @@ string qrXuMediaId = Util.UploadImageToWeixin(System.Configuration.Configuration
                 repliedMessage.type = "text";
                 string content = "终于等到你了~\r\n"
                     + "悦长大粉丝福利：7天学做不焦虑的家长免费课程（陈默 授课）\r\n"
-                    + "第1课：孩子不想做作业怎么办？\r\n"
-                    + "第2课：孩子不想考试怎么办？\r\n"
-                    + "第3课：孩子不想补课怎么办？\r\n"
-                    + "第4课：孩子不想看大人指定的书怎么办？\r\n"
-                    + "第5课：孩子不想被比较怎么办？"
-                    + "第6课：孩子不想被爸妈老催怎么办？\r\n"
-                    + "第7课：孩子不想整天谈学习怎么办？\r\n"
-                    + "对陈默老师《如何做不焦虑的家长》完整课程（40节课）感兴趣的小伙伴可以购买课程：";
+                    + "第1课：孩子不想做作业怎么办？http://dwz.cn/cmdi1ke\r\n"
+                    + "第2课：孩子不想考试怎么办？http://dwz.cn/cmdi2ke\r\n"
+                    + "第3课：孩子不想补课怎么办？http://dwz.cn/cmdi3ke\r\n"
+                    + "第4课：孩子不想看大人指定的书怎么办？http://dwz.cn/cmdi4ke\r\n"
+                    + "第5课：孩子不想被比较怎么办？http://dwz.cn/cmdi5ke\r\n"
+                    + "第6课：孩子不想被爸妈老催怎么办？http://dwz.cn/cmdi6ke\r\n"
+                    + "第7课：孩子不想整天谈学习怎么办？http://dwz.cn/cmdi7ke\r\n"
+                    + "对陈默老师《如何做不焦虑的家长》完整课程（40节课）感兴趣的小伙伴可以购买课程：http://xima.tv/PQK3Jl";
                 repliedMessage.content = content;
                 break;
             default:
