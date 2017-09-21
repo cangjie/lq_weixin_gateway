@@ -838,8 +838,8 @@ public class DealMessage
                     + "第4课：孩子不想看大人指定的书怎么办？\r\nhttp://dwz.cn/cmdi4ke\r\n"
                     + "第5课：孩子不想被比较怎么办？\r\nhttp://dwz.cn/cmdi5ke\r\n"
                     + "第6课：孩子不想被爸妈老催怎么办？\r\nhttp://dwz.cn/cmdi6ke\r\n"
-                    + "第7课：孩子不想整天谈学习怎么办？\r\nhttp://dwz.cn/cmdi7ke\r\n"
-                    + "对陈默老师《如何做不焦虑的家长》完整课程（40节课）感兴趣的小伙伴可以购买课程：\r\nhttp://xima.tv/PQK3Jl";
+                    + "第7课：孩子不想整天谈学习怎么办？\r\nhttp://dwz.cn/cmdi7ke\r\n";
+                    //+ "对陈默老师《如何做不焦虑的家长》完整课程（40节课）感兴趣的小伙伴可以购买课程：\r\nhttp://xima.tv/PQK3Jl";
                 repliedMessage.content = content;
                 break;
             default:
