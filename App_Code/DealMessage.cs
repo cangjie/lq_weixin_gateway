@@ -842,6 +842,11 @@ public class DealMessage
                     //+ "对陈默老师《如何做不焦虑的家长》完整课程（40节课）感兴趣的小伙伴可以购买课程：\r\nhttp://xima.tv/PQK3Jl";
                 repliedMessage.content = content;
                 break;
+            case "ofo":
+                repliedMessage.type = "image";
+                repliedMessage.mediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
+                    + "\\qr_ofo.jpg", Util.GetToken());
+                break;
             default:
                 repliedMessage = BuildMessageByKeyword(repliedMessage, command.Trim());
 		
