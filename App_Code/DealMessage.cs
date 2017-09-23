@@ -846,6 +846,8 @@ public class DealMessage
                 repliedMessage.type = "image";
                 repliedMessage.mediaId = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                     + "\\qr_ofo.jpg", Util.GetToken());
+
+
                 break;
             default:
                 repliedMessage = BuildMessageByKeyword(repliedMessage, command.Trim());

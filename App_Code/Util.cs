@@ -409,7 +409,7 @@ public class Util
                 case "image":
                     n = xmlD.CreateNode(XmlNodeType.Element, "Image", "");
                     XmlNode subN = xmlD.CreateNode(XmlNodeType.Element, "MediaId", "");
-                    subN.InnerXml = "<![CDATA[" + sqlDr["wxreplymsg_content"].ToString().Trim() + "]]>";
+                    subN.InnerXml = "<![CDATA[" + sqlDr["wxreplymsg_mediaid"].ToString().Trim() + "]]>";
                     n.AppendChild(subN);
                     xmlD.SelectSingleNode("//xml").AppendChild(n);
                     break;
