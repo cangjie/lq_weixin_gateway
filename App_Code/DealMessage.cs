@@ -135,10 +135,10 @@ public class DealMessage
 	    case "SPEECH":
 		
 		newsContent = new RepliedMessage.news();
-                newsContent.picUrl = "http://weixin.luqinwenda.com/dingyue/images/speech_rec.jpg";
-                newsContent.url = "http://mp.weixin.qq.com/s/jg6ObWKDHHNVwOanU6LD5g";
+                newsContent.picUrl = "http://weixin.luqinwenda.com/dingyue/images/speech.jpg";
+                newsContent.url = "http://url.cn/5pvZpPM";
                    
-                newsContent.title = "2017少年演说家潜能开发营、提高营火热报名中！";
+                newsContent.title = "2018“少年演说家”潜能开发营寒假营火热报中！";
                 newsContent.description = "想学说话，就要找中国最会说话的人！名师一对一授学，让孩子敢说话、会说话、说自己的话，善于运用语言的力量！";
 
 
