@@ -228,7 +228,7 @@ public class DealMessage
                 if (!deal)
                 {
                     repliedMessage.type = "text";
-                    repliedMessage.content = "终于等到你了~\r\n悦长大粉丝福利：超实用课程《7天学做不焦虑的家长》（陈默 授课）限时免费收听\r\n回复 “陈默”，领取免费听课链接。";
+                    repliedMessage.content = "终于等到你了~\r\n悦长大粉丝福利：【卢勤老师经典课程】限时免费收听。回复 “卢勤”，获取免费听课链接。";
                     deal = true;
                     
                 }
@@ -848,6 +848,14 @@ public class DealMessage
                     + "\\qr_ofo.jpg", Util.GetToken());
 
 
+                break;
+            case "卢勤":
+                RepliedMessage.news luqinNews = new RepliedMessage.news();
+                luqinNews.title = "卢勤老师微课合集，赶紧收藏！";
+                luqinNews.picUrl = "http://weixin.luqinwenda.com/dingyue/images/luqin.jpg";
+                luqinNews.url = "http://mp.weixin.qq.com/s/sSzE1P2Et-3HnBZIHhSKqw";
+                luqinNews.description = "终于等到你了~悦长大粉丝福利：【卢勤老师经典课程】限时免费收听。回复 “卢勤”，获取免费听课链接。";
+                repliedMessage.newsContent = new RepliedMessage.news[] { luqinNews };
                 break;
             default:
                 repliedMessage = BuildMessageByKeyword(repliedMessage, command.Trim());
