@@ -141,17 +141,8 @@ public class DealMessage
                 newsContent.title = "2018“少年演说家”潜能开发营寒假营火热报中！";
                 newsContent.description = "想学说话，就要找中国最会说话的人！名师一对一授学，让孩子敢说话、会说话、说自己的话，善于运用语言的力量！";
 
-
-        RepliedMessage.news newsContent1 = new RepliedMessage.news();
-		newsContent1.picUrl = "http://weixin.luqinwenda.com/dingyue/images/speech_sqr.png";
-                newsContent1.url = "http://mp.weixin.qq.com/s/kSZGzf7mB-3DTpvp6UaAPQ";
-                   
-                newsContent1.title = "2017“少年演说家”智慧父母课堂火热报名中！";
-                newsContent1.description = "孩子参营学习，家长更不能落后！“少年演说家”活动组委会同期开设“智慧父母课堂”，名师大咖加盟，助力打造幸福家庭，让父母与孩子齐步并肩，共成长！";
-
-	
-
-                repliedMessage.newsContent = new RepliedMessage.news[] { newsContent, newsContent1 };
+                  
+                repliedMessage.newsContent = new RepliedMessage.news[] { newsContent };
 
 
 		break;
