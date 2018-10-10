@@ -218,8 +218,9 @@ public class DealMessage
                 }
                 if (!deal)
                 {
-                    repliedMessage.type = "text";
-                    repliedMessage.content = "终于等到你了~\r\n悦长大粉丝福利：【卢勤老师经典课程】限时免费收听。回复 “卢勤”，获取免费听课链接。";
+                    //Oct 10, 2018 cancel
+                    //repliedMessage.type = "text";
+                    //repliedMessage.content = "终于等到你了~\r\n悦长大粉丝福利：【卢勤老师经典课程】限时免费收听。回复 “卢勤”，获取免费听课链接。";
                     deal = true;
                     
                 }
