@@ -197,7 +197,7 @@ public class Util
         token = GetAccessToken(System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim(),
                 System.Configuration.ConfigurationSettings.AppSettings["wxappsecret"].Trim());
         tokenTime = nowDate;
-        File.AppendAllText(@"d:\dingyue_token.txt", DateTime.Now.ToString() + "\t" + token.Trim());
+        //File.AppendAllText(@"d:\dingyue_token.txt", DateTime.Now.ToString() + "\t" + token.Trim());
         return token;
 
     }
