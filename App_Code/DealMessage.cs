@@ -56,7 +56,7 @@ public class DealMessage
         repliedMessage.to = receivedMessage.from;
         repliedMessage.rootId = receivedMessage.id.Trim();
         repliedMessage.newsContent = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
-
+        repliedMessage.messageCount = repliedMessage.newsContent.Length;
 
         /*
         RepliedMessage.news newsContent;// = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
