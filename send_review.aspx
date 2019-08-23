@@ -37,16 +37,23 @@
         DataTable dt = DBHelper.GetDataTable(" select distinct wxreceivemsg_from from wxreceivemsg where wxreceivemsg_crt >= dateadd(d, -2, getdate())   ", Util.conStr);
         foreach (DataRow dr in dt.Rows)
         {
-            if (DBHelper.InsertData("review_log", new string[,] {
-                {"open_id", "varchar", dr[0].ToString().Trim() },
-                {"title", "varchar", title.Trim() }
-            }, Util.conStr.Trim()) == 1)
+            try
             {
-                MpNews.SendMpNews(dr[0].ToString().Trim(), mediaId, token.Trim());
+                if (DBHelper.InsertData("review_log", new string[,] {
+                    {"open_id", "varchar", dr[0].ToString().Trim() },
+                    {"title", "varchar", title.Trim() }
+                    }, Util.conStr.Trim()) == 1)
+                {
+                    MpNews.SendMpNews(dr[0].ToString().Trim(), mediaId, token.Trim());
+                }
+            }
+            catch
+            {
+
             }
         }
 
     }
 
-    
+
 </script>
