@@ -55,7 +55,18 @@ public class DealMessage
         repliedMessage.from = receivedMessage.to;
         repliedMessage.to = receivedMessage.from;
         repliedMessage.rootId = receivedMessage.id.Trim();
-        repliedMessage.newsContent = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
+        RepliedMessage.news[] newsArr = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
+        if (newsArr.Length == 1)
+        {
+            repliedMessage.newsContent = new RepliedMessage.news[2] { newsArr[0], newsArr[1] };
+            repliedMessage.messageCount = 2;
+        }
+        else
+        {
+            repliedMessage.newsContent = newsArr;
+            repliedMessage.messageCount = newsArr.Length;
+        }
+        
         repliedMessage.messageCount = repliedMessage.newsContent.Length;
 
         /*
