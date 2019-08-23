@@ -58,7 +58,7 @@ public class DealMessage
         RepliedMessage.news[] newsArr = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
         if (newsArr.Length == 1)
         {
-            repliedMessage.newsContent = new RepliedMessage.news[2] { newsArr[0], newsArr[1] };
+            repliedMessage.newsContent = new RepliedMessage.news[2] { newsArr[0], newsArr[0] };
             repliedMessage.messageCount = 2;
         }
         else
