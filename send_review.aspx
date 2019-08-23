@@ -13,7 +13,7 @@
         {
 
         }
-        MpNews[] newsArr = Util.GetMPNewsArr(token, 0, 10);
+        MpNews[] newsArr = MpNews.GetMPNewsArr(token, 0, 10);
         string title = "";
         string mediaId = "";
         for (int i = 0; i < newsArr.Length; i++)
@@ -42,7 +42,7 @@
                 {"title", "varchar", title.Trim() }
             }, Util.conStr.Trim()) == 1)
             {
-                Util.SendMpNews(dr[0].ToString().Trim(), mediaId, token.Trim());
+                MpNews.SendMpNews(dr[0].ToString().Trim(), mediaId, token.Trim());
             }
         }
 

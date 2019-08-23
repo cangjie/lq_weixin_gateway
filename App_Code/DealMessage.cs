@@ -55,9 +55,18 @@ public class DealMessage
         repliedMessage.from = receivedMessage.to;
         repliedMessage.to = receivedMessage.from;
         repliedMessage.rootId = receivedMessage.id.Trim();
-        RepliedMessage.news newsContent;
+        repliedMessage.newsContent = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
+
+
+        /*
+        RepliedMessage.news newsContent;// = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
+
+
+
+
         switch (receivedMessage.eventKey.Trim())
         {
+       
             case "BAOMING":
                 repliedMessage.content = Util.GetMenuBaomingHit(receivedMessage.from);
                 repliedMessage.messageCount = 2;
@@ -172,6 +181,7 @@ public class DealMessage
             default:
                 break;
         }
+        */
         return repliedMessage;
     }
 
