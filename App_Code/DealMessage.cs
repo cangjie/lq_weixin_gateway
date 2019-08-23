@@ -230,7 +230,7 @@ public class DealMessage
         switch (receivedMessage.userEvent.Trim())
         { 
             case "subscribe":
-                RepliedMessage.news[] newsArr = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
+                RepliedMessage.news[] newsArr = MpNews.GetReplyNewsMessage("event", "subscribe");
                 if (newsArr.Length == 1)
                 {
                     if (newsArr[0].url.Trim().Equals(""))
