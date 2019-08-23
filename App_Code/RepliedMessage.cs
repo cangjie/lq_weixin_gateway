@@ -38,6 +38,9 @@ public class RepliedMessage
         public string description;
         public string picUrl;
         public string url;
+
+        public string content;
+        public string mpUrl;
     }
 
 	public RepliedMessage()
