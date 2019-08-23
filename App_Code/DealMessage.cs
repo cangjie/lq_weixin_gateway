@@ -75,7 +75,7 @@ public class DealMessage
             repliedMessage.messageCount = newsArr.Length;
         }
         
-        repliedMessage.messageCount = repliedMessage.newsContent.Length;
+        //repliedMessage.messageCount = repliedMessage.newsContent.Length;
 
         /*
         RepliedMessage.news newsContent;// = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
@@ -230,28 +230,24 @@ public class DealMessage
         switch (receivedMessage.userEvent.Trim())
         { 
             case "subscribe":
-                bool deal = false;
-                if (!receivedMessage.eventKey.Trim().Equals(""))
+                RepliedMessage.news[] newsArr = MpNews.GetReplyNewsMessage("event", receivedMessage.eventKey.Trim());
+                if (newsArr.Length == 1)
                 {
-                    try
+                    if (newsArr[0].url.Trim().Equals(""))
                     {
-                        Util.AcceptInvite(receivedMessage.from.Trim(), long.Parse(receivedMessage.eventKey.Replace("qrscene_", "")));
-                        repliedMessage.newsContent = Util.GetInviteMessage(receivedMessage.from.Trim(),"subscribe");
-
-                        deal = true;
+                        repliedMessage.type = "text";
+                        repliedMessage.content = newsArr[0].title.Trim();
                     }
-                    catch
+                    else
                     {
-                        
+                        repliedMessage.newsContent = new RepliedMessage.news[2] { newsArr[0], newsArr[0] };
+                        repliedMessage.messageCount = 2;
                     }
                 }
-                if (!deal)
+                else
                 {
-                    //Oct 10, 2018 cancel
-                    //repliedMessage.type = "text";
-                    //repliedMessage.content = "终于等到你了~\r\n悦长大粉丝福利：【卢勤老师经典课程】限时免费收听。回复 “卢勤”，获取免费听课链接。";
-                    deal = true;
-                    
+                    repliedMessage.newsContent = newsArr;
+                    repliedMessage.messageCount = newsArr.Length;
                 }
                 break;
             default:
