@@ -21,7 +21,8 @@
             bool find = false;
             foreach (RepliedMessage.news news in newsArr[i].newsArr)
             {
-                if (Regex.IsMatch(news.title, @"[20\d\d\d\d\d\d老马复盘].+"))
+                if (Regex.IsMatch(news.title, @"[20\d\d\d\d\d\d老马复盘].+")
+                    || Regex.IsMatch(news.title, @".+—老马复盘（\d\d\d\d）"))
                 {
                     find = true;
                     title = news.title.Trim();
