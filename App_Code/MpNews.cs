@@ -101,33 +101,51 @@ public class MpNews
         return mediaId.Trim();
     }
 
-    public static void SetReplyNewsMessage(string type, string keyword, string title, string token)
+    public static int SetReplyNewsMessage(string type, string keyword, string title, string token)
     {
-        string mediaId = GetMediaIdByFirstTitle(title, token);
-        if (mediaId.Trim().Equals(""))
-        {
-            return;
-        }
-        MpNews mpNews = new MpNews(mediaId, token);
-        if (mpNews.newsArr.Length == 0)
-        {
-            return;
-        }
         DBHelper.DeleteData("event_reply_messages", new string[,] {
             {"event_type", "varchar", type.Trim() },
             {"event_name", "varchar", keyword.Trim() },
         }, Util.conStr);
-        foreach (RepliedMessage.news news in mpNews.newsArr)
+
+        string mediaId = GetMediaIdByFirstTitle(title, token);
+        string messageType = "news";
+        if (mediaId.Trim().Equals(""))
         {
             DBHelper.InsertData("event_reply_messages", new string[,] {
+                {"event_type", "varchar", type.Trim() },
+                {"event_name", "varchar", keyword.Trim() },
+                {"title", "varchar", title.Trim() },
+                {"descript", "varchar", "" },
+                {"pic_url", "varchar", "" },
+                {"message_type", "varchar", "text" },
+                {"content_url", "varchar", "" }
+            }, Util.conStr.Trim());
+            return 1;
+
+        }
+        MpNews mpNews = new MpNews(mediaId, token);
+        if (mpNews.newsArr.Length == 0)
+        {
+            return 0;
+        }
+        int i = 0;
+        foreach (RepliedMessage.news news in mpNews.newsArr)
+        {
+            if (DBHelper.InsertData("event_reply_messages", new string[,] {
                 {"event_type", "varchar", type.Trim() },
                 {"event_name", "varchar", keyword.Trim() },
                 {"title", "varchar", news.title.Trim() },
                 {"descript", "varchar", news.description.Trim() },
                 {"pic_url", "varchar", news.picUrl.Trim() },
+                {"message_type", "varchar", messageType.Trim() },
                 {"content_url", "varchar", news.url.Trim() }
-            }, Util.conStr.Trim());
+            }, Util.conStr.Trim()) == 1)
+            {
+                i++;
+            }
         }
+        return i;
     }
 
     public static RepliedMessage.news[] GetReplyNewsMessage(string type, string keyword)
