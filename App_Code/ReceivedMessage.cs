@@ -357,7 +357,7 @@ public class ReceivedMessage
         }
         catch(Exception err)
         {
-            File.AppendAllText(@"d:\sqlerr.txt", err.ToString() + "\r\n" + sqlStr + "\r\n");
+            File.AppendAllText(@"c:\logs\laoma\sqlerr.txt", err.ToString() + "\r\n" + sqlStr + "\r\n");
         }
         conn.Close();
         cmd.Dispose();
