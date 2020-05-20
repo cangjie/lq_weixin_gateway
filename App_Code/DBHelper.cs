@@ -11,12 +11,30 @@ using System.Collections.Generic;
 /// </summary>
 public class DBHelper
 {
-	public DBHelper()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public DBHelper()
+    {
+        //
+        // TODO: Add constructor logic here
+        //
+    }
+
+    public static int GetMaxValue(string tableName, string fieldName, string connectionString)
+    {
+        int maxId = 0;
+        SqlConnection conn = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand("  select max( " + fieldName.Trim() + " ) from " + tableName.Trim(), conn);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        if (dr.Read())
+        {
+            maxId = dr.GetInt32(0);
+        }
+        dr.Close();
+        conn.Close();
+        cmd.Dispose();
+        conn.Dispose();
+        return maxId;
+    }
 
     public static KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] ConvertStringArryToKeyValuePairArray(string[,] parameters)
     {
@@ -44,6 +62,12 @@ public class DBHelper
             case "datetime":
                 sqlType = SqlDbType.DateTime;
                 break;
+            case "test":
+                sqlType = SqlDbType.Text;
+                break;
+            case "bigint":
+                sqlType = SqlDbType.BigInt;
+                break;
             default:
                 sqlType = SqlDbType.VarChar;
                 break;
@@ -57,7 +81,14 @@ public class DBHelper
             ConvertStringArryToKeyValuePairArray(keyParameters), connectionString);
     }
 
-    public static int UpdateData(string tableName, 
+    public static int UpdateData(string tableName,
+        KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] updateParameters,
+        KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] keyParameters)
+    {
+        return UpdateData(tableName, updateParameters, keyParameters, Util.conStr);
+    }
+
+    public static int UpdateData(string tableName,
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] updateParameters,
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] keyParameters, string connectionString)
     {
@@ -130,6 +161,16 @@ public class DBHelper
         return i;
     }
 
+    public static int InsertData(string tableName, string[,] parameters)
+    {
+        return InsertData(tableName, parameters, Util.conStr);
+    }
+
+    public static int InsertData(string tableName, KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parameters)
+    {
+        return InsertData(tableName, parameters, Util.conStr);
+    }
+
     public static int InsertData(string tableName, string[,] parameters, string connectionString)
     {
         return InsertData(tableName, ConvertStringArryToKeyValuePairArray(parameters), connectionString);
@@ -163,6 +204,10 @@ public class DBHelper
         return i;
     }
 
+    public static DataTable GetDataTable(string sql)
+    {
+        return GetDataTable(sql, Util.conStr);
+    }
 
     public static DataTable GetDataTable(string sql, string connectionString)
     {
@@ -174,10 +219,15 @@ public class DBHelper
         return dt;
     }
 
+    public static DataTable GetDataTable(string sql, KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] paramAr)
+    {
+        return GetDataTable(sql, paramAr, Util.conStr);
+    }
+
     public static DataTable GetDataTable(string sql, KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] paramArr, string connectionString)
     {
         DataTable dt = new DataTable();
-        
+
         SqlDataAdapter da = new SqlDataAdapter(sql, connectionString.Trim());
         foreach (KeyValuePair<string, KeyValuePair<SqlDbType, object>> param in paramArr)
         {
@@ -188,6 +238,16 @@ public class DBHelper
         da.SelectCommand.Parameters.Clear();
         da.Dispose();
         return dt;
+    }
+
+    public static int GetMaxId(string tableName)
+    {
+        DataTable dt = GetDataTable(" select max([id]) from " + tableName.Replace("'", "").Trim());
+        int id = 0;
+        if (dt.Rows.Count == 1)
+            id = int.Parse(dt.Rows[0][0].ToString());
+        dt.Dispose();
+        return id;
     }
 
 }

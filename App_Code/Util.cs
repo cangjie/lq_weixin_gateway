@@ -12,28 +12,188 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Security.Cryptography;
-
+using System.Text.RegularExpressions;
 /// <summary>
 /// Summary description for Util
 /// </summary>
 public class Util
 {
-	public Util()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public Util()
+    {
+        //
+        // TODO: Add constructor logic here
+        //
+    }
 
     protected static string token = "";
 
-    public static DateTime tokenTime = DateTime.MinValue;
+    protected static DateTime tokenTime = DateTime.MinValue;
+    public static string conStr = System.Configuration.ConfigurationSettings.AppSettings["constr"].Trim();
 
-    public static string conStr = "";
+    public static string domainName = System.Configuration.ConfigurationSettings.AppSettings["domain_name"].Trim();
 
-    public static string ConnectionStringGame = System.Configuration.ConfigurationSettings.AppSettings["constr_game"].Trim();
+    public static string ConnectionStringMall = "";
 
-    public static string ConnectionStringMall = System.Configuration.ConfigurationSettings.AppSettings["constr_mall"].Trim();
+    public static string ConnectionStringGame = "";
+    public static string GetNonceString(int length)
+    {
+        string chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+        char[] charsArr = chars.ToCharArray();
+        int charsCount = chars.Length;
+        string str = "";
+        Random rnd = new Random();
+        for (int i = 0; i < length - 1; i++)
+        {
+            str = str + charsArr[rnd.Next(charsCount)].ToString();
+        }
+        return str;
+    }
+
+    public static string GetMd5Sign(string KeyPairStringWillBeSigned, string key)
+    {
+        string str = GetSortedArrayString(KeyPairStringWillBeSigned);
+        System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
+        byte[] bArr = md5.ComputeHash(Encoding.UTF8.GetBytes(str + "&key=" + key.Trim()));
+        string ret = "";
+        foreach (byte b in bArr)
+        {
+            ret = ret + b.ToString("x").PadLeft(2, '0').ToUpper();
+        }
+        return ret;
+    }
+
+    public static string ConverXmlDocumentToStringPair(XmlDocument xmlD)
+    {
+        XmlNodeList nl = xmlD.ChildNodes[0].ChildNodes;
+        string str = "";
+        foreach (XmlNode n in nl)
+        {
+            str = str + "&" + n.Name.Trim() + "=" + n.InnerText.Trim();
+        }
+        str = str.Remove(0, 1);
+        return str;
+    }
+
+    public static bool IsCellNumber(string number)
+    {
+        bool ret = false;
+        number = number.Trim();
+        string regCmccStr = @"^(134[012345678]\d{7}|1[34578][012356789]\d{8})$";
+        string regCuccStr = @"^1[34578][01256]\d{8}$";
+        string regCtccStr = @"^1[3578][01379]\d{8}$";
+        Regex regCmcc = new Regex(regCmccStr);
+        Regex regCucc = new Regex(regCuccStr);
+        Regex regCtcc = new Regex(regCtccStr);
+        if (regCmcc.IsMatch(number) || regCtcc.IsMatch(number) || regCucc.IsMatch(number))
+        {
+            ret = true;
+        }
+        else
+        {
+            ret = false;
+        }
+        return ret;
+    }
+
+    public static bool IsNumeric(string number)
+    {
+        Regex reg = new Regex(@"^([1-9]\d*|0)$");
+        return reg.IsMatch(number);
+    }
+
+    public static string GetSHA1(string str)
+    {
+        SHA1 sha = SHA1.Create();
+        ASCIIEncoding enc = new ASCIIEncoding();
+        byte[] bArr = enc.GetBytes(str);
+        bArr = sha.ComputeHash(bArr);
+        string validResult = "";
+        for (int i = 0; i < bArr.Length; i++)
+        {
+            validResult = validResult + bArr[i].ToString("x").PadLeft(2, '0');
+        }
+        return validResult.Trim();
+    }
+
+    public static string GetMd5(string str)
+    {
+        System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
+        byte[] bArr = md5.ComputeHash(Encoding.UTF8.GetBytes(str));
+        string ret = "";
+        foreach (byte b in bArr)
+        {
+            ret = ret + b.ToString("x").PadLeft(2, '0');
+        }
+        return ret;
+    }
+
+    public static string GetLongTimeStamp(DateTime currentDateTime)
+    {
+        TimeSpan ts = currentDateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        return Convert.ToInt64(ts.TotalMilliseconds).ToString();
+    }
+
+    public static string GetSafeRequestValue(HttpRequest request, string parameterName, string defaultValue)
+    {
+        return ((request[parameterName] == null) ? defaultValue : request[parameterName].Trim()).Replace("'", "");
+    }
+
+    public static string GetWebContent(string url, string method, string content, string contentType, CookieCollection cookieCollection, Encoding enc)
+    {
+        HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+        req.Method = method.Trim();
+        req.ContentType = contentType;
+        if (!content.Trim().Equals(""))
+        {
+            StreamWriter sw = new StreamWriter(req.GetRequestStream());
+            sw.Write(content);
+            sw.Close();
+        }
+        //CookieContainer cookieContainer = new CookieContainer();
+        string cookieString = "";
+        foreach (Cookie c in cookieCollection)
+        {
+            cookieString = cookieString + (cookieString.Trim().Equals("") ? "" : "&") + c.Name.Trim() + "=" + c.Value.Trim();
+        }
+        req.Headers.Add("Cookie", cookieString);
+        HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+        Stream s = res.GetResponseStream();
+        StreamReader sr = new StreamReader(s, enc);
+        string str = sr.ReadToEnd();
+        sr.Close();
+        s.Close();
+        res.Close();
+        req.Abort();
+        return str;
+    }
+
+    public static string GetWebContent(string url, string method, string content, string contentType)
+    {
+        HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+        req.Method = method.Trim();
+        req.ContentType = contentType;
+        if (!content.Trim().Equals(""))
+        {
+            StreamWriter sw = new StreamWriter(req.GetRequestStream());
+            sw.Write(content);
+            sw.Close();
+        }
+        HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+        Stream s = res.GetResponseStream();
+        StreamReader sr = new StreamReader(s);
+        string str = sr.ReadToEnd();
+        sr.Close();
+        s.Close();
+        res.Close();
+        req.Abort();
+        return str;
+    }
+
+    public static string GetWebContent(string url)
+    {
+        return GetWebContent(url, "GET", "", "html/text");
+    }
+
 
 
     public static string UploadImageToWeixin(string path, string token)
@@ -77,7 +237,7 @@ public class Util
         req.ContentType = "raw";
         //Stream streamReq = req.GetRequestStream();
         StreamWriter sw = new StreamWriter(req.GetRequestStream());
-        sw.Write("{\"expire_seconds\": 604800, \"action_name\": \"QR_SCENE\", \"action_info\": {\"scene\": {\"scene_id\":" + scene.ToString().PadLeft(32, '0') + "}}}");
+        sw.Write("{\"expire_seconds\": 1800, \"action_name\": \"QR_SCENE\", \"action_info\": {\"scene\": {\"scene_id\":" + scene.ToString().PadLeft(32, '0') + "}}}");
         sw.Close();
         sw = null;
 
@@ -94,25 +254,12 @@ public class Util
         req.Abort();
         req = null;
 
-        try
-        {
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(strTicketJson);
-            object v;
-            json.TryGetValue("ticket", out v);
-            token = v.ToString();
-            return token;
-        }
-        catch
-        {
-
-            return strTicketJson;
-        }
-    }
-
-    public static string GetSafeRequestValue(HttpRequest request, string parameterName, string defaultValue)
-    {
-        return ((request[parameterName] == null) ? defaultValue : request[parameterName].Trim()).Replace("'", "");
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+        Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(strTicketJson);
+        object v;
+        json.TryGetValue("ticket", out v);
+        token = v.ToString();
+        return token;
     }
 
     public static byte[] GetQrCodeByTicket(string ticket)
@@ -136,7 +283,7 @@ public class Util
         res.Close();
         req.Abort();
         return bArr;
-        
+
     }
 
     public static bool SaveBytesToFile(string path, byte[] bArr)
@@ -154,10 +301,28 @@ public class Util
         }
     }
 
+    public static string ticket = string.Empty;
+    public static DateTime ticketTime = DateTime.MinValue;
+    public static string GetTicket()
+    {
+        if (ticketTime == DateTime.MinValue || ticketTime < DateTime.Now)
+        {
+            try
+            {
+                string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
+                        + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
+                ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
+                ticketTime = DateTime.Now.AddMinutes(10);
+            }
+            catch { }
+        }
+        return ticket;
+    }
+
     public static string GetAccessToken(string appId, string appSecret)
     {
         string token = "";
-        string url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+ appId.Trim() +"&secret=" + appSecret.Trim() ;
+        string url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appId.Trim() + "&secret=" + appSecret.Trim();
         HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
         HttpWebResponse res = (HttpWebResponse)req.GetResponse();
         Stream s = res.GetResponseStream();
@@ -175,31 +340,16 @@ public class Util
         return token;
     }
 
-    public static string GetLongTimeStamp(DateTime currentDateTime)
-    {
-        TimeSpan ts = currentDateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0);
-        return Convert.ToInt64(ts.TotalMilliseconds).ToString();
-    }
-
     public static string GetToken()
     {
         DateTime nowDate = DateTime.Now;
-        if (nowDate - tokenTime > new TimeSpan(0, 5, 0))
+        if (nowDate - tokenTime > new TimeSpan(0, 10, 0))
         {
-            token = ForceGetToken();
+            token = GetAccessToken(System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim(),
+                System.Configuration.ConfigurationSettings.AppSettings["wxappsecret"].Trim());
+            tokenTime = nowDate;
         }
         return token;
-    }
-
-    public static string ForceGetToken()
-    {
-        DateTime nowDate = DateTime.Now;
-        token = GetAccessToken(System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim(),
-                System.Configuration.ConfigurationSettings.AppSettings["wxappsecret"].Trim());
-        tokenTime = nowDate;
-        //File.AppendAllText(@"d:\dingyue_token.txt", DateTime.Now.ToString() + "\t" + token.Trim());
-        return token;
-
     }
 
     public static string Get2014SummerCampImageForWexinNews()
@@ -213,7 +363,7 @@ public class Util
             + "<item>"
             + "<Title><![CDATA[2014年知心姐姐草原发现之旅图片集锦]]></Title>"
             + "<Description><![CDATA[2014年知心姐姐“勇敢者小使者”草原发现之旅纪录片]]></Description>"
-            + "<PicUrl><![CDATA[http://img.luqinwenda.com/caoyuan.jpg]]></PicUrl>"
+            + "<PicUrl><![CDATA[http://img.luqinwenda.com/caoyuan1.jpeg]]></PicUrl>"
             + "<Url><![CDATA[http://img.luqinwenda.com/mag/neimeng/index.html]]></Url>"
             + "</item>"
             + "<item>"
@@ -234,36 +384,6 @@ public class Util
     public static string Get2014SummerCampVideoForWexinNews()
     {
         string xmlStr = "<item>"
-            + "<Title><![CDATA[“大开眼界”北欧四国游学之旅闭营视频]]></Title>"
-            + "<Description><![CDATA[“大开眼界”北欧四国游学之旅闭营视频]]></Description>"
-            + "<PicUrl><![CDATA[http://weixin.luqinwenda.com/images/north_europe.jpg]]></PicUrl>"
-            + "<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=211934534&idx=1&sn=dc5a6755f18627171aa00d5907748d31#rd]]></Url>"
-            + "</item>"
-            + "<item>"
-            + "<Title><![CDATA[“少年演说家”潜能开发营闭营视频]]></Title>"
-            + "<Description><![CDATA[“少年演说家”潜能开发营闭营视频]]></Description>"
-            + "<PicUrl><![CDATA[http://weixin.luqinwenda.com/images/speaker.jpg]]></PicUrl>"
-            + "<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA3MzM1NjcxNA==&mid=211324755&idx=6&sn=a2966c6d4247da7998f4dc6e48dc7140#rd]]></Url>"
-            + "</item>"
-            + "<item>"
-            + "<Title><![CDATA[少年演说家嘉宾演讲——于丹讲话]]></Title>"
-            + "<Description><![CDATA[少年演说家嘉宾演讲——于丹讲话]]></Description>"
-            + "<PicUrl><![CDATA[http://weixin.luqinwenda.com/images/yudan.jpg]]></PicUrl>"
-            + "<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA3MzM1NjcxNA==&mid=211324755&idx=3&sn=638c5734e9aa1f7f2ff0bc26c2965e4d#rd]]></Url>"
-            + "</item>"
-            + "<item>"
-            + "<Title><![CDATA[少年演说家嘉宾演讲——杨澜讲话]]></Title>"
-            + "<Description><![CDATA[少年演说家嘉宾演讲——杨澜讲话]]></Description>"
-            + "<PicUrl><![CDATA[http://weixin.luqinwenda.com/images/yanglan.jpg]]></PicUrl>"
-            + "<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA3MzM1NjcxNA==&mid=211324755&idx=4&sn=a3aff4711d8f6c40d4f6c4934908cf3b#rd]]></Url>"
-            + "</item>"
-            + "<item>"
-            + "<Title><![CDATA[2015放飞梦想我能行知心姐姐北京营闭营典礼]]></Title>"
-            + "<Description><![CDATA[放飞梦想我能行知心姐姐北京营闭营典礼]]></Description>"
-            + "<PicUrl><![CDATA[http://weixin.luqinwenda.com/images/beijing2015.jpg]]></PicUrl>"
-            + "<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA3MzM1NjcxNA==&mid=211324755&idx=5&sn=ac5f0dd2e37c71e22b87954cdae4f5a6#rd]]></Url>"
-            + "</item>"
-            + "<item>"
             + "<Title><![CDATA[2014年“放飞梦想我能行”知心姐姐北京营纪录片]]></Title>"
             + "<Description><![CDATA[看到最后有惊喜……你会看到从未见过的神奇场景！]]></Description>"
             + "<PicUrl><![CDATA[http://img.luqinwenda.com/beijing.jpeg]]></PicUrl>"
@@ -286,12 +406,15 @@ public class Util
             + "<Description><![CDATA[六天五晚的时光，秦岭的印象，大自然的声音，孩子们的欢声笑语，一点一滴都浓缩在这个短片中。现在让我们来重温这些美好的记忆吧！]]></Description>"
             + "<PicUrl><![CDATA[http://img.luqinwenda.com/qinling.jpeg]]></PicUrl>"
             + "<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=201121027&idx=1&sn=78be8563d12eb4850a091f2d6765ff91#rd]]></Url>"
+            + "</item>"
+            + "<item>"
+            + "<Title><![CDATA[2014年世贸天阶梦想放飞仪式纪录片]]></Title>"
+            + "<Description><![CDATA[世贸天阶无数孩子一起分享的震撼视频！]]></Description>"
+            + "<PicUrl><![CDATA[http://img.luqinwenda.com/shimaotianjie.jpg]]></PicUrl>"
+            + "<Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=201019678&idx=1&sn=c28b197dfe37961c404c92ee9a7e2b18#rd]]></Url>"
             + "</item>";
-            
         return xmlStr;
     }
-
-    
 
     public static string GetMenuWodeHit(string openId, string imageUrl, int urlId, string title, string description)
     {
@@ -301,7 +424,7 @@ public class Util
             + "<Title><![CDATA[" + title + "]]></Title>"
             + "<Description><![CDATA[" + description + "]]></Description>"
             + "<PicUrl><![CDATA[" + imageUrl + "]]></PicUrl>"
-            + "<Url><![CDATA[http://www.luqinwenda.com/index.php?app=public&mod=LandingPage&act=Landing&url=" + urlId.ToString() + "&openid=" + openId + "&time=" + timeStamp + "&code=" + GetMd5(openId+timeStamp+key) + "]]></Url>"
+            + "<Url><![CDATA[http://www.luqinwenda.com/index.php?app=public&mod=LandingPage&act=Landing&url=" + urlId.ToString() + "&openid=" + openId + "&time=" + timeStamp + "&code=" + GetMd5(openId + timeStamp + key) + "]]></Url>"
             + "</item>";
         return xmlStr;
     }
@@ -322,30 +445,6 @@ public class Util
             + "</item>";
         return xmlStr;
     }
-
-    public static string GetMenuBaomingHit(string openId)
-    {
-        string xmlStr = "<item>"
-                //+ "<Title><![CDATA[“少年演说家”潜能开发营]]></Title>"
-                //+ "<Description><![CDATA[“少年演说家”潜能开发营]]></Description>"
-                //+ "<PicUrl><![CDATA[http://mall.luqinwenda.com/upload/prodimg/ying_ysa.jpg]]></PicUrl>"
-                //+ "<Url><![CDATA[http://mall.luqinwenda.com/Detail_xly.aspx?productid=26&source=1&openid=" + openId.Trim() + "]]></Url>"
-                //+ "</item>" 
-                //+ "<item>"
-                + "<Title><![CDATA[“放飞梦想我能行”知心姐姐北京精品营]]></Title>"
-                + "<Description><![CDATA[“放飞梦想我能行”知心姐姐北京精品营]]></Description>"
-                + "<PicUrl><![CDATA[http://mall.luqinwenda.com/upload/prodimg/ying_bj.jpg]]></PicUrl>"
-                + "<Url><![CDATA[http://mall.luqinwenda.com/Detail_xly.aspx?productid=25&source=1&openid=" + openId.Trim() + "]]></Url>"
-                + "</item>"
-                + "<item>"
-                + "<Title><![CDATA[“大开眼界”之北欧四国游学之旅]]></Title>"
-                + "<Description><![CDATA[“大开眼界”之北欧四国游学之旅]]></Description>"
-                + "<PicUrl><![CDATA[https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbUibQbPvCwXACM37NpvNVFQvFhf9aXqtIeoJ3kicn0E85oPQO0baLjdmib5f9iazvWCTiahomEF1ACyzCA/0]]></PicUrl>"
-                + "<Url><![CDATA[http://mall.luqinwenda.com/Detail_xly.aspx?productid=24&source=1&openid=" + openId.Trim() + "]]></Url>"
-                + "</item>";
-        return xmlStr;
-    }
-
 
     public static XmlDocument CreateReplyDocument(int id)
     {
@@ -409,7 +508,7 @@ public class Util
                 case "image":
                     n = xmlD.CreateNode(XmlNodeType.Element, "Image", "");
                     XmlNode subN = xmlD.CreateNode(XmlNodeType.Element, "MediaId", "");
-                    subN.InnerXml = "<![CDATA[" + sqlDr["wxreplymsg_mediaid"].ToString().Trim() + "]]>";
+                    subN.InnerXml = "<![CDATA[" + sqlDr["wxreplymsg_content"].ToString().Trim() + "]]>";
                     n.AppendChild(subN);
                     xmlD.SelectSingleNode("//xml").AppendChild(n);
                     break;
@@ -433,44 +532,24 @@ public class Util
         return Convert.ToInt64(ts.TotalSeconds).ToString();
     }
 
-    public static long GetInviteCode(string openId, string type)
+    public static string GetTimeStamp(DateTime currentDateTime)
     {
-        long inviteCode = 0;
-        SqlConnection conn = new SqlConnection(Util.conStr);
-        SqlCommand cmd = new SqlCommand(" select qr_invite_list_id from qr_invite_list where qr_invite_list_type = @type and qr_invite_list_owner = @owner ", conn);
-        cmd.Parameters.Add("@type", SqlDbType.VarChar);
-        cmd.Parameters.Add("@owner", SqlDbType.VarChar);
-        cmd.Parameters["@type"].Value = type.Trim();
-        cmd.Parameters["@owner"].Value = openId.Trim();
-        conn.Open();
-        SqlDataReader reader = cmd.ExecuteReader();
-        if (reader.Read())
-        {
-            inviteCode = reader.GetInt64(0);
-        }
-        reader.Close();
-        if (inviteCode == 0)
-        {
-            cmd.CommandText = " insert into qr_invite_list (qr_invite_list_type,qr_invite_list_owner) "
-                + " values ( @type , @owner) ";
-            int i = cmd.ExecuteNonQuery();
-            if (i == 1)
-            {
-                cmd.CommandText = " select max(qr_invite_list_id) from qr_invite_list ";
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
-                    inviteCode = reader.GetInt64(0);
-                reader.Close();
-            }
-        }
-        conn.Close();
-        cmd.Parameters.Clear();
-        cmd.Dispose();
-        conn.Dispose();
-        return inviteCode;
+        TimeSpan ts = currentDateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        return Convert.ToInt64(ts.TotalSeconds).ToString();
     }
 
-    
+    public static long GetExactTimeStamp(DateTime currentDateTime)
+    {
+        TimeSpan ts = currentDateTime - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        return Convert.ToInt64(ts.TotalMilliseconds);
+    }
+
+    public static string GetServerLocalTimeStamp()
+    {
+        return GetTimeStamp(DateTime.Now);
+    }
+
+
 
     public static string GetInviteCode(string openId)
     {
@@ -490,11 +569,11 @@ public class Util
         dr.Close();
         int i = 0;
         if (nowStr.Trim().Equals(qrCode.Trim().Substring(0, 17)))
-        { 
-            i = int.Parse(qrCode.Substring(17,2));
+        {
+            i = int.Parse(qrCode.Substring(17, 2));
             i++;
         }
-        nowStr = nowStr+i.ToString().PadLeft(2,'0');
+        nowStr = nowStr + i.ToString().PadLeft(2, '0');
         cmd.CommandText = " insert into qr_invite_list (qr_invite_list_code , qr_invite_list_owner ) values ('" + nowStr.Trim() + "' , '"
             + openId.Trim().Replace("'", "") + "'  ) ";
         cmd.ExecuteNonQuery();
@@ -510,7 +589,7 @@ public class Util
         conn.Dispose();
         return id.ToString();
     }
-    
+
     public static int GetQrCode(string eventKey)
     {
         int qrCode = 0;
@@ -523,8 +602,8 @@ public class Util
             qrCode = int.Parse(eventKey);
         }
         catch
-        { 
-        
+        {
+
         }
         return qrCode;
     }
@@ -550,8 +629,8 @@ public class Util
             cmd.ExecuteNonQuery();
         }
         catch
-        { 
-        
+        {
+
         }
         conn.Close();
         return originalUserOpenId.Trim();
@@ -573,112 +652,6 @@ public class Util
         req.Abort();
         return j;
     }
-
-    public static string GetMd5(string str)
-    {
-        System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
-        byte[] bArr = md5.ComputeHash(Encoding.UTF8.GetBytes(str));
-        string ret = "";
-        foreach (byte b in bArr)
-        {
-            ret = ret + b.ToString("x").PadLeft(2, '0');
-        }
-        return ret;
-    }
-
-
-    public static void DealLandingRequest(string openId)
-    {
-        //File.AppendAllText(Server.MapPath("log/login.txt"), DateTime.Now.ToString() + "  aaa\r\n");
-        DateTime now = DateTime.Now;
-        now = now.AddMinutes(-5);
-        SqlDataAdapter da = new SqlDataAdapter(" select * from WxLoginRequest where WxLoginRequest_deal = 0 and wxloginrequest_crt > '" + now.ToString() + "' ",
-            conStr);
-        DataTable dt = new DataTable();
-        if (dt.Rows.Count >= 0)
-        {
-            ////File.AppendAllText(Server.MapPath("log/login.txt"), DateTime.Now.ToString() + "  bbb\r\n");
-            SqlConnection conn = new SqlConnection(conStr);
-            SqlCommand cmd = new SqlCommand(" insert into WxLoginRequest (WxLoginRequest_openid ) values ('" + openId.Replace("'", "") + "' ) ", conn);
-            conn.Open();
-            int i = cmd.ExecuteNonQuery();
-            //File.AppendAllText(Server.MapPath("log/login.txt"), DateTime.Now.ToString() + "  " + i.ToString().Trim() + "\r\n");
-            conn.Close();
-            cmd.Dispose();
-            conn.Dispose();
-        }
-        dt.Dispose();
-        da.Dispose();
-    }
-
-    public static string[] GetActiveOpenId(string oriId, DateTime date)
-    {
-        SqlDataAdapter da = new SqlDataAdapter(" select distinct  wxreceivemsg_from from wxreceivemsg where "
-            + " wxreceivemsg_to = @to and wxreceivemsg_crt > '" + date.Year.ToString() + "-" + date.Month.ToString()
-            + "-" + date.Day.ToString() + "'   ", Util.conStr.Trim());
-        da.SelectCommand.Parameters.Add("@to", SqlDbType.VarChar);
-        da.SelectCommand.Parameters["@to"].Value = oriId;
-        DataTable dt = new DataTable();
-        da.Fill(dt);
-        string[] openIdArr = new string[dt.Rows.Count];
-        for (int i = 0; i < dt.Rows.Count; i++)
-        {
-            openIdArr[i] = dt.Rows[i][0].ToString().Trim();
-        }
-        dt.Dispose();
-        da.SelectCommand.Parameters.Clear();
-        da.Dispose();
-        return openIdArr;
-    }
-
-
-    public static string GetMd5Sign(string KeyPairStringWillBeSigned, string key)
-    {
-        string str = GetSortedArrayString(KeyPairStringWillBeSigned);
-        System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
-        byte[] bArr = md5.ComputeHash(Encoding.UTF8.GetBytes(str + "&key=" + key.Trim()));
-        string ret = "";
-        foreach (byte b in bArr)
-        {
-            ret = ret + b.ToString("x").PadLeft(2, '0').ToUpper();
-        }
-        return ret;
-    }
-
-    public static string GetSHA1(string str)
-    {
-        SHA1 sha = SHA1.Create();
-        ASCIIEncoding enc = new ASCIIEncoding();
-        byte[] bArr = enc.GetBytes(str);
-        bArr = sha.ComputeHash(bArr);
-        string validResult = "";
-        for (int i = 0; i < bArr.Length; i++)
-        {
-            validResult = validResult + bArr[i].ToString("x").PadLeft(2, '0');
-        }
-        return validResult.Trim();
-    }
-
-    public static string GetSortedArrayString(string str)
-    {
-        string[] strArr = str.Split('&');
-        Array.Sort(strArr);
-        return String.Join("&", strArr);
-    }
-
-    public static string ConverXmlDocumentToStringPair(XmlDocument xmlD)
-    {
-        XmlNodeList nl = xmlD.ChildNodes[0].ChildNodes;
-        string str = "";
-        foreach (XmlNode n in nl)
-        {
-            str = str + "&" + n.Name.Trim() + "=" + n.InnerText.Trim();
-        }
-        str = str.Remove(0, 1);
-        return str;
-    }
-
-
 
     public static string GetSimpleJsonValueByKey(string jsonStr, string key)
     {
@@ -714,173 +687,137 @@ public class Util
         return retArr;
     }
 
-
-
-    public static string GetNonceString(int length)
+    public static string GetSimpleJsonStringFromKeyPairArray(KeyValuePair<string, object>[] vArr)
     {
-        string chars = "0123456789abcdefghijklmnopqrstuvwxyz";
-        char[] charsArr = chars.ToCharArray();
-        int charsCount = chars.Length;
-        string str = "";
-        Random rnd = new Random();
-        for (int i = 0; i < length - 1; i++)
+        string r = "";
+        for (int i = 0; i < vArr.Length; i++)
         {
-            str = str + charsArr[rnd.Next(charsCount)].ToString();
-        }
-        return str;
-    }
-
-    public static string GetWebContent(string url, string method, string content, string contentType)
-    {
-        HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-        req.Method = method.Trim();
-        req.ContentType = contentType;
-        if (!content.Trim().Equals(""))
-        {
-            StreamWriter sw = new StreamWriter(req.GetRequestStream());
-            sw.Write(content);
-            sw.Close();
-        }
-        HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-        Stream s = res.GetResponseStream();
-        StreamReader sr = new StreamReader(s);
-        string str = sr.ReadToEnd();
-        sr.Close();
-        s.Close();
-        res.Close();
-        req.Abort();
-        return str;
-    }
-
-    public static int AcceptInvite(string openId, long scene)
-    {
-        SqlConnection conn = new SqlConnection(Util.conStr);
-        SqlCommand cmd = new SqlCommand(" insert into qr_invite_list_detail ( qr_invite_list_detail_scene , qr_invite_list_detail_openid ) "
-            + "  values ( @scene , @openid )", conn);
-        cmd.Parameters.Add("@scene", SqlDbType.VarChar);
-        cmd.Parameters.Add("@openid", SqlDbType.VarChar);
-        cmd.Parameters["@scene"].Value = scene;
-        cmd.Parameters["@openid"].Value = openId.Trim();
-        conn.Open();
-        int i = 0;
-        try
-        {
-            i = cmd.ExecuteNonQuery();
-        }
-        catch
-        { 
-        
-        }
-        conn.Close();
-        cmd.Parameters.Clear();
-        cmd.Dispose();
-        conn.Dispose();
-        return i;
-    }
-
-    public static RepliedMessage.news[] GetInviteMessage(string openId, string action)
-    {
-        RepliedMessage.news message = new RepliedMessage.news();
-        message.picUrl = "https://mmbiz.qlogo.cn/mmbiz/L7aCN0VDSjdG6jm74fjDNxFRJekHI45QlHXUImBWs3O4gkXPnib8PmdiccTuQSSUibEs757FicwHECbCEAbkF4hgQg/0?wx_fmt=jpeg";
-        message.title = "“放飞梦想我能行”夏令营火热报名中，点击此消息发起砍价活动。";
-        message.description = "点击本消息并且共享到朋友圈即可发起砍价活动。";
-        message.url = "http://mall.luqinwenda.com/Activity_bj.aspx?fromsource=" + action + "&preopenid=" + openId.Trim() + "&openid=" + openId.Trim() + "&source=1";
-
-        return new RepliedMessage.news[] {message};
-
-    }
-
-    public static string GetRandomString(int digit)
-    {
-        Dictionary<int, char> charHash = new Dictionary<int, char>();
-
-        charHash.Add(0, '1');
-        charHash.Add(1, '2');
-        charHash.Add(2, '3');
-        charHash.Add(3, '4');
-        charHash.Add(4, '5');
-        charHash.Add(5, '6');
-        charHash.Add(6, '7');
-        charHash.Add(7, '8');
-        charHash.Add(8, '9');
-        charHash.Add(9, 'A');
-        charHash.Add(10, 'B');
-        charHash.Add(11, 'C');
-        charHash.Add(12, 'D');
-        charHash.Add(13, 'E');
-        charHash.Add(14, 'F');
-        charHash.Add(15, 'G');
-        charHash.Add(16, 'H');
-        charHash.Add(17, 'I');
-        charHash.Add(18, 'J');
-        charHash.Add(19, 'K');
-        charHash.Add(20, 'L');
-        charHash.Add(21, 'M');
-        charHash.Add(22, 'N');
-        charHash.Add(23, 'P');
-        charHash.Add(24, 'Q');
-        charHash.Add(25, 'R');
-        charHash.Add(26, 'R');
-        charHash.Add(27, 'T');
-        charHash.Add(28, 'U');
-        charHash.Add(29, 'V');
-        charHash.Add(30, 'W');
-        charHash.Add(31, 'X');
-        charHash.Add(32, 'Y');
-        charHash.Add(33, 'Z');
-
-        string retCode = "";
-        Random rnd = new Random();
-        for (int i = 0; i < digit; i++)
-        {
-            retCode = retCode + charHash[rnd.Next(charHash.Count)];
-        }
-
-
-        return retCode;
-    }
-
-    public static int Drwaing(string openId, int actId)
-    {
-        int i = 0;
-        int seed = (new Random()).Next(0, 100);
-
-        try
-        {
-            string[,] parameters = {{"act_id", "int", actId.ToString()}, {"open_id", "varchar", openId.Trim()}, 
-                                   {"seed", "int", seed.ToString()}, {"is_win", "int", ((seed==1)? "1" : "0") }};
-            i = DBHelper.InsertData("random_awards", parameters, Util.ConnectionStringGame);
-            if (i == 1)
+            if (i == 0)
             {
-                DataTable dt = DBHelper.GetDataTable(" select top 1 * from random_awards order by [id] desc ", Util.ConnectionStringGame);
-                if (dt.Rows.Count == 1)
-                    i = int.Parse(dt.Rows[0]["id"].ToString());
-                dt.Dispose();
+                r = "\"" + vArr[i].Key.Trim() + "\" : \"" + vArr[i].Value.ToString() + "\"";
+            }
+            else
+            {
+                r = r + ", \"" + vArr[i].Key.Trim() + "\" : \"" + vArr[i].Value.ToString() + "\" ";
             }
         }
-        catch
-        { 
-        
-        }
-        return i;
+        return "{ " + r + " }";
     }
 
-    public static bool GetDrawingResult(string openId, int actId)
+    public static void DealLandingRequest(string openId)
     {
-        DataTable dt = DBHelper.GetDataTable(" select top 1 * from random_awards order by [id] desc ", Util.ConnectionStringGame);
-        bool ret = false;
-        if (dt.Rows.Count == 1)
+        //File.AppendAllText(Server.MapPath("log/login.txt"), DateTime.Now.ToString() + "  aaa\r\n");
+        DateTime now = DateTime.Now;
+        now = now.AddMinutes(-5);
+        SqlDataAdapter da = new SqlDataAdapter(" select * from WxLoginRequest where WxLoginRequest_deal = 0 and wxloginrequest_crt > '" + now.ToString() + "' ",
+            conStr);
+        DataTable dt = new DataTable();
+        if (dt.Rows.Count >= 0)
         {
-            if (dt.Rows[0]["is_win"].ToString().Trim().Equals("1"))
-                ret = true;
-            else
-                ret = false;
+            ////File.AppendAllText(Server.MapPath("log/login.txt"), DateTime.Now.ToString() + "  bbb\r\n");
+            SqlConnection conn = new SqlConnection(conStr);
+            SqlCommand cmd = new SqlCommand(" insert into WxLoginRequest (WxLoginRequest_openid ) values ('" + openId.Replace("'", "") + "' ) ", conn);
+            conn.Open();
+            int i = cmd.ExecuteNonQuery();
+            //File.AppendAllText(Server.MapPath("log/login.txt"), DateTime.Now.ToString() + "  " + i.ToString().Trim() + "\r\n");
+            conn.Close();
+            cmd.Dispose();
+            conn.Dispose();
         }
         dt.Dispose();
+        da.Dispose();
+    }
+
+    public static byte[] GetBinaryFileContent(string filePathName)
+    {
+        FileStream fileStream = File.OpenRead(filePathName);
+        byte[] bArr = new byte[fileStream.Length];
+        for (long i = 0; i < fileStream.Length; i++)
+        {
+            bArr[i] = (byte)fileStream.ReadByte();
+        }
+        return bArr;
+    }
+
+    public static string GetHaojinMd5Sign(string KeyPairStringWillBeSigned, string key)
+    {
+        string str = GetSortedArrayString(KeyPairStringWillBeSigned);
+        System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
+        byte[] bArr = md5.ComputeHash(Encoding.UTF8.GetBytes(str + key.Trim()));
+        string ret = "";
+        foreach (byte b in bArr)
+        {
+            ret = ret + b.ToString("x").PadLeft(2, '0').ToUpper();
+        }
         return ret;
     }
 
+    public static string GetSortedArrayString(string str)
+    {
+        string[] strArr = str.Split('&');
+        Array.Sort(strArr);
+        return String.Join("&", strArr);
+    }
 
     
+    public static string ConvertDataFieldsToJson(DataRow dr)
+    {
+        string ret = "";
+        foreach (DataColumn dc in dr.Table.Columns)
+        {
+            ret = ret + (ret.Trim().Equals("") ? " " : ", ") + "\"" + dc.Caption.Trim() + "\": \""
+                + dr[dc].ToString().Replace("\n", "").Replace("\r", "<BR/>").Replace("\"", "'").Trim() + "\"";
+        }
+        return "{" + ret.Trim() + "}";
+    }
 
+    public static bool InDate(DateTime currentDate, string dateDescription)
+    {
+        string[] dayDescItems = dateDescription.Trim().Split(',');
+        foreach (string day in dayDescItems)
+        {
+            if (day.Trim().Equals("周六"))
+            {
+                if (currentDate.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    return true;
+                }
+            }
+            if (day.Trim().Equals("周日"))
+            {
+                if (currentDate.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    return true;
+                }
+            }
+            if (day.IndexOf("--") >= 0)
+            {
+                try
+                {
+                    DateTime startDate = DateTime.Parse(day.Replace("--", "#").Split('#')[0].Trim());
+                    DateTime endDate = DateTime.Parse(day.Replace("--", "#").Split('#')[1].Trim());
+                    if (currentDate.Date >= startDate && currentDate.Date <= endDate)
+                    {
+                        return true;
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+            try
+            {
+                if (currentDate.Date == DateTime.Parse(day.Trim()))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        return false;
+    }
 }

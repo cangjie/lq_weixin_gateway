@@ -380,9 +380,7 @@ public class DealMessage
             command = "送书";
         switch (command)
         {
-            case "二维码":
-                repliedMessage = CreateQrCodeReplyMessage(receivedMessage, repliedMessage);
-                break;
+            
             case "送书":
                 repliedMessage.type = "text";
                 //repliedMessage.content = "感谢您的热情参与，本次活动已经结束，<a href=\"http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=204410162&idx=1&sn=146c47966688ae22cf760d0cbd22faa3&scene=1&key=0ce8fa93c80e41c5b00c430ca64638d8f3dcbe64f24950abca2480c8ae85a44b56641fa7288d01b8fc6f18515264f57a&ascene=0&uin=ODk3MzEzNzY0&devicetype=iMac+MacBookAir6%2C2+OSX+OSX+10.10.2+build(14C109)&version=11020012&pass_ticket=gGeBx6EjjOmbm3rRWxQKTlS0K19Fjt%2F1mZ5XPVJWMrgvgTWG37A0ToJ5Dbyhv11k\" >点击此处</a>查看获奖名单。";
@@ -642,32 +640,7 @@ public class DealMessage
                 repliedMessage.newsContent = new RepliedMessage.news[] { fenGong };
                 break;
                
-	    case "杨澜":
-            case "天下女人":
-            case "读书卡":
-            case "礼物":
-            case "抽奖":
-            //case "中国教育报":
-                //repliedMessage.type = "text";
-                //repliedMessage.content = "我们的抽奖活动已经结束。";
-                
 
-                DateTime startTime = DateTime.Parse("2016-11-3 20:30");
-                DateTime endTime = DateTime.Parse("2016-11-4 12:00");
-
-                if (startTime < DateTime.Now && DateTime.Now < endTime)
-                {
-                    int actId = 10;
-                    int drawId = Drawing.DrawingPlay(receivedMessage.from.Trim(), actId);
-                    repliedMessage.type = "news";
-                    RepliedMessage.news drawing = new RepliedMessage.news();
-                    drawing.title = "请领取悦长大书城读书卡";
-                    drawing.picUrl = "http://game.luqinwenda.com/images/draw_banner.jpg?yuezhangda";
-                    drawing.url = "http://game.luqinwenda.com/weiketang/LuckDraw.aspx?id=" + drawId.ToString() + "&openid=" + receivedMessage.from.Trim();
-                    drawing.description = "为答谢广大家长对“悦长大微课堂”的厚爱和大力支持，卢勤老师邀您参加书城读书活动！请领取您的专属读书卡！多读书，读好书，让您的孩子发现读书的乐趣！";
-                    repliedMessage.newsContent = new RepliedMessage.news[] { drawing };
-                }
-                break;
                
             case "人才":
                 RepliedMessage.news renCai = new RepliedMessage.news();
@@ -948,6 +921,7 @@ public class DealMessage
     
     }
 
+    /*
     public static RepliedMessage CreateQrCodeReplyMessage(ReceivedMessage receivedMessage, RepliedMessage repliedMessage)
     {
         string token = Util.GetToken();
@@ -962,5 +936,5 @@ public class DealMessage
         repliedMessage.content = mediaId;
         return repliedMessage;
     }
-
+    */
 }
