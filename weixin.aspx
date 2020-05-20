@@ -14,38 +14,46 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (valid())
+        try
+
         {
-            //Response.Write(Request["echostr"].Trim());
-            //Response.End();
-            Stream s = Request.InputStream;
-            XmlDocument xmlD = new XmlDocument();
-            xmlD.Load(s);
-            ReceivedMessage receiveMessage = new ReceivedMessage(xmlD);
-            ReceivedMessage.SaveReceivedMessage(receiveMessage);
-            RepliedMessage repliedMessage = DealMessage.DealReceivedMessage(receiveMessage);
-            if (!repliedMessage.type.Trim().Equals(""))
+            if (valid())
             {
+                //Response.Write(Request["echostr"].Trim());
+                //Response.End();
+                Stream s = Request.InputStream;
+                StreamReader sr = new StreamReader(s);
+                string xmlContent = sr.ReadToEnd();
+                sr.Close();
+
+                File.AppendAllText(Server.MapPath("log/err.txt"), DateTime.Now.ToString() + "\r\n" + xmlContent + "\r\n");
+
+
+
+                XmlDocument xmlD = new XmlDocument();
+                xmlD.LoadXml(xmlContent);
+
+                ReceivedMessage receiveMessage = new ReceivedMessage(xmlD);
+                ReceivedMessage.SaveReceivedMessage(receiveMessage);
+                RepliedMessage repliedMessage = DealMessage.DealReceivedMessage(receiveMessage);
                 repliedMessage.id = RepliedMessage.AddRepliedMessage(repliedMessage);
                 XmlDocument xmlRet = Util.CreateReplyDocument(repliedMessage.id);
-                //File.AppendAllText(Server.MapPath("log/err.txt"), xmlRet.InnerXml);
                 Response.Write(xmlRet.InnerXml);
             }
             else
             {
-                Response.Write("");
+                Response.Write(validResult);
             }
-            
         }
-        else
-        {
-            Response.Write(validResult);
+        catch (Exception err)
+        { 
+            File.AppendAllText(Server.MapPath("log/err.txt"), DateTime.Now.ToString() + "\r\n" + err.ToString().Trim() + "\r\n");
         }
     }
-    
 
- 
-    
+
+
+
     public bool valid()
     {
         string sign = Request["signature"].Trim();
@@ -102,7 +110,7 @@
         string str = (new StreamReader(res.GetResponseStream())).ReadToEnd();
         res.Close();
         req.Abort();
-      //if (str.Trim().Equals("false"))
+        //if (str.Trim().Equals("false"))
         if (str.Trim().Equals("﻿false"))
             return false;
         else
@@ -154,7 +162,7 @@
             bArrNew[i] = bArr[i + 3];
         }
         s = Encoding.UTF8.GetString(bArrNew);
-         */ 
+         */
         return s;
 
     }
@@ -168,5 +176,5 @@
         req.Abort();
         return s;
     }
-    
+
 </script>
