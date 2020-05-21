@@ -8,6 +8,8 @@
 
     public string userToken = "";
 
+    public int vipLevel = 0;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         string currentPageUrl = Request.Url.ToString().Split('?')[0].Trim();
@@ -22,6 +24,13 @@
         userToken = Session["user_token"].ToString();
 
         openId = WeixinUser.CheckToken(userToken);
+
+        WeixinUser user = new WeixinUser(openId.Trim());
+        if (user.VipLevel == 1)
+        {
+            vipLevel = 1;
+        }
+
     }
 </script>
 
@@ -31,6 +40,15 @@
     <title></title>
 </head>
 <body>
-    <%=openId %>
+    <%=openId %> <%if (vipLevel == 1)
+                     { %>可以查看
+    <%
+        }
+        else
+        { 
+        %>不可查看
+    <%
+        }
+        %>
 </body>
 </html>
