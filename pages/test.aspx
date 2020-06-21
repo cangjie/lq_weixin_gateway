@@ -21,7 +21,7 @@
         }
         userToken = Session["user_token"].ToString();
 
-        openId = WeixinUser.CheckToken(userToken);
+        //openId = WeixinUser.CheckToken(userToken);
     }
 </script>
 
