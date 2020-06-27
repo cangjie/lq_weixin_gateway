@@ -27,22 +27,13 @@
     <script type="text/javascript" src="../js/jquery.min.js" ></script>
     <script type="text/javascript" >
         var open_id_arr = new Array();
-        <%
-        for (int i = 0; i < openIdArr.Length; i++)
-        {
-            %>
-        open_id_arr[<%=i.ToString()%>] = "<%=openIdArr[i].ToString()%>";
-        <%
-        }
-        %>
+        
         
 
         open_id_arr = new Array();
 
-        open_id_arr[0] = "oqrMvt-GNYkILld2eoNiBp_0BmzE";
-        open_id_arr[1] = "oqrMvt0co2h001MkcQGrW6WYFPbc";
-        open_id_arr[2] = "oqrMvt8K6cwKt5T1yAavEylbJaRs";
-        open_id_arr[3] = "oqrMvtySBUCd-r6-ZIivSwsmzr44";
+       
+        open_id_arr[0] = "oqrMvtySBUCd-r6-ZIivSwsmzr44";
 
 
 
