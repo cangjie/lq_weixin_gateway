@@ -40,16 +40,21 @@
         <div>OpenId:<textarea cols="50" rows="50" id="txt_open_id"  ></textarea></div>
     </div>
     <script type="text/javascript" >
-        var total_num = open_id_arr.length;
         var send_num = 0;
-        document.getElementById("total_num").innerText = total_num;
-        document.getElementById("send_num").innerText = send_num;
 
         function send() {
             document.getElementById("btn").disabled = true;
             var open_id_arr = document.getElementById('txt_open_id').value.trim().split('\n');
-            for(var i = 0; i < open_id_arr.length; i++ ){
-                send_single_message(open_id_arr[i]);
+
+
+            var total_num = open_id_arr.length;
+           
+            document.getElementById("total_num").innerText = total_num;
+            document.getElementById("send_num").innerText = send_num;
+
+            for (var i = 0; i < open_id_arr.length; i++){
+                if (open_id_arr[i].trim()!='') 
+                    send_single_message(open_id_arr[i]);
             }
         }
 
