@@ -4,19 +4,11 @@
 
 <script runat="server">
 
-    public string token = Util.GetToken();
-
-    public string allUserJson = "";
-
-    public object[] openIdArr;
+   
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        allUserJson = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/user/get?access_token=" + token);
-
-        Dictionary<string, object> dataObj = Util.GetObjectFromJsonByKey(allUserJson, "data");
-
-        openIdArr = (object[])dataObj["openid"];
+       
 
     }
 </script>
@@ -26,14 +18,13 @@
     <title></title>
     <script type="text/javascript" src="../js/jquery.min.js" ></script>
     <script type="text/javascript" >
-        var open_id_arr = new Array();
-        
+
+
+
+
         
 
-        open_id_arr = new Array();
-
-       
-        open_id_arr[0] = "oqrMvtySBUCd-r6-ZIivSwsmzr44";
+        
 
 
 
@@ -45,6 +36,8 @@
         <div><input type="button" value="send" onclick="send()"   id="btn" /> 总共：<span id="total_num" ></span> 已发：<span id="send_num" ></span></div>
         <div><br /></div>
         <div style="">Template JSON:<textarea cols="50" rows="25" id="txt_template_data"  ></textarea> </div>
+        <div><br /></div>
+        <div>OpenId:<textarea cols="50" rows="50" id="txt_open_id"  ></textarea></div>
     </div>
     <script type="text/javascript" >
         var total_num = open_id_arr.length;
@@ -54,6 +47,7 @@
 
         function send() {
             document.getElementById("btn").disabled = true;
+            var open_id_arr = document.getElementById('txt_open_id').value.trim().split('\n');
             for(var i = 0; i < open_id_arr.length; i++ ){
                 send_single_message(open_id_arr[i]);
             }
