@@ -391,6 +391,7 @@ public class DealMessage
             case "报名":
             case "报名参加":
             case "我要参加":
+                /*
                 string qrXuMediaId1 = Util.UploadImageToWeixin(System.Configuration.ConfigurationSettings.AppSettings["qrcode_path"].Trim()
                        + "\\qrcode_luqinwenda001.jpg", Util.GetToken());
                 RepliedMessage imageMessage1 = new RepliedMessage();
@@ -399,8 +400,13 @@ public class DealMessage
                 imageMessage1.type = "image";
                 imageMessage1.mediaId = qrXuMediaId1.Trim();
                 imageMessage1.SendAsServiceMessage();
+                
                 repliedMessage.type = "text";
                 repliedMessage.content = "为确保最有需要的家长前来听课，请转发本期<a href=\"http://weixin.luqinwenda.com/dingyue/baoming_jump.aspx\" >【悦长大微课堂】本期课程预告图文消息（戳此链接进入）</a>到朋友圈，并带上“报名参加”等评论，截图后发给小助手（luqinwenda001），小助手将拉您进入听课群群，谢谢！";
+                */
+                repliedMessage.type = "text";
+                repliedMessage.content = "您已经报名成功，直播开始前，您将会收到消息提示。";
+
                 break;
             default:
                 break;
